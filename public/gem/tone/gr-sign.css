@@ -496,16 +496,19 @@ background: #eef2f5;
 {
 font-style: normal;
 }
-
-.sign > section > div > div form > .switch > span
+a:hover {
+    text-decoration: none !important;
+}
+.sign > section > div > div form > .switch > a > span
 {
 display: block;
-background: #ffffff;
-color: #757575;
+background: #a3298a;
+color: white;
 border-radius: 23px;
 cursor: pointer;
 padding: 11px 0px;
 margin-top: 12px;
+    text-decoration: none;
 }
 
 .sign > section > div > div form > .recaptcha

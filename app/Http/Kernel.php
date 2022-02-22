@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\admin;
+use http\Client\Curl\User;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -44,6 +46,12 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'admin'=>[
+            admin::class,
+        ],
+        'user'=>[
+            \App\Http\Middleware\user::class,
+        ]
     ];
 
     /**

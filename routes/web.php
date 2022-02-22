@@ -14,5 +14,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+return redirect('login');
 });
+
+Auth::routes();
+
+
+Route::post('/guestLogin', [\App\Http\Controllers\UserController::class, 'guest']);
+Route::get('/logout', function () {
+Auth::logout();
+Session::flush();
+return redirect('/');
+});
+
+
+Route::prefix('/admin')->middleware(['auth','admin'])->group(function () {
+    Route::get('/index', [\App\Http\Controllers\AdminController::class, 'index']);
+    Route::get('/users', [\App\Http\Controllers\AdminController::class, 'users']);
+    Route::get('/users/del/{id}', [\App\Http\Controllers\AdminController::class, 'userDelete']);
+
+});
+
+Route::prefix('/user')->middleware(['auth','user'])->group(function () {
+    Route::get('/chat', [\App\Http\Controllers\UserController::class, 'chat']);
+});
+

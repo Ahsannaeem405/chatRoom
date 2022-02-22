@@ -1,36 +1,15 @@
 <!doctype html>
 <html lang="en">
 
-<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
 <head>
     <meta charset="utf-8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-status-bar-style" content="black"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no shrink-to-fit=no">
+
     <title>Chat Room</title>
-    <meta name="description" content="Welcome to the Rhythm. Share with your friends and Enjoy. ">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nycrhythm.net/">
-    <meta property="og:title" content="NYC Rhythm - The Rhythm of NYC">
-    <meta property="og:description" content="Welcome to the Rhythm. Share with your friends and Enjoy. ">
-    <meta property="og:image" content="../gem/ore/grupo/global/socialmedia.jpg">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://nycrhythm.net/">
-    <meta property="twitter:title" content="NYC Rhythm - The Rhythm of NYC">
-    <meta property="twitter:description" content="Welcome to the Rhythm. Share with your friends and Enjoy. ">
-    <meta property="twitter:image" content="../gem/ore/grupo/global/socialmedia.jpg">
-    <link rel="shortcut icon" type="image/png" href="../gem/ore/grupo/global/favicon.png"/>
-    <link rel="apple-touch-icon" href="../gem/ore/grupo/global/icon192.png"/>
-    <link rel='manifest' href='https://nycrhythm.net/manifest/'>
-    <link href="../riches/kit/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="../riches/fonts/open-sans/font.css" rel="stylesheet">
-    <link href="../riches/fonts/grupo/css/icons.css" rel="stylesheet">
-    <link href="../gem/tone/ajx.css" rel="stylesheet">
-    <link href="../gem/tone/gr-sign.css" rel="stylesheet">
-    <link href="../gem/tone/grscroll.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{{asset('gem/ore/grupo/global/favicon.png')}}"/>
+    <link rel="apple-touch-icon" href="{{asset('gem/ore/grupo/global/icon192.png')}}"/>
+    <link href="{{asset('riches/kit/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('gem/tone/gr-sign.css')}}" rel="stylesheet">
+
 </head>
 <body class="sign two bgone">
 
@@ -96,13 +75,13 @@
                     <div class="switch" qn='Already have an account?' btn='Login'>
                         <div class="loginproviders">
                             <ul>
-                                <li no="25"><img src="../gem/ore/grupo/loginprovider/25-gr-CNDDatRPuz.png"/></li>
-                                <li no="26"><img src="../gem/ore/grupo/loginprovider/26-gr-31alUcNhOX.jpg"/></li>
-                                <li no="229"><img src="../gem/ore/grupo/loginprovider/229-gr-lhrP8sssty.png"/></li>
+                                <li no="25"><img src="{{asset('gem/ore/grupo/loginprovider/25-gr-CNDDatRPuz.png')}}"/></li>
+                                <li no="26"><img src="{{asset('gem/ore/grupo/loginprovider/26-gr-31alUcNhOX.jpg')}}"/></li>
+                                <li no="229"><img src="{{asset('gem/ore/grupo/loginprovider/229-gr-lhrP8sssty.png')}}"/></li>
                             </ul>
                         </div>
                         <i>Don&#039;t have an account?</i>
-                        <span>Create</span>
+                        <a href="{{url('register')}}">   <span>Create</span></a>
                     </div>
 
 
@@ -128,20 +107,20 @@
                     <div class="submitbtns">
                             <span class="submit global" form='.gr_sign' do='login' btn='Register'
                                   em='Invalid Input or Field Empty' gst=0>
-                                Login                         </span>
+                                Login as guest                       </span>
 
                     </div>
 
                     <div class="switch" qn='Already have an account?' btn='Login'>
                         <div class="loginproviders">
                             <ul>
-                                <li no="25"><img src="../gem/ore/grupo/loginprovider/25-gr-CNDDatRPuz.png"/></li>
-                                <li no="26"><img src="../gem/ore/grupo/loginprovider/26-gr-31alUcNhOX.jpg"/></li>
-                                <li no="229"><img src="../gem/ore/grupo/loginprovider/229-gr-lhrP8sssty.png"/></li>
+                                <li no="25"><img src="{{asset('gem/ore/grupo/loginprovider/25-gr-CNDDatRPuz.png')}}"/></li>
+                                <li no="26"><img src="{{asset('gem/ore/grupo/loginprovider/26-gr-31alUcNhOX.jpg')}}"/></li>
+                                <li no="229"><img src="{{asset('gem/ore/grupo/loginprovider/229-gr-lhrP8sssty.png')}}"/></li>
                             </ul>
                         </div>
                         <i>Don&#039;t have an account?</i>
-                        <span>Create</span>
+                        <a href="{{url('register')}}">   <span>Create</span></a>
                     </div>
 
 
