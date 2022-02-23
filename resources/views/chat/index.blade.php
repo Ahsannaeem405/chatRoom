@@ -21,67 +21,76 @@
     <span style="font-size:30px;cursor:pointer;color: white;" class="collape" onclick="openNav()">&#9776;</span>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <div class="row">
-            <div class="col-12 bg-dark" style="margin-top: 40px;">
-                <div class="w-100 bg-dark d-flex justify-content-between p-3">
-                    <div class="row">
-                        <div class="col-4">
-                            <img src="{{asset('chat/image/avatar.jpg')}}" width="40" class="rounded-circle" alt="">
-
-                        </div>
-
-                        <div style="line-height: 2px;" class="col-4 text-light">
-                            <p>Pracha</p>
-                            <p>@Pracha</p>
-                        </div>
-                    </div>
-
-                    <div class="col-4">
-                        <button class="btn3" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-menu bg-dark drop2" aria-labelledby="dropdownMenuButton2">
-                                <a class="dropdown-item text-light" href="#">Default</a>
-                                <a class="dropdown-item text-light" href="#">English</a>
-
-                            </div>
-                            <img src="{{asset('chat/image/flag-Stars-and-Stripes-May-1-1795.jpg')}}" width="20"
-                                 height="20" class="rounded-circle" alt="">
-                        </button>
+        <div class="col-12">
+            <div class="w-100 bg-dark d-flex justify-content-between p-3">
+                <div class="d-flex">
+                    <img src="{{asset('chat/image/avatar.jpg')}}" width="40" class="rounded-circle"
+                         alt="">
+                    <div style="line-height: 2px;" class="text-light ml-2 pt-1">
+                        <p>{{$profile->name}}</p>
+                        <p>{{'@'}}{{$profile->username}}</p>
                     </div>
                 </div>
-{{--                <div class="users-container">--}}
-{{--                    <div class="chat-search-box">--}}
-{{--                        <div class="input-group">--}}
-{{--                            <div class="input-group-btn">--}}
-{{--                                <button type="button" class="btn btn-info btn_search">--}}
-{{--                                    <i class="fa fa-search"></i>--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
-{{--                            <input class="form-control search_input" placeholder="Search">--}}
 
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                <div class="d-flex  justify-content-end">
+                    <button class="btn3" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        <div class="dropdown-menu bg-dark drop2" aria-labelledby="dropdownMenuButton2">
+                            <a class="dropdown-item text-light" href="#">Default</a>
+                            <a class="dropdown-item text-light" href="#">English</a>
+
+                        </div>
+                        <img src="{{asset('chat/image/flag-Stars-and-Stripes-May-1-1795.jpg')}}"
+                             width="20" height="20" class="rounded-circle" alt="">
+                    </button>
+
+                </div>
+            </div>
 
 
-                <div class="row">
+
+            <div class="w-100 bg-dark3 d-flex p-2">
+                <div class="d-flex" style="align-items: center">
+                    <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" width="50" height="50" class="rounded-circle" alt="">
+
+                    <div class="text-light ml-2 pt-2">
+                        <p>Radio</p>
+                        <marquee width="80%" direction="right">
+                            This is a sample scrolling text that has scrolls texts to right.
+                        </marquee>
+                    </div>
+                </div>
+
+                <div class="d-flex  justify-content-end"  style="align-items: center;">
+                    <a href="#" class="text-light"><i class="fas fa-step-backward"></i></a>
+                    <a href="#" class="ml-3 text-light"><i class="fas fa-play"></i></a>
+                    <a href="#" class="ml-3 text-light"><i class="fas fa-step-forward"></i></a>
+                </div>
+            </div>
+
+
+
+
+            <div class="w-100">
+                <div class="row p-2">
+
                     <div class="col-12">
 
 
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-1" role="tab">Alert</a>
+                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-4" role="tab">Alert</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-2" role="tab">Member</a>
+                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-5" role="tab">Member</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-3" role="tab">Petitions</a>
+                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-6" role="tab">Petitions</a>
                             </li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div class="tab-pane" id="tabs-1" role="tabpanel">
+                            <div class="tab-pane" id="tabs-4" role="tabpanel">
                                 <div class="row">
                                     <div class="col-12 text-center text-light alert_div pt-5 pb-5">
                                         <h3>0</h3>
@@ -89,10 +98,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                            <div class="tab-pane" id="tabs-5" role="tabpanel">
                                 <div class="w-100 bg-dark d-flex justify-content-between p-3">
                                     <div class="d-flex">
-                                        <img src="{{asset('chat/image/avatar.jpg')}}" width="40" class="rounded" alt="">
+                                        <img src="image/avatar.jpg" width="40" class="rounded" alt="">
 
                                         <div style="line-height: 2px;" class="text-light ml-2 pt-2">
                                             <p>Danny</p>
@@ -112,7 +121,8 @@
 
                                 <div class="w-100 bg-dark d-flex justify-content-between p-3">
                                     <div class="d-flex">
-                                        <img src="{{asset('chat/image/avatar.jpg')}}" width="40" class="rounded" alt="">
+                                        <img src="{{asset('chat/image/avatar.jpg')}}" width="40"
+                                             class="rounded" alt="">
 
                                         <div style="line-height: 2px;" class="text-light ml-2 pt-2">
                                             <p>Danny</p>
@@ -131,7 +141,7 @@
                                 </div>
 
                             </div>
-                            <div class="tab-pane" id="tabs-3" role="tabpanel">
+                            <div class="tab-pane" id="tabs-6" role="tabpanel">
                                 <div class="row">
                                     <div class="col-12 text-center text-light alert_div pt-5 pb-5">
                                         <h3>0</h3>
@@ -141,106 +151,64 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
+
+            </div>
+
+
+            <div class="position-relative profile_div">
+
+
+                <div class="container-fluid bg-dark2 text-center p-2 rounded-bottom">
+                    <div class="mb-3">
+                        <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}"
+                             class="rounded-circle img_circle" alt="">
+                    </div>
+
+
+                    <button class="btn btn-success btn_gra">Edit Profile</button>
+                    <div class="d-flex text-light pt-4 justify-content-center" style="background-color: #3a3a3b;margin-top: -10px">
+                        <div class="border_right  p-2">
+                            <b>119</b><br>
+                            <p>Likes</p>
+                        </div>
+                        <div class="border_right  p-2">
+                            <b>0</b><br>
+                            <p>Report</p>
+                        </div>
+                        <div class="p-2">
+                            <b>21-FEB-22</b><br>
+                            <p>Last Login</p>
+                        </div>
+                    </div>
 
                 </div>
-                <!-- music div -->
-                <!-- <div class="w-100 bg-dark3 text-center p-3">
-
-                    <img src="image/782-gr-R8Mt30L6pg.png" width="60" class="rounded-circle" alt="">
-
-                    <div class="text-light ml-2 pt-2">
-                        <p>Pracha</p>
-                        <marquee width="40%" direction="right">
-                            This is a sample scrolling text that has scrolls texts to right.
-                        </marquee>
-                    </div>
-
-
-                    <div class="text-center" style="align-items: center; ">
-                        <div class="d-flex">
-                            <a href="#" class="ml-3 text-light"><i class="fas fa-step-backward"></i></i></a>
-                            <a href="#" class="ml-3 text-light"><i class="fas fa-play"></i></a>
-                            <a href="#" class="ml-3 text-light"><i class="fas fa-step-forward"></i></a>
-                        </div>
-
-                    </div>
-                </div> -->
-
-                <div class="position-relative profile_div">
-
-
-                    <!-- <div class="w-100 bg_music text-center p-3 text-light">
-                        <div class="position-absolute img_div">
-                            <i class="fa fa-image"></i>
-                        </div>
-
-
-
-                        <img src="image/782-gr-R8Mt30L6pg.png" class="rounded-circle img_circle" alt="">
-                        <h5> <b>Chat Room</b></h5>
-                        <h5>Public Group</h5>
-
-
-                    </div> -->
-
-                    <div class="container2 bg-dark2 text-center p-2 rounded-bottom">
-                        <div class="mb-3">
-                            <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" class="rounded-circle img_circle"
-                                 alt="">
-                        </div>
-                        <button class="btn btn-success btn_gra">Message</button>
-                        <div class="d-flex text-light pt-4 justify-content-center">
-                            <div class="border_right  p-2 ">
-                                <b>119</b><br>
-                                <p>Likes</p>
-                            </div>
-                            <div class="border_right  p-2 ">
-                                <b>119</b><br>
-                                <p>Members</p>
-                            </div>
-                            <div class="p-2 ">
-                                <b>21-FEB-22</b><br>
-                                <p>Created</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="Scroll_div p-0">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12 mt-2 bg-dark2 p-2 text-light">
-                                    <h6>Group link:</h6>
-                                    <div class="left_border p-2">
-                                        <p>https://nycrhythm.net/chat/group/782/</p>
-                                    </div>
-                                </div>
-                                <div class="col-12 mt-2 bg-dark2 p-2 text-light">
-                                    <h6>Description : Chat Room</h6>
-                                    <!-- <h6 class="ml-2">Chat Room</h6> -->
-
-                                </div>
-                                <div class="col-12 mt-2 bg-dark2 text-light">
-                                    <h6>Images :</h6>
-                                    <div class="row">
-                                        <div class="col-6 mt-2">
-                                            <img src="{{asset('chat/image/flag-Stars-and-Stripes-May-1-1795.jpg')}}"
-                                                 class="img-fluid rounded" alt="">
-                                        </div>
-                                        <div class="col-6 mt-2">
-                                            <img
-                                                src="{{asset('chat/image/flag-Stars-and-Stripes-May-1-1795.jpg')}} class="
-                                                img-fluid rounded" alt="">
-                                        </div>
-                                    </div>
+                <div class="Scroll_div">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 mt-2 bg-dark2 p-2 text-light">
+                                <h6>Profile link:</h6>
+                                <div class="left_border p-2">
+                                    <p>https://nycrhythm.net/chat/group/782/</p>
                                 </div>
                             </div>
+                            <div class="col-12 mt-2 bg-dark2 p-2 text-light  ">
+                                <h6>Embed Code :</h6>
+                                <p class=" left_border p-2">
+                                    {{'<iframe width="411px" height="650px" allow="camera;microphone"
+                                              src="https://nycrhythm.net/chat/rehmanjqvps/" frameborder=0
+                                              allowfullscreen></iframe>'}}
+                                </p>
+
+                            </div>
+
                         </div>
                     </div>
-
                 </div>
 
             </div>
+
         </div>
     </div>
 
@@ -279,9 +247,6 @@
                                                         aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
                                                 <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
                                                     <a class="dropdown-item text-light" href="#">Group Info</a>
-                                                    <a class="dropdown-item text-light" href="#">Export Chat</a>
-                                                    <a class="dropdown-item text-light" href="#">Leave Group</a>
-                                                    <a class="dropdown-item text-light" href="#">Invite</a>
                                                     <a class="dropdown-item text-light" href="#">Report Group</a>
 
 
@@ -324,7 +289,9 @@
                                                         <div class="icons ml-2">
 
                                                             {{--                                                            <a href="#"><i class="fas fa-reply"></i></a>--}}
-                                                            <a style="cursor:pointer;" class="ml-2"><i class="fa fa-trash delete" message="{{$msg->id}}"></i></a>
+                                                            <a style="cursor:pointer;" class="ml-2"><i
+                                                                    class="fa fa-trash delete"
+                                                                    message="{{$msg->id}}"></i></a>
                                                         </div>
                                                     </div>
                                                     <div class="chat-text"><span
@@ -385,14 +352,13 @@
                                 </form>
                             </div>
                         </div>
-{{--                        desktop div--}}
+                        {{--                        desktop div--}}
                         <div class="col-lg-4 col-12 bg-dark right_side">
                             <div class="w-100 bg-dark d-flex justify-content-between p-3">
                                 <div class="d-flex">
                                     <img src="{{asset('chat/image/avatar.jpg')}}" width="40" class="rounded-circle"
                                          alt="">
-
-                                    <div style="line-height: 2px;" class="text-light ml-2 pt-2">
+                                    <div style="line-height: 2px;" class="text-light ml-2 pt-1">
                                         <p>{{$profile->name}}</p>
                                         <p>{{'@'}}{{$profile->username}}</p>
                                     </div>
@@ -412,34 +378,29 @@
 
                                 </div>
                             </div>
-{{--                            <div class="users-container">--}}
-{{--                                <div class="chat-search-box">--}}
-{{--                                    <div class="input-group">--}}
-{{--                                        <div class="input-group-btn">--}}
-{{--                                            <button type="button" class="btn btn-info btn_search">--}}
-{{--                                                <i class="fa fa-search"></i>--}}
-{{--                                            </button>--}}
-{{--                                        </div>--}}
-{{--                                        <input class="form-control search_input" placeholder="Search">--}}
-
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
 
 
-                            <div class="w-100 bg_music text-center p-3 text-light">
-                                <div class="position-absolute ">
-                                    <i class="fa fa-image"></i>
+
+                            <div class="w-100 bg-dark3 d-flex p-2">
+                                <div class="d-flex" style="align-items: center">
+                                    <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" width="50" height="50" class="rounded-circle" alt="">
+
+                                    <div class="text-light ml-2 pt-2">
+                                        <p>Radio</p>
+                                        <marquee width="80%" direction="right">
+                                            This is a sample scrolling text that has scrolls texts to right.
+                                        </marquee>
+                                    </div>
                                 </div>
 
-
-
-                                <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" class="rounded-circle img_circle" alt="">
-                                <h5> <b>Chat Room</b></h5>
-                                <h5>Public Group</h5>
-
-
+                                <div class="d-flex  justify-content-end"  style="align-items: center;">
+                                    <a href="#" class="text-light"><i class="fas fa-step-backward"></i></a>
+                                    <a href="#" class="ml-3 text-light"><i class="fas fa-play"></i></a>
+                                    <a href="#" class="ml-3 text-light"><i class="fas fa-step-forward"></i></a>
+                                </div>
                             </div>
+
+
 
 
                             <div class="w-100">
@@ -531,26 +492,26 @@
                             <div class="position-relative profile_div">
 
 
-                                <div class="container2 bg-dark2 text-center p-2 rounded-bottom">
+                                <div class="container-fluid bg-dark2 text-center p-2 rounded-bottom">
                                     <div class="mb-3">
                                         <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}"
                                              class="rounded-circle img_circle" alt="">
                                     </div>
 
 
-                                    <button class="btn btn-success btn_gra">Message</button>
-                                    <div class="d-flex text-light pt-4 justify-content-center">
-                                        <div class="border_right  p-2 ">
+                                    <button class="btn btn-success btn_gra">Edit Profile</button>
+                                    <div class="d-flex text-light pt-4 justify-content-center" style="background-color: #3a3a3b;margin-top: -10px">
+                                        <div class="border_right  p-2">
                                             <b>119</b><br>
                                             <p>Likes</p>
                                         </div>
-                                        <div class="border_right  p-2 ">
-                                            <b>119</b><br>
-                                            <p>Members</p>
+                                        <div class="border_right  p-2">
+                                            <b>0</b><br>
+                                            <p>Report</p>
                                         </div>
-                                        <div class="p-2 ">
+                                        <div class="p-2">
                                             <b>21-FEB-22</b><br>
-                                            <p>Created</p>
+                                            <p>Last Login</p>
                                         </div>
                                     </div>
 
@@ -559,31 +520,21 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-12 mt-2 bg-dark2 p-2 text-light">
-                                                <h6>Group link:</h6>
+                                                <h6>Profile link:</h6>
                                                 <div class="left_border p-2">
                                                     <p>https://nycrhythm.net/chat/group/782/</p>
                                                 </div>
                                             </div>
-                                            <div class="col-12 mt-2 bg-dark2 p-2 text-light d-flex">
-                                                <h6>Description :</h6>
-                                                <h6 class="ml-2">Chat Room</h6>
+                                            <div class="col-12 mt-2 bg-dark2 p-2 text-light  ">
+                                                <h6>Embed Code :</h6>
+                                                <p class=" left_border p-2">
+                                                  {{'<iframe width="411px" height="650px" allow="camera;microphone"
+                                                            src="https://nycrhythm.net/chat/rehmanjqvps/" frameborder=0
+                                                            allowfullscreen></iframe>'}}
+                                                </p>
 
                                             </div>
-                                            <div class="col-12 mt-2 bg-dark2 p-2 text-light">
-                                                <h6>Images :</h6>
-                                                <div class="row">
-                                                    <div class="col-6 mt-2">
-                                                        <img
-                                                            src="{{asset('chat/image/flag-Stars-and-Stripes-May-1-1795.jpg')}}"
-                                                            class="img-fluid rounded" alt="">
-                                                    </div>
-                                                    <div class="col-6 mt-2">
-                                                        <img
-                                                            src="{{asset('chat/image/flag-Stars-and-Stripes-May-1-1795.jpg')}}"
-                                                            class="img-fluid rounded" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -630,10 +581,10 @@
     });
 
     var channel = pusher.subscribe('chatRoom');
-    channel.bind('chat', function(data) {
-        var response=JSON.parse(JSON.stringify(data));
-       var message=response['message'];
-       var user=response['user'];
+    channel.bind('chat', function (data) {
+        var response = JSON.parse(JSON.stringify(data));
+        var message = response['message'];
+        var user = response['user'];
     });
 </script>
 <script>
@@ -677,7 +628,7 @@
                 data: {'message': msg},
                 success: function (data) {
                     $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
-                 //   $('#test_div').empty().append(data);
+                    //   $('#test_div').empty().append(data);
                 }
             });
 
@@ -694,14 +645,13 @@
                 data: {'id': msgid},
                 success: function (data) {
 
-                       $('#test_div').empty().append(data);
-                       $('.message'+msgid).remove();
+                    $('#test_div').empty().append(data);
+                    $('.message' + msgid).remove();
                 }
             });
 
 
         });
-
 
 
     });
@@ -723,7 +673,6 @@
 {{--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"--}}
 {{--        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"--}}
 {{--        crossorigin="anonymous"></script>--}}
-
 
 
 </html>
