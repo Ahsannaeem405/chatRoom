@@ -39,5 +39,6 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function () {
     Route::get('/chat', [\App\Http\Controllers\UserController::class, 'chat']);
     Route::post('/sendMSG', [\App\Http\Controllers\UserController::class, 'sendMSG']);
     Route::get('/deletemessage', [\App\Http\Controllers\UserController::class, 'deletemessage']);
+    Route::get('/likemessage', [\App\Http\Controllers\UserController::class, 'likemessage']);
 });
 

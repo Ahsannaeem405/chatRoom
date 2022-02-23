@@ -48,10 +48,10 @@
             </div>
 
 
-
             <div class="w-100 bg-dark3 d-flex p-2">
                 <div class="d-flex" style="align-items: center">
-                    <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" width="50" height="50" class="rounded-circle" alt="">
+                    <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" width="50" height="50"
+                         class="rounded-circle" alt="">
 
                     <div class="text-light ml-2 pt-2">
                         <p>Radio</p>
@@ -61,14 +61,12 @@
                     </div>
                 </div>
 
-                <div class="d-flex  justify-content-end"  style="align-items: center;">
+                <div class="d-flex  justify-content-end" style="align-items: center;">
                     <a href="#" class="text-light"><i class="fas fa-step-backward"></i></a>
                     <a href="#" class="ml-3 text-light"><i class="fas fa-play"></i></a>
                     <a href="#" class="ml-3 text-light"><i class="fas fa-step-forward"></i></a>
                 </div>
             </div>
-
-
 
 
             <div class="w-100">
@@ -79,18 +77,18 @@
 
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-4" role="tab">Alert</a>
+                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-1" role="tab">Alert</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-5" role="tab">Member</a>
+                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-2" role="tab">Member</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-6" role="tab">Petitions</a>
+                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-3" role="tab">Petitions</a>
                             </li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div class="tab-pane" id="tabs-4" role="tabpanel">
+                            <div class="tab-pane" id="tabs-1" role="tabpanel">
                                 <div class="row">
                                     <div class="col-12 text-center text-light alert_div pt-5 pb-5">
                                         <h3>0</h3>
@@ -98,7 +96,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="tabs-5" role="tabpanel">
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <div class="w-100 bg-dark d-flex justify-content-between p-3">
                                     <div class="d-flex">
                                         <img src="image/avatar.jpg" width="40" class="rounded" alt="">
@@ -141,7 +139,7 @@
                                 </div>
 
                             </div>
-                            <div class="tab-pane" id="tabs-6" role="tabpanel">
+                            <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="row">
                                     <div class="col-12 text-center text-light alert_div pt-5 pb-5">
                                         <h3>0</h3>
@@ -168,7 +166,8 @@
 
 
                     <button class="btn btn-success btn_gra">Edit Profile</button>
-                    <div class="d-flex text-light pt-4 justify-content-center" style="background-color: #3a3a3b;margin-top: -10px">
+                    <div class="d-flex text-light pt-4 justify-content-center"
+                         style="background-color: #3a3a3b;margin-top: -10px">
                         <div class="border_right  p-2">
                             <b>119</b><br>
                             <p>Likes</p>
@@ -319,8 +318,10 @@
                                                         <div class="icons ml-2">
                                                             <a href="#"><i class="fa fa-flag"></i></a>
                                                             <!-- <a href="#" class="ml-2"><i class="fas fa-reply"></i></a> -->
-                                                            <a href="#" class="ml-2"><i
-                                                                    class="far fa-thumbs-up"></i></a>
+                                                            <a style="cursor: pointer" class="ml-2"><i
+                                                                    class="far  {{count($msg->likeuser)>=1 ? 'fa-thumbs-down' : 'fa-thumbs-up'}} like"
+                                                                    status="{{count($msg->likeuser)>=1 ? 'dislike' : 'like'}}"
+                                                                    message="{{$msg->id}}"></i></a>
                                                         </div>
                                                         </span>
                                                     </div>
@@ -380,10 +381,10 @@
                             </div>
 
 
-
                             <div class="w-100 bg-dark3 d-flex p-2">
                                 <div class="d-flex" style="align-items: center">
-                                    <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" width="50" height="50" class="rounded-circle" alt="">
+                                    <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" width="50" height="50"
+                                         class="rounded-circle" alt="">
 
                                     <div class="text-light ml-2 pt-2">
                                         <p>Radio</p>
@@ -393,14 +394,12 @@
                                     </div>
                                 </div>
 
-                                <div class="d-flex  justify-content-end"  style="align-items: center;">
+                                <div class="d-flex  justify-content-end" style="align-items: center;">
                                     <a href="#" class="text-light"><i class="fas fa-step-backward"></i></a>
                                     <a href="#" class="ml-3 text-light"><i class="fas fa-play"></i></a>
                                     <a href="#" class="ml-3 text-light"><i class="fas fa-step-forward"></i></a>
                                 </div>
                             </div>
-
-
 
 
                             <div class="w-100">
@@ -500,9 +499,10 @@
 
 
                                     <button class="btn btn-success btn_gra">Edit Profile</button>
-                                    <div class="d-flex text-light pt-4 justify-content-center" style="background-color: #3a3a3b;margin-top: -10px">
+                                    <div class="d-flex text-light pt-4 justify-content-center"
+                                         style="background-color: #3a3a3b;margin-top: -10px">
                                         <div class="border_right  p-2">
-                                            <b>119</b><br>
+                                            <b>{{$like}}</b><br>
                                             <p>Likes</p>
                                         </div>
                                         <div class="border_right  p-2">
@@ -528,9 +528,9 @@
                                             <div class="col-12 mt-2 bg-dark2 p-2 text-light  ">
                                                 <h6>Embed Code :</h6>
                                                 <p class=" left_border p-2">
-                                                  {{'<iframe width="411px" height="650px" allow="camera;microphone"
-                                                            src="https://nycrhythm.net/chat/rehmanjqvps/" frameborder=0
-                                                            allowfullscreen></iframe>'}}
+                                                    {{'<iframe width="411px" height="650px" allow="camera;microphone"
+                                                              src="https://nycrhythm.net/chat/rehmanjqvps/" frameborder=0
+                                                              allowfullscreen></iframe>'}}
                                                 </p>
 
                                             </div>
@@ -645,8 +645,43 @@
                 data: {'id': msgid},
                 success: function (data) {
 
-                    $('#test_div').empty().append(data);
+
                     $('.message' + msgid).remove();
+                }
+            });
+
+
+        });
+
+
+        $('.like').click(function () {
+
+
+            var msgid = $(this).attr('message');
+            var status = $(this).attr('status');
+            var data = $(this);
+
+
+
+            $.ajax({
+                url: '{{URL::to('user/likemessage')}}',
+                type: 'get',
+                data: {'id': msgid,'status':status},
+                async:false,
+                success: function (response) {
+
+                    if (status == 'like') {
+                        $(data).removeClass('fa-thumbs-up');
+                        $(data).addClass('fa-thumbs-down');
+                        $(data).attr('status', 'dislike');
+                    } else {
+
+                        $(data).addClass('fa-thumbs-up');
+                        $(data).removeClass('fa-thumbs-down');
+                        $(data).attr('status', 'like');
+                    }
+
+
                 }
             });
 
