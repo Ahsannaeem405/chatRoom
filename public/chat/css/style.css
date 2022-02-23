@@ -274,7 +274,7 @@
 
 }
 .chat-container{
-
+    padding-bottom: 60px;
 }
 .btn_send{
     cursor: pointer;
