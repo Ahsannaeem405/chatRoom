@@ -40,7 +40,7 @@ class RegisterController extends Controller
             $message->type='join';
             $message->save();
             $user=User::find(\Auth::user()->id);
-            $event=new sendMessage($message,$user);
+            $event=event(new sendMessage($message,$user));
             return '/user/chat';
         }
         elseif (\Auth::user()->role== 'admin') {
@@ -96,6 +96,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'username' => $data['username'],
             'role' => 'user',
+            'profile' => 'avatar.jpg',
         ]);
     }
 }

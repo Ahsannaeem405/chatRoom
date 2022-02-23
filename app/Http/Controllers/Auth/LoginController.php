@@ -29,19 +29,19 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected function redirectTo(){
+    protected function redirectTo()
+    {
 
 
-        if (\Auth::user()->role== 'user') {
-$message=new Message();
-$message->user_id=\Auth::user()->id;
-$message->type='join';
-$message->save();
-$user=User::find(\Auth::user()->id);
-$event=new sendMessage($message,$user);
+        if (\Auth::user()->role == 'user') {
+            $message = new Message();
+            $message->user_id = \Auth::user()->id;
+            $message->type = 'join';
+            $message->save();
+            $user = User::find(\Auth::user()->id);
+            $event = event(new sendMessage($message, $user));
             return '/user/chat';
-        }
-        elseif (\Auth::user()->role== 'admin') {
+        } elseif (\Auth::user()->role == 'admin') {
             return '/admin/index';
         }
 

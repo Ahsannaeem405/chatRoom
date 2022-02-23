@@ -37,5 +37,7 @@ Route::prefix('/admin')->middleware(['auth','admin'])->group(function () {
 
 Route::prefix('/user')->middleware(['auth','user'])->group(function () {
     Route::get('/chat', [\App\Http\Controllers\UserController::class, 'chat']);
+    Route::post('/sendMSG', [\App\Http\Controllers\UserController::class, 'sendMSG']);
+    Route::get('/deletemessage', [\App\Http\Controllers\UserController::class, 'deletemessage']);
 });
 
