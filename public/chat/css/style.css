@@ -23,7 +23,7 @@
 }
 
 .collape {
-    display: none;
+    display: block;
 }
 
 .chat-search-box {
@@ -463,7 +463,7 @@
 
 ul {
     list-style-type: none;
-    margin: 0;
+    margin: 0px 0px 20px 0px;
     padding: 0;
 }
 
@@ -640,7 +640,7 @@ ul {
 }
 .share-btn{
     border: none;
-    margin-top: 9rem;
+    margin-top: 7rem;
     background-color: #37c137;
     font-size: 42px;
     color: white;
