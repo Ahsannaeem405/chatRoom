@@ -32,6 +32,23 @@ Route::prefix('/admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/index', [\App\Http\Controllers\AdminController::class, 'index']);
     Route::get('/users', [\App\Http\Controllers\AdminController::class, 'users']);
     Route::get('/users/del/{id}', [\App\Http\Controllers\AdminController::class, 'userDelete']);
+    Route::get('radio', [\App\Http\Controllers\AdminController::class, 'radio']);
+    Route::get('clearchat',[\App\Http\Controllers\AdminController::class,'clearchat']);
+    Route::get('clearguest',[\App\Http\Controllers\AdminController::class,'clearguest']);
+    Route::get('role',[\App\Http\Controllers\AdminController::class,'role']);
+    Route::get('header',[\App\Http\Controllers\AdminController::class,'header']);
+    Route::get('Ip',[\App\Http\Controllers\AdminController::class,'Ip']);
+    Route::get('setting',[\App\Http\Controllers\AdminController::class,'setting']);
+    Route::get('appearance',[\App\Http\Controllers\AdminController::class,'appearance']);
+
+
+
+
+
+
+
+
+
 
 });
 
