@@ -222,12 +222,12 @@
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowfullscreen></iframe>
                                 <div class="w-100 bg-dark div1 p-2">
-                                    <div class="row">
+                                    <div class="">
                                         <div class="col-12">
                                             
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="">
                                         <div class="col-12 d-flex pl-3 member_div justify-content-between">
                                             <div class="d-flex">
                                                 <span style="font-size:30px;cursor:pointer;color: white;" class="collape" onclick="openNav()">&#9776;</span>
@@ -409,7 +409,7 @@
 
 
                             <div class="w-100">
-                                <div class="row p-2">
+                                <div class=" p-2">
 
                                     <div class="col-12">
 
