@@ -168,7 +168,15 @@ display: inline-block;
 box-shadow: 0px 0px 6px #0c0c0c29;
 border-radius: 3px;
 }
-
+@media screen and (max-width:425px){
+    .sign > section > div > div > .box
+    {
+    width: 100%;
+    } 
+}
+.chat-right:last-child{
+    padding-bottom: 50px;
+}
 .two > section > div > div .errormsg
 {
 text-align: center;

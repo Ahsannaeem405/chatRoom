@@ -15,10 +15,10 @@
     <title>Chat</title>
 </head>
 
-<body class="con-back p-2">
+<body class="con-back p-0">
 
-<div class="container-fluid cont " style="height: 100vh">
-    <span style="font-size:30px;cursor:pointer;color: white;" class="collape" onclick="openNav()">&#9776;</span>
+<div class="container-fluid p-0 " style="height: 100vh">
+    
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="col-12">
@@ -79,12 +79,12 @@
                             <li class="nav-item">
                                 <a class="nav-link tablink" data-toggle="tab" href="#tabs-1" role="tab">Alert</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link tablink" data-toggle="tab" href="#tabs-2" role="tab">Member</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link tablink" data-toggle="tab" href="#tabs-3" role="tab">Petitions</a>
-                            </li>
+                            </li> -->
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -150,14 +150,8 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
-
             <div class="position-relative profile_div">
-
-
                 <div class="container-fluid bg-dark2 text-center p-2 rounded-bottom">
                     <div class="mb-3">
                         <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}"
@@ -183,7 +177,7 @@
                     </div>
 
                 </div>
-                <div class="Scroll_div">
+                <!-- <div class="Scroll_div">
                     <div class="container">
                         <div class="row">
                             <div class="col-12 mt-2 bg-dark2 p-2 text-light">
@@ -204,26 +198,23 @@
 
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
-
+            <div class="w-100 text-center">
+                <button class="share-btn" style="margin-top:2rem">Share</button>
+            </div>
         </div>
     </div>
 
     <!-- Content wrapper start -->
-    <div class="content-wrapper mt-2">
-
+    <div class="content-wrapper ">
         <!-- Row start -->
-        <div class="row gutters">
-
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-
+        <div class="row gutters m-0">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 p-0">
                 <div class="card m-0">
-
                     <!-- Row start -->
-                    <div class="row no-gutters">
-
+                    <div class="row no-gutters m-0">
                         <div class="col-lg-8 col-12 bg_black">
                             <div class="col-12 p-0">
                                 <iframe width="100%" height="250" src="https://www.youtube.com/embed/Kl9zXkIIkgg"
@@ -232,27 +223,37 @@
                                         allowfullscreen></iframe>
                                 <div class="w-100 bg-dark div1 p-2">
                                     <div class="row">
-                                        <div class="col-12 d-flex pl-5 member_div justify-content-between">
+                                        <div class="col-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 d-flex pl-3 member_div justify-content-between">
                                             <div class="d-flex">
-                                                <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" width="30"
-                                                     class="rounded" alt="">
+                                                <span style="font-size:30px;cursor:pointer;color: white;" class="collape" onclick="openNav()">&#9776;</span>
+                                                <!-- <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" width="30"
+                                                     class="rounded mx-2" alt="">
                                                 <p class="pl-2 justify-content-end mb-0">{{$members->count()}}
-                                                    Members</p>
+                                                    Members</p> -->
                                             </div>
+
+                                            <h5 class="mb-0 ml-4 mt-4 tab-play"><span><i class="fa fa-caret-up" aria-hidden="true"></i></span> Tap play</h5>
                                             <div>
                                                 <i class="fa fa-search mr-2 search_icon"></i>
                                                 <button class="button_dots" id="dropdownMenuButton"
                                                         data-toggle="dropdown" aria-haspopup="true"
                                                         aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
                                                 <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item text-light" href="#">Group Info</a>
-                                                    <a class="dropdown-item text-light" href="#">Report Group</a>
-
-
+                                                    <a class="dropdown-item text-light" href="#">Online Users</a>
+                                                    <a class="dropdown-item text-light" href="#">Profile</a>
+                                                    <a class="dropdown-item text-light" href="#">Radio</a>
+                                                    <a class="dropdown-item text-light" href="#">Chat Options</a>
+                                                    <a class="dropdown-item text-light" href="#">Light Mode</a>
+                                                    <a class="dropdown-item text-light" href="#">Dark Mode</a>
+                                                    <a class="dropdown-item text-light" href="#">Delete Chat</a>
+                                                    <a class="dropdown-item text-light" href="#">Messages</a>
                                                 </div>
                                             </div>
-
-
                                         </div>
                                         <div class="col-12 mt-1 search_div d-none">
                                             <form action="#" method="post">
@@ -270,7 +271,7 @@
 
                                     @foreach($message as $msg)
                                         @if($msg->type=='join')
-                                            <li class="text-center text-dark w-lg-50 ml-lg-auto mr-lg-auto mb-2">
+                                            <li class="text-center text-dark w-lg-50ml-lg-auto mr-lg-auto mb-2">
                                                 <div class="bg_time p-1">
                                                     <span class="text-success font-weight-bold">{{$msg->user->username}} :</span>
                                                     Joined
@@ -283,18 +284,20 @@
                                         @else
 
                                             @if($msg->user_id==Auth::user()->id)
-                                                <li class="chat-right message{{$msg->id}}">
-                                                    <div class="chat-hour">{{$msg->created_at}}
-                                                        <div class="icons ml-2">
+                                                <li class="my-chat mb-4   text-end message{{$msg->id}}">
+                                                    <div class="chat-hour">
+                                                        <div class="icons">
 
                                                             {{--                                                            <a href="#"><i class="fas fa-reply"></i></a>--}}
-                                                            <a style="cursor:pointer;" class="ml-2"><i
+                                                            <a style="cursor:pointer;" class=""><i
                                                                     class="fa fa-trash delete"
                                                                     message="{{$msg->id}}"></i></a>
                                                         </div>
                                                     </div>
-                                                    <div class="chat-text"><span
-                                                            class="orange">{{$msg->user->name}} : </span>{{$msg->message}}
+                                                    <div class="chat-text">
+                                                        <span class="orange">{{$msg->user->name}} : </span>{{$msg->message}} 
+                                                        <div class="chat-details">{{$msg->created_at}}</div>   
+                                                            
                                                     </div>
                                                     <div class="chat-avatar">
                                                         <img
@@ -304,7 +307,7 @@
                                                     </div>
                                                 </li>
                                             @else
-                                                <li class="chat-left">
+                                                <li class="your-chat mb-3">
                                                     <div class="chat-avatar">
                                                         <img
                                                             src="{{asset('upload/profile/'.$msg->user->profile.'')}}"
@@ -313,9 +316,12 @@
                                                     </div>
                                                     <div class="chat-text"><span
                                                             class="purple">{{$msg->user->name}} :</span> {{$msg->message}}
+                                                            <div class="chat-details">
+                                                            {{$msg->created_at}}
+                                                            </div>
                                                     </div>
-                                                    <div class="chat-hour">{{$msg->created_at}}
-                                                        <div class="icons ml-2">
+                                                    <div class="chat-hour">
+                                                        <div class="icons ">
                                                             <a href="#"><i class="fa fa-flag"></i></a>
                                                             <!-- <a href="#" class="ml-2"><i class="fas fa-reply"></i></a> -->
                                                             <a style="cursor: pointer" class="ml-2"><i
@@ -412,12 +418,12 @@
                                             <li class="nav-item">
                                                 <a class="nav-link tablink" data-toggle="tab" href="#tabs-4" role="tab">Alert</a>
                                             </li>
-                                            <li class="nav-item">
+                                            <!-- <li class="nav-item">
                                                 <a class="nav-link tablink" data-toggle="tab" href="#tabs-5" role="tab">Member</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link tablink" data-toggle="tab" href="#tabs-6" role="tab">Petitions</a>
-                                            </li>
+                                            </li> -->
                                         </ul>
                                         <!-- Tab panes -->
                                         <div class="tab-content">
@@ -516,7 +522,7 @@
                                     </div>
 
                                 </div>
-                                <div class="Scroll_div">
+                                <!-- <div class="Scroll_div">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-12 mt-2 bg-dark2 p-2 text-light">
@@ -537,8 +543,11 @@
 
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
+                            </div>
+                            <div class="w-100 text-center">
+                                <button class="share-btn">Share</button>
                             </div>
 
                         </div>
@@ -556,8 +565,7 @@
     <!-- Content wrapper end -->
 
 </div>
-<br><br>
-<br><br>
+
 <div id="test_div" style="color: white"></div>
 
 
