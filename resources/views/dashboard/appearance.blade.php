@@ -271,6 +271,7 @@ active
                                 </div>
                               </label>
                             </div>
+                            <button class="btn btn-primary float-right mt-4">Update</button>
                           </div>
 
                         {{-- <div class="table-responsive">
