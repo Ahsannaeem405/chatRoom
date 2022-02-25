@@ -12,6 +12,14 @@
 										Search Box
 	************************************************
 ************************************************/
+.view-control{
+    height: 40vh;
+}
+@media screen and (max-width:768px){
+    .view-control{
+        height: 45vh;
+    }
+}
 
 @media only screen and (max-width: 1000px) {
     .collape {
@@ -274,7 +282,7 @@
 }
 @media screen and (max-width:768px){
     .chat-container {
-        height: 52vh;  
+        height: 56vh;  
     }
 }
 button:focus{
