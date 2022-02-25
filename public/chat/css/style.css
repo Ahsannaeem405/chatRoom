@@ -13,7 +13,7 @@
 	************************************************
 ************************************************/
 .view-control{
-    height: 40vh;
+    height: 42vh;
 }
 @media screen and (max-width:768px){
     .view-control{
@@ -287,7 +287,7 @@
     position: relative;
     padding: 1rem;
     overflow-y: scroll;
-    height: 60vh;
+    height: 58vh;
     background: black;
 }
 @media screen and (max-width:768px){
@@ -570,9 +570,14 @@ ul {
 .message_div {
     background-color: #24272B;
     position: absolute;
-    width: 100%;
     bottom: 0;
     position: fixed;
+    width: 67%;
+}
+@media screen and (max-width:990px){
+    .message_div {
+        width: 100%;
+    }
 }
 
 .bg_time {
