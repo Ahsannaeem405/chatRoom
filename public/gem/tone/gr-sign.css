@@ -92,6 +92,13 @@ text-align: center;
 display: inline-block;
 width: 100%;
 }
+@media screen and (max-width:425px){
+    .sign > section > div > div
+{
+padding: 0px 0px;
+
+}
+}
 
 .sign .footer
 {
@@ -231,6 +238,12 @@ text-align: left;
 display: block;
 margin-bottom: 23px;
 margin-top: 26px;
+}
+@media screen and (max-width:425px){
+    .two > section > div > div > .box .swithlogin > ul
+        {
+        margin-top: 26%;
+        }
 }
 
 .two > section > div > div > .box .swithlogin > ul > li
@@ -499,7 +512,12 @@ padding: 20px 35px;
 border-top: 1px solid #bbbbbb63;
 background: #eef2f5;
 }
-
+@media screen and (max-width:425px){
+    .sign > section > div > div form > .switch
+        {
+        padding: 20% 35px;
+        }
+}
 .sign > section > div > div form > .switch > i
 {
 font-style: normal;
@@ -669,6 +687,11 @@ color: white;
 background: #fff;
 text-align: center;
 box-shadow: 0px 0px 6px #0c0c0c4f;
+}
+@media screen and (max-width:425px){
+    .two > section > div > div > .box{
+    height: 100vh;
+    }
 }
 
 .two > section > div > div form label
