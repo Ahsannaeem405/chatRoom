@@ -217,7 +217,7 @@
                     <div class="row no-gutters m-0">
                         <div class="col-lg-8 col-12 bg_black">
                             <div class="col-12 p-0 view-control">
-                                <iframe width="100%" height="250" src="https://www.youtube.com/embed/Kl9zXkIIkgg"
+                                <iframe width="100%" height="220" src="https://www.youtube.com/embed/Kl9zXkIIkgg"
                                         title="YouTube video player" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowfullscreen></iframe>

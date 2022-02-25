@@ -515,7 +515,7 @@ background: #eef2f5;
 @media screen and (max-width:425px){
     .sign > section > div > div form > .switch
         {
-        padding: 20% 35px;
+        padding: 15% 35px;
         }
 }
 .sign > section > div > div form > .switch > i
