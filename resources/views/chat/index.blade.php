@@ -230,7 +230,7 @@
                                     <div class="">
                                         <div class="col-12 d-flex pl-3 member_div justify-content-between">
                                             <div class="d-flex">
-                                                <span style="font-size:30px;cursor:pointer;color: white;" class="collape" onclick="openNav()">&#9776;</span>
+                                                <span style="font-size:28px;cursor:pointer;color: white;" class="collape" onclick="openNav()">&#9776;</span>
                                                 <!-- <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" width="30"
                                                      class="rounded mx-2" alt="">
                                                 <p class="pl-2 justify-content-end mb-0">{{$members->count()}}
