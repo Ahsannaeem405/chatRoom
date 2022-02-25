@@ -16,16 +16,24 @@
 </head>
 
 <body class="con-back p-0">
-
 <div class="container-fluid p-0 " style="height: 100vh">
-    
+
+    <!-- mobile side bar start -->
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="col-12">
             <div class="w-100 bg-dark d-flex justify-content-between p-3">
                 <div class="d-flex">
-                    <img src="{{asset('chat/image/avatar.jpg')}}" width="40" class="rounded-circle"
-                         alt="">
+                <div class="user-info">
+                        <img src="{{asset('chat/image/avatar.jpg')}}" width="40" class="rounded-circle"
+                                         alt="">
+                            <div class="user-profile">
+                                <ul>
+                                    <li> <a href="#"> Edit Profile</a></li>
+                                    <li> <a href="{{URL::to('/logout')}}"> Log Out</a></li>
+                                </ul>
+                            </div>
+                    </div>
                     <div style="line-height: 2px;" class="text-light ml-2 pt-1">
                         <p>{{$profile->name}}</p>
                         <p>{{'@'}}{{$profile->username}}</p>
@@ -46,8 +54,6 @@
 
                 </div>
             </div>
-
-
             <div class="w-100 bg-dark3 d-flex p-2">
                 <div class="d-flex" style="align-items: center">
                     <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" width="50" height="50"
@@ -63,8 +69,8 @@
 
                 <div class="d-flex  justify-content-end" style="align-items: center;">
                     <a href="#" class="text-light"><i class="fas fa-step-backward"></i></a>
-                    <a href="#" class="ml-3 text-light"><i class="fas fa-play"></i></a>
-                    <a href="#" class="ml-3 text-light"><i class="fas fa-step-forward"></i></a>
+                    <a href="#" class="ml-0 text-light"><i class="fas fa-play"></i></a>
+                    <a href="#" class="ml-0 text-light"><i class="fas fa-step-forward"></i></a>
                 </div>
             </div>
 
@@ -202,7 +208,7 @@
 
             </div>
             <div class="w-100 text-center">
-                <button class="share-btn" style="margin-top:2rem">Share</button>
+                <button class="share-btn mobile" style="margin-top:2rem">Share</button>
             </div>
         </div>
     </div>
@@ -250,8 +256,8 @@
                                                     <a class="dropdown-item text-light" href="#">Chat Options</a>
                                                     <a class="dropdown-item text-light" href="#">Light Mode</a>
                                                     <a class="dropdown-item text-light" href="#">Dark Mode</a>
-                                                    <a class="dropdown-item text-light" href="#">Delete Chat</a>
-                                                    <a class="dropdown-item text-light" href="#">Messages</a>
+                                                    <!-- <a class="dropdown-item text-light" href="#">Delete Chat</a>
+                                                    <a class="dropdown-item text-light" href="#">Messages</a> -->
                                                 </div>
                                             </div>
                                         </div>

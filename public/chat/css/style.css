@@ -34,6 +34,9 @@
         display: none;
     }
 }
+#mySidenav .user-info a{
+    
+}
 .user-info{
     position: relative;
 }
@@ -62,6 +65,8 @@
 .user-profile li a{
     text-decoration: none;
     color: white;
+    font-size: 16px;
+    padding: 5px 10px;
 }
 .user-profile li:hover{
     background-color: #191B1E;
@@ -698,6 +703,10 @@ ul {
     color: white;
     padding: 10px 50px;
     border-radius: 25px;
+}
+.share-btn.mobile{
+    font-size: 32px;
+    padding: 8px 35px;
 }
 .btn_gra:hover {
     outline: none;
