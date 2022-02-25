@@ -363,8 +363,17 @@
                         <div class="col-lg-4 col-12 bg-dark right_side">
                             <div class="w-100 bg-dark d-flex justify-content-between p-3">
                                 <div class="d-flex">
-                                    <img src="{{asset('chat/image/avatar.jpg')}}" width="40" class="rounded-circle"
+                                    <div class="user-info">
+                                        <img src="{{asset('chat/image/avatar.jpg')}}" width="40" class="rounded-circle"
                                          alt="">
+                                         <div class="user-profile">
+                                                <ul>
+                                                    <li> <a href="#"> Edit Profile</a></li>
+                                                    <li> <a href="{{URL::to('/logout')}}"> Log Out</a></li>
+                                                </ul>
+                                         </div>
+                                    </div>
+                                    
                                     <div style="line-height: 2px;" class="text-light ml-2 pt-1">
                                         <p>{{$profile->name}}</p>
                                         <p>{{'@'}}{{$profile->username}}</p>
