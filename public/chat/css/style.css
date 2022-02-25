@@ -671,7 +671,10 @@ ul {
 .img_div i {
     font-size: 30px;
 }
-
+.light-theme .bg-dark2{
+    background-color: white;
+    color: black;
+}
 .bg-dark2 {
     background: #191B1E;
 }
@@ -850,4 +853,81 @@ ul {
     .sidenav a {
         font-size: 15px;
     }
+}
+/* Light theme */
+.light-theme{
+    background-color: white;
+}
+.light-theme .bg-dark{
+    background-color: #e9eff5 !important;
+    color: black;
+}
+.light-theme .bg-dark3{
+    background-color: white;
+    color: black;
+}
+
+.light-theme .text-light{
+    color: black !important;
+    background-color: transparent;
+}
+.light-theme .nav-tabs li a{
+    color: black;
+}
+.light-theme .message_div{
+    background-color: #F0F8FF;
+}
+.light-theme .message_icon i{
+    color: black;
+}
+.light-theme .message_input{
+    background-color: white;
+    color: black;
+}
+.light-theme .btn_send{
+    background-color: white;
+}
+.light-theme .chat-container{
+    background-color: white;
+}
+.light-theme .chat-container li .chat-text{
+    background-color: #e9eff5;
+    color: black;
+}
+.light-theme .chat-container li .chat-text:before{
+    border-color: transparent #e9eff5 transparent transparent;
+}
+.light-theme .bg_time{
+    background-color: #e9eff5;
+    color: black;
+}
+.light-theme .member_div{
+    color: black;
+}
+.light-theme .button_dots i{
+    color: black;
+}
+.light-theme .sidenav{
+    background-color: #e9eff5;
+    color: black;
+}
+.light-theme .bg_black{
+    background-color: #fff;
+}
+.light-theme .dropdown-menu a:hover{
+    background-color: white !important;
+    color: #1E1E1E !important;
+}
+.light-theme .user-profile{
+    background-color:  #e9eff5;
+}
+.light-theme .user-profile li a{
+    color: #191B1E;
+}
+.light-theme .user-profile li:hover{
+    background-color: #F0F8FF;
+}
+.light-theme ::-webkit-scrollbar{
+    background-color: #9c9696;
+    color: black;
 }

@@ -166,8 +166,8 @@
 
 
                     <button class="btn btn-success btn_gra">Edit Profile</button>
-                    <div class="d-flex text-light pt-4 justify-content-center"
-                         style="background-color: #3a3a3b;margin-top: -10px">
+                    <div class="d-flex text-light pt-4 justify-content-center bg-dark"
+                         style="margin-top: -10px">
                         <div class="border_right  p-2">
                             <b>119</b><br>
                             <p>Likes</p>
@@ -236,7 +236,7 @@
                                     <div class="">
                                         <div class="col-12 d-flex pl-3 member_div justify-content-between">
                                             <div class="d-flex">
-                                                <span style="font-size:28px;cursor:pointer;color: white;" class="collape" onclick="openNav()">&#9776;</span>
+                                                <span style="font-size:28px;cursor:pointer;" class="collape text-light" onclick="openNav()">&#9776;</span>
                                                 <!-- <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" width="30"
                                                      class="rounded mx-2" alt="">
                                                 <p class="pl-2 justify-content-end mb-0">{{$members->count()}}
@@ -254,8 +254,8 @@
                                                     <a class="dropdown-item text-light" href="#">Profile</a>
                                                     <a class="dropdown-item text-light" href="#">Radio</a>
                                                     <a class="dropdown-item text-light" href="#">Chat Options</a>
-                                                    <a class="dropdown-item text-light" href="#">Light Mode</a>
-                                                    <a class="dropdown-item text-light" href="#">Dark Mode</a>
+                                                    <a class="dropdown-item text-light" href="#" onclick="setLighttheme()">Light Mode</a>
+                                                    <a class="dropdown-item text-light" href="#" onclick="setdarktheme()">Dark Mode</a>
                                                     <!-- <a class="dropdown-item text-light" href="#">Delete Chat</a>
                                                     <a class="dropdown-item text-light" href="#">Messages</a> -->
                                                 </div>
@@ -520,8 +520,8 @@
 
 
                                     <button class="btn btn-success btn_gra">Edit Profile</button>
-                                    <div class="d-flex text-light pt-4 justify-content-center"
-                                         style="background-color: #3a3a3b;margin-top: -10px">
+                                    <div class="d-flex text-light pt-4 justify-content-center bg-dark"
+                                         style="margin-top: -10px">
                                         <div class="border_right  p-2">
                                             <b>{{$like}}</b><br>
                                             <p>Likes</p>
@@ -723,7 +723,16 @@
     function closeNav() {
         // document.getElementById("mySidenav").style.width = "0";
         document.getElementById("mySidenav").style.width = "0";
+        
 
+    }
+
+    function setLighttheme(){
+        $("body").addClass("light-theme");
+    }
+
+    function setdarktheme(){
+        $("body").removeClass("light-theme");
     }
 </script>
 <!-- Optional JavaScript -->
