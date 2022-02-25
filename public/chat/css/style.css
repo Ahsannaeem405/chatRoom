@@ -274,11 +274,12 @@
 }
 @media screen and (max-width:768px){
     .chat-container {
-        height: 55vh;  
+        height: 52vh;  
     }
 }
 button:focus{
     box-shadow: none !important;
+    outline: none;
 }
 .bg_black {
     background: black;
