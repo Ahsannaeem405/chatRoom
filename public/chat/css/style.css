@@ -20,6 +20,11 @@
         height: 42vh;
     }
 }
+@media screen and (max-width:425px){
+    .view-control{
+        height: 44vh;
+    }
+}
 
 @media only screen and (max-width: 1000px) {
     .collape {
@@ -562,6 +567,7 @@ ul {
     position: absolute;
     width: 100%;
     bottom: 0;
+    position: fixed;
 }
 
 .bg_time {
