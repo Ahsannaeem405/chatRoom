@@ -227,7 +227,7 @@
                                         title="YouTube video player" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowfullscreen></iframe>
-                                <div class="w-100 bg-dark div1 p-2">
+                                <div class="w-100 bg-dark div1">
                                     <div class="">
                                         <div class="col-12">
                                             
