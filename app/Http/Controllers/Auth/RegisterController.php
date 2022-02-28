@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -96,6 +97,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'username' => $data['username'],
             'role' => 'user',
+            'type_user' => 'user',
             'profile' => 'avatar.jpg',
         ]);
     }

@@ -57,6 +57,7 @@ active
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>User Name</th>
                                         <th>User Email</th>
                                         <th>User Role</th>
 
@@ -67,66 +68,28 @@ active
                                     </tr>
                                 </thead>
                                 <tbody>
-
-
+                                    @php
+                                        $i=1;
+                                    @endphp
+                                    @foreach($user as $list)
                                     <tr>
-                                        <td>1</td>
-                                        <td>demo@gmail.com</td>
-                                        <td>Admin</td>
-
-
+                                        <td>{{$i++}}</td>
+                                        <td>{{$list->name}}</td>
+                                        <td>{{$list->email}}</td>
+                                        <td>{{$list->type_user}}</td>
                                         <td>
-
-
-                                            <a href="#"  class="btn btn-primary ml-1" data-toggle="modal" data-target="#exampleModal">Edit</a>
-                                            <a href="#" class="btn btn-danger"  onclick="return confirm('Are you sure you want to delete User?');">Delete</a>
-
-
-
+                                            <a href="#"  class="btn btn-primary ml-1" data-toggle="modal" data-target="#userEdit{{$list->id}}">Edit</a>
+                                            <a href="#" class="btn btn-danger"   data-toggle="modal" data-target="#userdelete{{$list->id}}">Delete</a>
                                         </td>
                                     </tr>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>User Email</th>
-                                        <th>User Role</th>
-
-                                        <th>Action</th>
-
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-
-
-                    </div>
-                </div>
-
+                                    {{-- edit user start --}}
+                                    
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="userEdit{{$list->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <form action="{{url('/admin/addb&a')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{url('/admin/update_user')}}/{{$list->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
               <div class="modal-content">
 
@@ -141,19 +104,18 @@ active
 
                         <div class="row p-3">
 
-                           <div class="col-md-6 col-12 mt-2">
-                               <label><h5>User Email</h5></label><br>
-                               <input type="email" placeholder="Enter Email" class="form-control">
-                           </div>
-                           <div class="col-md-6 col-12 mt-2">
-                            <label><h5>User Name</h5></label><br>
-                            <input type="text" placeholder="Enter Name" class="form-control">
+                         
+                           <div class="col-md-12 col-12 mt-2">
+                            <label><h5> Name</h5></label><br>
+                            <input type="text" name="name" value="{{$list->name}}" placeholder="Enter Name" class="form-control">
                         </div>
-                        <div class="col-md-6 col-12 mt-2">
-                            <label><h5>User Name</h5></label><br>
-                           <select name="role" class="form-control" id="">
-                            <option value="admin">Admin</option>
-                           </select>
+                        <div class="col-md-12 col-12 mt-2">
+                            <label><h5>User Email</h5></label><br>
+                            <input type="email" name="email" value="{{$list->email}}" placeholder="Enter Email" class="form-control">
+                        </div>
+                        <div class="col-md-12 col-12 mt-2">
+                            <label><h5>Username</h5></label><br>
+                            <input type="text" name="username" value="{{$list->username}}" placeholder="Enter Username" class="form-control">
                         </div>
 
 
@@ -173,6 +135,50 @@ active
           </div>
 
 
+
+                                    {{-- edit user end --}}
+                                    {{-- delete user start --}}
+                                    
+        <!-- Modal -->
+        <div class="modal fade" id="userdelete{{$list->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+           
+              <div class="modal-content">
+
+                <div class="modal-header bg-danger">
+                  <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                        <div>
+                          <h5 class="text-center py-2">Are you sure you want to delete - {{$list->name}}</h5>
+
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <form action="{{url('admin/user_delete')}}/{{$list->id}}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Delete {{$list->name}}</button>
+                    </form>
+                  {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
+
+                </div>
+              </div>
+   
+            </div>
+          </div>
+                                    {{-- delete user end --}}
+                                    @endforeach
+                                </tbody>
+                               
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
 
 
         <script>

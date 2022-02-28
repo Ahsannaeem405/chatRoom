@@ -22,6 +22,7 @@ class UserController extends Controller
         $user->email = $request->username . '@guest.com';
         $user->username = $request->username;
         $user->role = 'user';
+        $user->type_user = 'guest';
         $user->profile = 'avatar.jpg';
         $user->password = \Hash::make('12345678');
         $user->save();

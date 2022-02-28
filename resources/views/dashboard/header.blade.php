@@ -75,15 +75,14 @@ active
 
                                     <tr>
                                         <td>1</td>
-                                        <td><img src="{{asset('attachment_105797305.png')}}" width="100" alt=""></td>
-                                        <td><img src="{{asset('attachment_105797305.png')}}" width="100" alt=""></td>
+                                        <td><img src="{{asset("header/$header_footer->h_image")}}" width="100" alt=""></td>
+                                        <td><img src="{{asset("header/$header_footer->f_image")}}" width="100" alt=""></td>
 
 
                                         <td>
 
 
                                             <a href="#"  class="btn btn-primary ml-1" data-toggle="modal" data-target="#exampleModal">Edit Header/Footer</a>
-                                            <a href="#" class="btn btn-danger"  onclick="return confirm('Are you sure you want to delete Header?');">Delete</a>
 
 
 
@@ -110,16 +109,7 @@ active
 
 
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>User Email</th>
-                                        <th>User Role</th>
-
-                                        <th>Action</th>
-
-                                    </tr>
-                                </tfoot>
+                               
                             </table>
                         </div>
 
@@ -130,7 +120,7 @@ active
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <form action="{{url('/admin/addb&a')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{url('/admin/update_header')}}/{{$header_footer->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
               <div class="modal-content">
 
@@ -147,22 +137,14 @@ active
 
                            <div class="col-12 mt-2">
                                <label><h5>Logo Image</h5></label><br>
-                               <input name="file1" type="file"  class="dropify" data-height="100" required />
-                           </div>
+                               <input type="file" name="h_image"  class="dropify" data-default-file="{{asset("header/$header_footer->h_image")}}"  data-height="100"  />
+                                <img src="" alt="">
+                            </div>
                            <div class="col-12 mt-2">
                             <label><h5>Footer Logo</h5></label><br>
-                            <input name="file2" type="file"  class="dropify" data-height="100" required />
+                            <input  type="file" name="f_image"  class="dropify" data-default-file="{{asset("header/$header_footer->f_image")}}"   data-height="100"  />
                         </div>
-                        <div class="col-md-6 col-12 mt-2">
-                            <label><h5>List Heading</h5></label><br>
-                           <input type="text" class="form-control" placeholder="Enter Heading Name">
-                        </div>
-                        <div class="col-md-6 col-12 mt-2">
-                            <label><h5>List Heading2</h5></label><br>
-                           <input type="text" class="form-control" placeholder="Enter Heading2 Name">
-                        </div>
-
-
+                       
 
                         </div>
 

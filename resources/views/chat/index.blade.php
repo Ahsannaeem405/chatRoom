@@ -606,6 +606,7 @@
     var channel = pusher.subscribe('chatRoom');
     channel.bind('chat', function (data) {
         var response = JSON.parse(JSON.stringify(data));
+       
         var message = response['message'];
         var user = response['user'];
     });
