@@ -25,6 +25,9 @@
         height: 44vh;
     }
 }
+.view-control iframe{
+    height: 80%;
+}
 
 @media only screen and (max-width: 1000px) {
     .collape {
@@ -565,6 +568,7 @@ ul {
     margin-top: -6px !important;
     background: #24272B !important;
     color: white;
+    height: 20%;
 }
 
 .message_div {
