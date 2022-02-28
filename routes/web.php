@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\GoogleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 return redirect('login');
 });
-
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 Auth::routes();
 
 
@@ -61,6 +62,7 @@ Route::post('updateProfile/{id}',[\App\Http\Controllers\AdminController::class,'
 Route::prefix('/user')->middleware(['auth','user'])->group(function () {
     Route::get('/chat', [\App\Http\Controllers\UserController::class, 'chat']);
     Route::post('/sendMSG', [\App\Http\Controllers\UserController::class, 'sendMSG']);
+    Route::get('/getMSG', [\App\Http\Controllers\UserController::class, 'getMSG']);
     Route::get('/deletemessage', [\App\Http\Controllers\UserController::class, 'deletemessage']);
     Route::get('/likemessage', [\App\Http\Controllers\UserController::class, 'likemessage']);
 });

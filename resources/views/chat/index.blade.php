@@ -346,7 +346,7 @@
 
                             </div>
                             <div class="form-group mb-0 message_div p-3">
-                                <form action="#" method="post">
+                              
                                     <div class="row">
                                         <div class="col-12 d-flex message_icon">
 
@@ -358,7 +358,7 @@
                                                     class="far fa-paper-plane"></i></button>
                                         </div>
                                     </div>
-                                </form>
+                             
                             </div>
                         </div>
                         {{--                        desktop div--}}
@@ -576,7 +576,7 @@
     <!-- Content wrapper end -->
 
 </div>
-
+<input type="hidden" name="id" id="id" value="{{Auth::user()->id}}">
 <div id="test_div" style="color: white"></div>
 
 
@@ -602,9 +602,28 @@
     var channel = pusher.subscribe('chatRoom');
     channel.bind('chat', function (data) {
         var response = JSON.parse(JSON.stringify(data));
-       
         var message = response['message'];
-        var user = response['user'];
+       
+       var user = response['user'];
+        var msgId=response['message']['id'];
+        var userId=$('#id').val();
+        $.ajax({
+                url: '{{URL::to('user/getMSG')}}',
+                type: 'GET',
+                data: {'id': msgId},
+                success: function (data) {
+                    $('.chatContainerScroll').append(data);
+
+                    if(user == userId)
+                    {
+                        $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
+
+                    }
+                    
+                    //console.log(data);
+                }
+            });
+      
     });
 </script>
 <script>
@@ -636,10 +655,18 @@
 
         });
 
+        $('#text_msg').keydown(function (e){
+        if(e.keyCode == 13){
+            sendMsg();
+            }
+        });
 
         $('.btn_send').click(function () {
+            sendMsg();
+        });
 
-
+        function sendMsg()
+        {
             var msg = $('#text_msg').val();
             $('#text_msg').val('');
             $.ajax({
@@ -648,12 +675,11 @@
                 data: {'message': msg},
                 success: function (data) {
                     $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
+                    //console.log(data);
                     //   $('#test_div').empty().append(data);
                 }
             });
-
-
-        });
+        }
         $('.delete').click(function () {
 
 

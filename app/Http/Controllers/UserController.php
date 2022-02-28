@@ -57,7 +57,16 @@ class UserController extends Controller
         $message->save();
         $user = User::find(\Auth::user()->id);
         $event = event(new sendMessage($message, $user));
+        
         return response()->json($event);
+    }
+
+    public function getMSG(Request $request)
+    {
+      
+        $message['message'] =Message::where('id',$request->id)->get();
+    
+        return view('chat/getMesg',$message);
     }
 
     public function deletemessage(Request $request)
