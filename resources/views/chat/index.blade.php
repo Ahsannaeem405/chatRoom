@@ -223,17 +223,13 @@
                     <div class="row no-gutters m-0">
                         <div class="col-lg-8 col-12 bg_black">
                             <div class="col-12 p-0 view-control">
-                                <iframe width="100%" height="230" src="https://www.youtube.com/embed/Kl9zXkIIkgg"
+                                <iframe width="100%"  src="https://www.youtube.com/embed/Kl9zXkIIkgg"
                                         title="YouTube video player" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowfullscreen></iframe>
-                                <div class="w-100 bg-dark div1 p-2">
-                                    <div class="">
-                                        <div class="col-12">
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="">
+                                <div class="w-100 bg-dark div1">
+                                    
+                                    <div class="w-100">
                                         <div class="col-12 d-flex pl-3 member_div justify-content-between">
                                             <div class="d-flex">
                                                 <span style="font-size:28px;cursor:pointer;" class="collape text-light" onclick="openNav()">&#9776;</span>
