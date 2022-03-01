@@ -29,5 +29,16 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    
+    'google' => [
+        'client_id' => '495871250616-rg38ul567u2r8gjofss4fjpmq1ll4uda.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' => 'http://localhost:8000/auth/google/callback',
+    ],
+    'facebook' => [
+        'client_id' => '269148538571749',
+        'client_secret' => 'd349e04db705e11b0367ced9dbc7d57b',
+        'redirect' => 'https://chatbti.herokuapp.com/public/auth/facebook/callback',
+    ],
 
 ];

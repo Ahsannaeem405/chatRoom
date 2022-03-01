@@ -47,115 +47,65 @@ active
                     @endif
 
                     <div class="card-header">
-                        <h4>Clear Guest Users</h4>
-                        <button class="btn btn-danger float-right"  onclick="return confirm('Are you sure you want to delete All Guest User?');">Delete Guest User</button>
                     </div>
                     <div class="card-content p-3">
 
+                        @if($guestCount >0)
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="col-md-3">
+                                <div class="my-4 px-2">
+                                    <h4>Total Guest User {{$guestCount}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                         
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteguest" >Delete Guest User ({{$guestCount}})</button>
 
-                        {{-- <div class="table-responsive">
-                            <table class="table zero-configuration">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Radio Link</th>
-                                        <th>Action</th>
-
-
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-
-                                    <tr>
-                                        <td>1</td>
-                                        <td>#</td>
-
-
-                                        <td>
-
-
-                                            <a href="#"  class="btn btn-primary ml-1" data-toggle="modal" data-target="#exampleModal">Edit</a>
-
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Before Image</th>
-                                        <th>After Image</th>
-                                        <th>Action</th>
-
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div> --}}
-
+                        </div>
+                        @else
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="col-md-3">
+                                <div class="my-4 ">
+                                    <h4>No Guest User Available</h4>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
 
                     </div>
                 </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="deleteguest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <form action="{{url('/admin/addb&a')}}" method="POST" enctype="multipart/form-data">
-                    @csrf
+           
               <div class="modal-content">
 
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Radio Setting</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Clear Guest User</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-
-
-                        <div class="row p-3">
-
-                           <div class="col-12">
-                               <label><h5>Radio Link</h5></label><br>
-                               <input type="text" placeholder="Enter Link" class="form-control">
-                           </div>
-
-
-
-                        </div>
-
+                    <div>
+                        <h5 class="text-center py-2">Are you sure you want to clear all Guest User - {{$guestCount}}</h5>
+                      </div>
 
                 </div>
                 <div class="modal-footer">
+                    <form action="{{url('/admin/delete_guest')}}" method="POST">
+                        @csrf
                   {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
-                  <button type="submit" class="btn btn-primary">Add Images</button>
-
+                  <button type="submit" class="btn btn-danger">Clear Guest User</button>
+                </form>
                 </div>
               </div>
-            </form>
+      
             </div>
           </div>
+
 
 
 

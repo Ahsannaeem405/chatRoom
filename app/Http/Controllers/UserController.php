@@ -22,6 +22,7 @@ class UserController extends Controller
         $user->email = $request->username . '@guest.com';
         $user->username = $request->username;
         $user->role = 'user';
+        $user->type_user = 'guest';
         $user->profile = 'avatar.jpg';
         $user->password = \Hash::make('12345678');
         $user->save();
@@ -56,7 +57,16 @@ class UserController extends Controller
         $message->save();
         $user = User::find(\Auth::user()->id);
         $event = event(new sendMessage($message, $user));
+        
         return response()->json($event);
+    }
+
+    public function getMSG(Request $request)
+    {
+      
+        $message['message'] =Message::where('id',$request->id)->get();
+    
+        return view('chat/getMesg',$message);
     }
 
     public function deletemessage(Request $request)

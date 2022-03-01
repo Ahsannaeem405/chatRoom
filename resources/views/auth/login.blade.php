@@ -55,8 +55,8 @@
                         <div class="switch" qn='Already have an account?' btn='Login'>
                             <div class="loginproviders">
                                 <ul>
-                                    <li no="25"><img src="{{asset('gem/ore/grupo/loginprovider/25-gr-CNDDatRPuz.png')}}"/></li>
-                                    <li no="26"><img src="{{asset('gem/ore/grupo/loginprovider/26-gr-31alUcNhOX.jpg')}}"/></li>
+                                    <li no="25"><a href="{{ url('auth/facebook') }}"><img src="{{asset('gem/ore/grupo/loginprovider/25-gr-CNDDatRPuz.png')}}"/></a></li>
+                                    <li no="26"><a href="{{ url('auth/google') }}"><img src="{{asset('gem/ore/grupo/loginprovider/26-gr-31alUcNhOX.jpg')}}"/></a></li>
                                     <li no="229"><img src="{{asset('gem/ore/grupo/loginprovider/229-gr-lhrP8sssty.png')}}"/></li>
                                 </ul>
                             </div>
@@ -86,7 +86,7 @@
 
                         <div class="submitbtns">
                             <button type="submit" class="btn btn-primary global submit w-100">Login as guest</button>
-
+                            
 
                         </div>
 
@@ -94,7 +94,7 @@
                             <div class="loginproviders">
                                 <ul>
                                     <li no="25"><img src="{{asset('gem/ore/grupo/loginprovider/25-gr-CNDDatRPuz.png')}}"/></li>
-                                    <li no="26"><img src="{{asset('gem/ore/grupo/loginprovider/26-gr-31alUcNhOX.jpg')}}"/></li>
+                                    <li no="26"><a href="{{ url('auth/google') }}"><img src="{{asset('gem/ore/grupo/loginprovider/26-gr-31alUcNhOX.jpg')}}"/></a></li>
                                     <li no="229"><img src="{{asset('gem/ore/grupo/loginprovider/229-gr-lhrP8sssty.png')}}"/></li>
                                 </ul>
                             </div>
