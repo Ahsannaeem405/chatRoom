@@ -34,7 +34,7 @@ class GoogleController extends Controller
       
             $user =  Socialite::driver('google')->stateless()->user();
             
-            $finduser = User::where('google_id', $user->id)->first();
+            $finduser = User::where('google_id', $user->id)->orwhere('email', $user->email)->first();
             if($finduser){
        
                 Auth::login($finduser);
@@ -47,6 +47,7 @@ class GoogleController extends Controller
                     'username' => $user->name,
                     'email' => $user->email,
                     'google_id'=> $user->id,
+                    'type_user'=> 'social',
                     'password' => encrypt('12345678')
                 ]);
       

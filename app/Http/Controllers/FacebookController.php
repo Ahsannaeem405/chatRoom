@@ -25,7 +25,7 @@ class FacebookController extends Controller
         
             $user = Socialite::driver('facebook')->stateless()->user();
          
-            $finduser = User::where('facebook_id', $user->id)->first();
+            $finduser = User::where('facebook_id', $user->id)->orwhere('email', $user->email)->first();
         
             if($finduser){
          
@@ -34,11 +34,21 @@ class FacebookController extends Controller
                 return redirect('/user/chat');
          
             }else{
+
+                if($user->email==null)
+                {
+                    $rm=time().'@gmail.com';
+                }
+                else{
+                    $rm=$user->email;
+                }
+
                 $newUser = User::create([
                     'name' => $user->name,
                     'username' => $user->name,
-                    'email' => $user->email,
+                    'email' => $rm,
                     'facebook_id'=> $user->id,
+                    'type_user'=> 'social',
                     'password' => encrypt('123456dummy')
                 ]);
         
