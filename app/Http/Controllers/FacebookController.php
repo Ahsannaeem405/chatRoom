@@ -21,7 +21,7 @@ class FacebookController extends Controller
      */
     public function handleFacebookCallback()
     {
-        dd(1234);
+    
         try {
         
             $user = Socialite::driver('facebook')->stateless()->user();
@@ -31,8 +31,8 @@ class FacebookController extends Controller
             if($finduser){
          
                 Auth::login($finduser);
-        
-                return redirect('/user/chat');
+                
+                return view('chat/index');
          
             }else{
 
@@ -54,8 +54,8 @@ class FacebookController extends Controller
                 ]);
         
                 Auth::login($newUser);
-        
-                return redirect('/user/chat');
+                return view('chat/index');
+                // return redirect('/user/chat');
             }
         
         } catch (Exception $e) {
