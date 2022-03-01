@@ -32,8 +32,7 @@ class FacebookController extends Controller
          
                 Auth::login($finduser);
                 
-                return redirect('/user');
-         
+                return redirect('/user/chat');         
             }else{
 
                 if($user->email==null)
@@ -50,12 +49,13 @@ class FacebookController extends Controller
                     'email' => $rm,
                     'facebook_id'=> $user->id,
                     'type_user'=> 'social',
+                    'role'=> 'user',
                     'password' => encrypt('123456dummy')
                 ]);
         
                 Auth::login($newUser);
         
-                return redirect('/user');
+                return redirect('/user/chat');
             }
         
         } catch (Exception $e) {
