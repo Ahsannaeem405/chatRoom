@@ -32,7 +32,7 @@ class FacebookController extends Controller
          
                 Auth::login($finduser);
                 
-                return view('chat/index');
+                return redirect('/user');
          
             }else{
 
@@ -54,8 +54,8 @@ class FacebookController extends Controller
                 ]);
         
                 Auth::login($newUser);
-                return view('chat/index');
-                // return redirect('/user/chat');
+        
+                return redirect('/user');
             }
         
         } catch (Exception $e) {
