@@ -33,7 +33,7 @@ return [
     'google' => [
         'client_id' => '495871250616-rg38ul567u2r8gjofss4fjpmq1ll4uda.apps.googleusercontent.com',
         'client_secret' => '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',
-        'redirect' => 'http://localhost:8000/auth/google/callback',
+        'redirect' => 'https://chatbti.herokuapp.com/public/auth/google/callback',
     ],
     'facebook' => [
         'client_id' => '269148538571749',
