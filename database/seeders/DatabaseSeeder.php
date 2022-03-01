@@ -23,10 +23,15 @@ class DatabaseSeeder extends Seeder
             ['name' => "admin",'username'=>'admin','email'=>'admin@gmail.com','role'=>'admin','password'=>''.$hash.''],
 
         ]);
-          
+
         DB::table('footers')->insert([
 
             ['h_image' => "attachment_105797305.png",'f_image'=>'attachment_105797305.png'],
+
+        ]);
+        DB::table('radios')->insert([
+
+            ['radio' => "radio.mp3"],
 
         ]);
     }

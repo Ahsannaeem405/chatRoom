@@ -40,6 +40,7 @@ Users
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>username</th>
+                                                <th>Role</th>
 
                                                 <th>Created Date</th>
                                                 <th>Action</th>
@@ -54,6 +55,7 @@ Users
                                                     <td>{{$user->name}}</td>
                                                     <td>{{$user->email}}</td>
                                                     <td>{{$user->username}}</td>
+                                                    <td>{{$user->type_user}}</td>
                                                     <td>{{$user->created_at}}</td>
                                                     <td>
                                                         <a onclick="return confirm('Are you sure you want to Remove?');"

@@ -12,7 +12,7 @@ active
 
 
 @section('heading')
-    Dashboard
+    Clear Chat
 @endsection
 
 @section('title')
@@ -35,39 +35,30 @@ active
                     </div> --}}
                 </div>
                 <div class="card mt-2">
-                    @if (session()->has('success'))
-                    <div class="alert alert-success">
-                        {{session()->get('success')}}
-                    </div>
-                    @endif
-                    @if (session()->has('error'))
-                    <div class="alert alert-danger">
-                        {{session()->get('error')}}
-                    </div>
-                    @endif
+
 
                     <div class="card-header">
+
                     </div>
                     <div class="card-content p-3">
-
-                        @if($guestCount >0)
+                        @if($chatCount >0)
                         <div class="d-flex justify-content-center align-items-center">
                             <div class="col-md-3">
-                                <div class="my-4 px-2">
-                                    <h4>Total Guest User {{$guestCount}}</h4>
+                                <div class="my-4 px-4 text-center">
+                                    <h4>Total Chat {{$chatCount}}</h4>
                                 </div>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center align-items-center">
-                         
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteguest" >Delete Guest User ({{$guestCount}})</button>
+
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteChat" >Clear Chat ({{$chatCount}})</button>
 
                         </div>
                         @else
                         <div class="d-flex justify-content-center align-items-center">
                             <div class="col-md-3">
                                 <div class="my-4 ">
-                                    <h4>No Guest User Available</h4>
+                                    <h4>No Chat Available</h4>
                                 </div>
                             </div>
                         </div>
@@ -77,35 +68,34 @@ active
                 </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="deleteguest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="deleteChat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-           
+
               <div class="modal-content">
 
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Clear Guest User</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Clear Chat</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
                     <div>
-                        <h5 class="text-center py-2">Are you sure you want to clear all Guest User - {{$guestCount}}</h5>
+                        <h5 class="text-center py-2">Are you sure you want to clear all chat - {{$chatCount}}</h5>
                       </div>
 
                 </div>
                 <div class="modal-footer">
-                    <form action="{{url('/admin/delete_guest')}}" method="POST">
+                    <form action="{{url('/admin/delete_chat')}}" method="POST">
                         @csrf
                   {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
-                  <button type="submit" class="btn btn-danger">Clear Guest User</button>
+                  <button type="submit" class="btn btn-danger">Clear Chat</button>
                 </form>
                 </div>
               </div>
-      
+
             </div>
           </div>
-
 
 
 
