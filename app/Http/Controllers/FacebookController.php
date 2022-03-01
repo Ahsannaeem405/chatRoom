@@ -21,6 +21,7 @@ class FacebookController extends Controller
      */
     public function handleFacebookCallback()
     {
+        dd(1234);
         try {
         
             $user = Socialite::driver('facebook')->stateless()->user();
