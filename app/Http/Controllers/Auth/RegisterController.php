@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Message;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\footer;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -53,6 +54,14 @@ class RegisterController extends Controller
 
     }
 
+
+    public function showRegistrationForm()
+    {
+        $header = footer::first();
+     
+
+        return view('auth.login', compact('header'));
+    }
     /**
      * Create a new controller instance.
      *
