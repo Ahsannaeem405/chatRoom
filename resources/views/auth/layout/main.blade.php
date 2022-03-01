@@ -13,10 +13,7 @@
     <link href="{{asset('riches/fonts/grupo/css/icons.css')}}" rel="stylesheet">
 </head>
 
-
 @yield('content')
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{asset('gem/mine/gr-sign.js')}}"></script>

@@ -147,7 +147,7 @@ active
 
                            <div class="col-12 mt-2">
                                <label><h5>Logo Image</h5></label><br>
-                               <input name="file1" type="file"  class="dropify" data-height="100" required />
+                               <input name="file1" type="file"   class="dropify" data-height="100" required />
                            </div>
                            <div class="col-12 mt-2">
                             <label><h5>Footer Logo</h5></label><br>
