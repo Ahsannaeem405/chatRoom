@@ -16,7 +16,9 @@ class GoogleController extends Controller
      */
     public function redirectToGoogle()
     {
-        return Socialite::driver('google')->redirect();
+        
+         return Socialite::driver('google')->redirect();
+
     }
         
     /**
@@ -26,21 +28,23 @@ class GoogleController extends Controller
      */
     public function handleGoogleCallback()
     {
+      // dd(122111);
+
         try {
       
-            $user = Socialite::driver('google')->user();
-       
+            $user =  Socialite::driver('google')->stateless()->user();
+            
             $finduser = User::where('google_id', $user->id)->first();
-       
             if($finduser){
        
                 Auth::login($finduser);
       
-                return redirect()->intended('dashboard');
+                return redirect()->intended('user/chat');
        
             }else{
                 $newUser = User::create([
                     'name' => $user->name,
+                    'username' => $user->name,
                     'email' => $user->email,
                     'google_id'=> $user->id,
                     'password' => encrypt('12345678')
@@ -48,10 +52,10 @@ class GoogleController extends Controller
       
                 Auth::login($newUser);
       
-                return redirect()->intended('dashboard');
+                return redirect()->intended('user/chat');
             }
       
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             dd($e->getMessage());
         }
     }
