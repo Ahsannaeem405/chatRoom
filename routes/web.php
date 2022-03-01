@@ -36,19 +36,39 @@ return redirect('/');
 
 Route::prefix('/admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/index', [\App\Http\Controllers\AdminController::class, 'index']);
+
+    //user
     Route::get('/users', [\App\Http\Controllers\AdminController::class, 'users']);
     Route::get('/users/del/{id}', [\App\Http\Controllers\AdminController::class, 'userDelete']);
+
+    //radio
     Route::get('radio', [\App\Http\Controllers\AdminController::class, 'radio']);
+    Route::post('radio/update', [\App\Http\Controllers\AdminController::class, 'radioUpdate']);
+
+//clear char
     Route::get('clearchat',[\App\Http\Controllers\AdminController::class,'clearchat']);
     Route::post('delete_chat',[\App\Http\Controllers\AdminController::class,'delete_chat']);
+
+//cleat guest
     Route::get('clearguest',[\App\Http\Controllers\AdminController::class,'clearguest']);
     Route::post('delete_guest',[\App\Http\Controllers\AdminController::class,'delete_guest']);
-    Route::get('role',[\App\Http\Controllers\AdminController::class,'role']);
-    Route::post('user_delete/{id}',[\App\Http\Controllers\AdminController::class,'user_delete']);
-    Route::post('update_user/{id}',[\App\Http\Controllers\AdminController::class,'update_user']);
+
+    //header
     Route::get('header',[\App\Http\Controllers\AdminController::class,'header']);
     Route::post('update_header/{id}',[\App\Http\Controllers\AdminController::class,'update_header']);
+
+//    Route::get('role',[\App\Http\Controllers\AdminController::class,'role']);
+//    Route::post('user_delete/{id}',[\App\Http\Controllers\AdminController::class,'user_delete']);
+//    Route::post('update_user/{id}',[\App\Http\Controllers\AdminController::class,'update_user']);
+
+
+//ip
     Route::get('Ip',[\App\Http\Controllers\AdminController::class,'Ip']);
+    Route::post('addip',[\App\Http\Controllers\AdminController::class,'addIp']);
+    Route::get('del/ip/{id}',[\App\Http\Controllers\AdminController::class,'delIp']);
+    Route::post('updateip/{id}',[\App\Http\Controllers\AdminController::class,'updateIp']);
+
+
     Route::get('setting',[\App\Http\Controllers\AdminController::class,'setting']);
     Route::get('appearance',[\App\Http\Controllers\AdminController::class,'appearance']);
 

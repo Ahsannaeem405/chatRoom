@@ -22,8 +22,7 @@
                 <a href="{{ url('admin/index') }}"><i class="feather icon-home"></i><span
                         class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
 
-            <li class=" {{ Request::is('admin/users')? 'active' : '' }}"><a href="{{ url('admin/users') }}"><i class=" fa fa-user"></i><span
-                        class="menu-title" data-i18n="Dashboard">Users</span></a></li>
+
 
             <li class=" {{ Request::is('#')? 'active' : '' }}"><a href="{{ url('#') }}"><i class="fa fa-cog"></i><span
                         class="menu-title" data-i18n="Dashboard">Social Login Setting</span></a></li>
@@ -34,14 +33,14 @@
                         class="menu-title" data-i18n="Dashboard">Clear Chat</span></a></li>
             <li class="@yield('Social') {{ Request::is('admin/clearguest')? 'active' : '' }}"><a href="{{ url('/admin/clearguest') }}"><i class=" fa fa-user"></i><span
                         class="menu-title" data-i18n="Dashboard">Clear Guest Users</span></a></li>
-            <li class="@yield('Social') {{ Request::is('admin/role')? 'active' : '' }}"><a href="{{ url('/admin/role') }}"><i class=" fa fa-group"></i><span
+            <li class="@yield('Social') {{ Request::is('admin/users')? 'active' : '' }}"><a href="{{ url('/admin/users') }}"><i class=" fa fa-group"></i><span
                         class="menu-title" data-i18n="Dashboard">User Roles</span></a></li>
             <li class="@yield('Social') {{ Request::is('employee/attendance_history')? 'active' : '' }}"><a href="{{ url('#') }}"><i class="far fa-smile"></i><span
                         class="menu-title" data-i18n="Dashboard">Stickers</span></a></li>
             <li class="@yield('Social') {{ Request::is('admin/appearance')? 'active' : '' }}"><a href="{{ url('admin/appearance') }}"><i class="fa fa-presentation"></i><span
                         class="menu-title" data-i18n="Dashboard">Appearance</span></a></li>
             <li class="@yield('Social') {{ Request::is('admin/header')? 'active' : '' }}"><a href="{{ url('/admin/header') }}"><i class=" fa fa-user"></i><span
-                        class="menu-title" data-i18n="Dashboard">Header/Footer</span></a></li>
+                        class="menu-title" data-i18n="Dashboard">Header</span></a></li>
             <li class="@yield('Social') {{ Request::is('admin/Ip')? 'active' : '' }}"><a href="{{ url('/admin/Ip') }}"><i class="fa fa-signal"></i><span
                         class="menu-title" data-i18n="Dashboard">IP/BAN</span></a></li>
             <li class="@yield('Social') {{ Request::is('admin/setting')? 'active' : '' }}"><a href="{{ url('/admin/setting') }}"><i class="fa fa-cog"></i><span
