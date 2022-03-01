@@ -35,5 +35,10 @@ return [
         'client_secret' => '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',
         'redirect' => 'http://localhost:8000/auth/google/callback',
     ],
+    'facebook' => [
+        'client_id' => '269148538571749',
+        'client_secret' => 'd349e04db705e11b0367ced9dbc7d57b',
+        'redirect' => 'http://chatbti.herokuapp.com/public/auth/facebook/callback',
+    ],
 
 ];

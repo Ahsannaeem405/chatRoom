@@ -7,55 +7,47 @@ use Laravel\Socialite\Facades\Socialite;
 use Exception;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-class GoogleController extends Controller
+class FacebookController extends Controller
 {
-     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function redirectToGoogle()
+    public function redirectToFacebook()
     {
-        
-         return Socialite::driver('google')->redirect();
-
+        return Socialite::driver('facebook')->redirect();
     }
-        
+          
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function handleGoogleCallback()
+    public function handleFacebookCallback()
     {
-      // dd(122111);
-
         try {
-      
-            $user =  Socialite::driver('google')->stateless()->user();
-            
-            $finduser = User::where('google_id', $user->id)->first();
+        
+            $user = Socialite::driver('facebook')->stateless()->user();
+         
+            $finduser = User::where('facebook_id', $user->id)->first();
+        
             if($finduser){
-       
+         
                 Auth::login($finduser);
-      
+        
                 return redirect('/user/chat');
-       
+         
             }else{
                 $newUser = User::create([
                     'name' => $user->name,
                     'username' => $user->name,
                     'email' => $user->email,
-                    'google_id'=> $user->id,
-                    'password' => encrypt('12345678')
+                    'facebook_id'=> $user->id,
+                    'password' => encrypt('123456dummy')
                 ]);
-      
+        
                 Auth::login($newUser);
-      
+        
                 return redirect('/user/chat');
             }
-      
-        } catch (\Exception $e) {
+        
+        } catch (Exception $e) {
             dd($e->getMessage());
         }
     }
