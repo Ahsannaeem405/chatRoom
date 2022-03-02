@@ -31,8 +31,22 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('radios')->insert([
 
-            ['radio' => "radio.mp3"],
+            ['radio' => "https://usa10.fastcast4u.com/xzelion",'title'=>'test radio text','image'=>'radio.jpg'],
 
         ]);
+
+        DB::table('social_settings')->insert([
+            [
+                'googleClient' => "495871250616-rg38ul567u2r8gjofss4fjpmq1ll4uda.apps.googleusercontent.com"
+                ,'googleSecret'=>'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',
+                'facebookClient'=>'269148538571749',
+                'facebookSecret'=>'d349e04db705e11b0367ced9dbc7d57b',
+                'twitterClient'=>'1',
+                'twitterSecret'=>'1'
+            ],
+
+        ]);
+
+
     }
 }

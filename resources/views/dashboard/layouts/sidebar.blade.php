@@ -24,26 +24,26 @@
 
 
 
-            <li class=" {{ Request::is('#')? 'active' : '' }}"><a href="{{ url('#') }}"><i class="fa fa-cog"></i><span
+            <li class=" {{ Request::is('admin/social/setting')? 'active' : '' }}"><a href="{{ url('admin/social/setting') }}"><i class="fa fa-cog"></i><span
                         class="menu-title" data-i18n="Dashboard">Social Login Setting</span></a></li>
             <li class=" {{ Request::is('admin/radio')? 'active' : '' }}"><a href="{{ url('/admin/radio') }}"><i class="fa fa-cog"></i><span
                         class="menu-title" data-i18n="Dashboard">Radio Setting</span></a></li>
 
-            <li class="@yield('Social') {{ Request::is('admin/clearchat')? 'active' : '' }}"><a href="{{ url('/admin/clearchat') }}"><i class="fa fa-comment"></i><span
+            <li class=" {{ Request::is('admin/clearchat')? 'active' : '' }}"><a href="{{ url('/admin/clearchat') }}"><i class="fa fa-comment"></i><span
                         class="menu-title" data-i18n="Dashboard">Clear Chat</span></a></li>
-            <li class="@yield('Social') {{ Request::is('admin/clearguest')? 'active' : '' }}"><a href="{{ url('/admin/clearguest') }}"><i class=" fa fa-user"></i><span
+            <li class=" {{ Request::is('admin/clearguest')? 'active' : '' }}"><a href="{{ url('/admin/clearguest') }}"><i class=" fa fa-user"></i><span
                         class="menu-title" data-i18n="Dashboard">Clear Guest Users</span></a></li>
-            <li class="@yield('Social') {{ Request::is('admin/users')? 'active' : '' }}"><a href="{{ url('/admin/users') }}"><i class=" fa fa-group"></i><span
+            <li class=" {{ Request::is('admin/users')? 'active' : '' }}"><a href="{{ url('/admin/users') }}"><i class=" fa fa-group"></i><span
                         class="menu-title" data-i18n="Dashboard">User Roles</span></a></li>
-            <li class="@yield('Social') {{ Request::is('employee/attendance_history')? 'active' : '' }}"><a href="{{ url('#') }}"><i class="far fa-smile"></i><span
+            <li class=" {{ Request::is('admin/sticker')? 'active' : '' }}"><a href="{{ url('admin/sticker') }}"><i class="far fa-smile"></i><span
                         class="menu-title" data-i18n="Dashboard">Stickers</span></a></li>
-            <li class="@yield('Social') {{ Request::is('admin/appearance')? 'active' : '' }}"><a href="{{ url('admin/appearance') }}"><i class="fa fa-presentation"></i><span
-                        class="menu-title" data-i18n="Dashboard">Appearance</span></a></li>
-            <li class="@yield('Social') {{ Request::is('admin/header')? 'active' : '' }}"><a href="{{ url('/admin/header') }}"><i class=" fa fa-user"></i><span
+{{--            <li class="@yield('Social') {{ Request::is('admin/appearance')? 'active' : '' }}"><a href="{{ url('admin/appearance') }}"><i class="fa fa-presentation"></i><span--}}
+{{--                        class="menu-title" data-i18n="Dashboard">Appearance</span></a></li>--}}
+            <li class=" {{ Request::is('admin/header')? 'active' : '' }}"><a href="{{ url('/admin/header') }}"><i class=" fa fa-user"></i><span
                         class="menu-title" data-i18n="Dashboard">Header</span></a></li>
-            <li class="@yield('Social') {{ Request::is('admin/Ip')? 'active' : '' }}"><a href="{{ url('/admin/Ip') }}"><i class="fa fa-signal"></i><span
+            <li class=" {{ Request::is('admin/Ip')? 'active' : '' }}"><a href="{{ url('/admin/Ip') }}"><i class="fa fa-signal"></i><span
                         class="menu-title" data-i18n="Dashboard">IP/BAN</span></a></li>
-            <li class="@yield('Social') {{ Request::is('admin/setting')? 'active' : '' }}"><a href="{{ url('/admin/setting') }}"><i class="fa fa-cog"></i><span
+            <li class=" {{ Request::is('admin/setting')? 'active' : '' }}"><a href="{{ url('/admin/setting') }}"><i class="fa fa-cog"></i><span
                         class="menu-title" data-i18n="Dashboard">Setting</span></a></li>
 
         </ul>
