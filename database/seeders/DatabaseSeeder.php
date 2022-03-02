@@ -34,5 +34,13 @@ class DatabaseSeeder extends Seeder
             ['radio' => "radio.mp3"],
 
         ]);
+
+        DB::table('social_settings')->insert([
+
+            ['googleClient' => "1",'googleSecret'=>'1','facebookClient'=>'1','facebookSecret'=>'1','twitterClient'=>'1','twitterSecret'=>'1'],
+
+        ]);
+
+
     }
 }

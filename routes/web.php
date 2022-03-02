@@ -37,6 +37,10 @@ return redirect('/');
 Route::prefix('/admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/index', [\App\Http\Controllers\AdminController::class, 'index']);
 
+    //social setting
+    Route::get('/social/setting', [\App\Http\Controllers\AdminController::class, 'social']);
+    Route::post('social/update', [\App\Http\Controllers\AdminController::class, 'socialUpdate']);
+
     //user
     Route::get('/users', [\App\Http\Controllers\AdminController::class, 'users']);
     Route::get('/users/del/{id}', [\App\Http\Controllers\AdminController::class, 'userDelete']);

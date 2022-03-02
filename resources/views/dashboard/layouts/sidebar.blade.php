@@ -24,7 +24,7 @@
 
 
 
-            <li class=" {{ Request::is('#')? 'active' : '' }}"><a href="{{ url('#') }}"><i class="fa fa-cog"></i><span
+            <li class=" {{ Request::is('admin/social/setting')? 'active' : '' }}"><a href="{{ url('admin/social/setting') }}"><i class="fa fa-cog"></i><span
                         class="menu-title" data-i18n="Dashboard">Social Login Setting</span></a></li>
             <li class=" {{ Request::is('admin/radio')? 'active' : '' }}"><a href="{{ url('/admin/radio') }}"><i class="fa fa-cog"></i><span
                         class="menu-title" data-i18n="Dashboard">Radio Setting</span></a></li>

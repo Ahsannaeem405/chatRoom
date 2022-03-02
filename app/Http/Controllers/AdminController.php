@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ipaddress;
 use App\Models\radio;
+use App\Models\socialSetting;
 use App\Models\User;
 use App\Models\footer;
 use App\Models\likeMessage;
@@ -19,6 +20,25 @@ class AdminController extends Controller
     {
         $user = User::where('role', 'user')->count();
         return view('dashboard.index', compact('user'));
+    }
+
+    public function social()
+    {
+        $social=socialSetting::first();
+        return view('dashboard.social.index',compact('social'));
+    }
+
+    public function socialUpdate(Request $request)
+    {
+        $social=socialSetting::first();
+        $social->googleClient=$request->googleClient;
+        $social->googleSecret=$request->googleSecret;
+        $social->facebookClient=$request->facebookClient;
+        $social->facebookSecret=$request->facebookSecret;
+        $social->twitterClient=$request->twitterClient;
+        $social->twitterSecret=$request->twitterSecret;
+        $social->save();
+        return back()->with('success','seting update successfully');
     }
 
     public function users()
@@ -110,15 +130,15 @@ class AdminController extends Controller
 
     public function delIp($id)
     {
-        $ip=ipaddress::find($id)->delete();
+        $ip = ipaddress::find($id)->delete();
         return back()->with('success', 'IP address deleted successfully');
     }
 
-    public function updateIp(ipaddress $id,Request $request)
+    public function updateIp(ipaddress $id, Request $request)
     {
 
 
-        $id->ip=$request->ip;
+        $id->ip = $request->ip;
         $id->update();
         return back()->with('success', 'IP address updated successfully');
     }
