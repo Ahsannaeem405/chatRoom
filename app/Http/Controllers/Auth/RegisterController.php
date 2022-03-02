@@ -60,7 +60,7 @@ class RegisterController extends Controller
         $header = footer::first();
      
 
-        return view('auth.login', compact('header'));
+        return view('auth.register', compact('header'));
     }
     /**
      * Create a new controller instance.

@@ -9,7 +9,7 @@
                 <div class='box ltr'>
                     <div class="logo">
                         {{--                    <img src="../gem/ore/grupo/global/logo.png"/>--}}
-                        <img src="{{asset('header')}}/{{$header->h_image}}" class="img-fluid img-responsive" width="90" height="30"/>
+                        <img src="{{asset('header')}}/{{$header->h_image}}" class="img-fluid img-responsive" style="width: 100%;height: 114px; "/>
 
                     </div>
                     <div class="errormsg">

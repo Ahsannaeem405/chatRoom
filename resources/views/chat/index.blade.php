@@ -512,10 +512,31 @@
                                     <div class="mb-3">
                                         <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}"
                                              class="rounded-circle img_circle" alt="">
+                                             
                                     </div>
 
 
-                                    <button class="btn btn-success btn_gra">Edit Profile</button>
+                                    <button data-toggle="modal" data-target="#editProfile" class="btn btn-success btn_gra">Edit Profile</button>
+
+                                    <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog " role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                              ...
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                              <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
                                     <div class="d-flex text-light pt-4 justify-content-center bg-dark"
                                          style="margin-top: -10px">
                                         <div class="border_right  p-2">
