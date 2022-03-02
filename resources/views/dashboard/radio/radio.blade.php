@@ -49,6 +49,8 @@ active
                                     <tr>
                                         <th>No</th>
                                         <th>Radio</th>
+                                        <th>Title</th>
+                                        <th>Image</th>
                                         <th>Action</th>
 
 
@@ -60,7 +62,9 @@ active
 
                                     <tr>
                                         <td>1</td>
-                                        <td><audio src="{{asset('radio/'.$radio->radio.'')}}" controls></audio></td>
+                                        <td><audio src="{{($radio->radio)}}" controls></audio></td>
+                                        <td>{{$radio->title}}</td>
+                                        <td><img src="{{asset('radio/'.$radio->image)}}" style="width: 100px" alt=""></td>
 
 
                                         <td>
@@ -99,9 +103,18 @@ active
 
                         <div class="row p-3">
 
-                           <div class="col-12">
-                               <label><h5>Update Radio </h5></label><br>
-                               <input type="file" name="radio" class="form-control">
+                            <div class="col-12 mb-2">
+                                <label><h5>Update Image </h5></label><br>
+                                <input type="file" name="image" class="form-control">
+                            </div>
+                            <div class="col-12 mb-2">
+                                <label><h5>Radio Text </h5></label><br>
+                                <input type="text" name="title" value="{{$radio->title}}" class="form-control">
+                            </div>
+
+                           <div class="col-12 mb-2">
+                               <label><h5>Radio url </h5></label><br>
+                               <input type="url" name="radio" value="{{$radio->radio}}" class="form-control">
                            </div>
 
 

@@ -74,7 +74,13 @@ Route::prefix('/admin')->middleware(['auth','admin'])->group(function () {
 
 
     Route::get('setting',[\App\Http\Controllers\AdminController::class,'setting']);
-    Route::get('appearance',[\App\Http\Controllers\AdminController::class,'appearance']);
+
+ //   Route::get('appearance',[\App\Http\Controllers\AdminController::class,'appearance']);
+
+    Route::get('sticker',[\App\Http\Controllers\AdminController::class,'sticker']);
+    Route::post('store/sticker',[\App\Http\Controllers\AdminController::class,'storeSticker']);
+    Route::get('delete/sticker/{id}',[\App\Http\Controllers\AdminController::class,'deleteSticker']);
+    Route::post('update/sticker/{id}',[\App\Http\Controllers\AdminController::class,'updateSticker']);
 
 
 

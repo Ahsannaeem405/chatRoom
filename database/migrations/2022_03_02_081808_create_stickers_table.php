@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRadiosTable extends Migration
+class CreateStickersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateRadiosTable extends Migration
      */
     public function up()
     {
-        Schema::create('radios', function (Blueprint $table) {
+        Schema::create('stickers', function (Blueprint $table) {
             $table->id();
-            $table->text('radio')->nullable();
-            $table->text('title')->nullable();
-            $table->text('image')->nullable();
+            $table->text('sticker');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateRadiosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('radios');
+        Schema::dropIfExists('stickers');
     }
 }
