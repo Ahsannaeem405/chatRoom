@@ -29,6 +29,11 @@ class DatabaseSeeder extends Seeder
             ['h_image' => "attachment_105797305.png",'f_image'=>'attachment_105797305.png'],
 
         ]);
+        DB::table('ipaddresses')->insert([
+
+            ['ip' => "72.255.43.80"],
+
+        ]);
         DB::table('radios')->insert([
 
             ['radio' => "https://usa10.fastcast4u.com/xzelion",'title'=>'test radio text','image'=>'radio.png

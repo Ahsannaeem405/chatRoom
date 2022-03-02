@@ -21,7 +21,7 @@ class CheckIpAddress
         $ipDb=ipaddress::first();
         // dd($ipDb->ip);
         $data = $data2->ip;
-        if ($ipDb->ip == $data) {
+        if ($ipDb->ip != $data) {
 
             // return redirect('/');
             return $next($request);
