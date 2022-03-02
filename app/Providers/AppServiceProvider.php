@@ -46,5 +46,5 @@ class AppServiceProvider extends ServiceProvider
         config()->set('services.twitter', $twitter);
 
 
-    }
+     }
 }

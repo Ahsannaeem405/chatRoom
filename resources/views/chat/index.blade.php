@@ -1,3 +1,7 @@
+@php
+
+@endphp
+
 <!doctype html>
 <html lang="en">
 
@@ -13,6 +17,12 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <title>Chat</title>
+    <style>
+        .fa-play,.fa-step-forward,.fa-pause,.fa-step-backward{
+            font-size: 20px;
+
+        }
+    </style>
 </head>
 
 <body class="con-back p-0">
@@ -28,14 +38,14 @@
                     @if(isset($profile->profile))
                                         
                     <img src="{{asset('image')}}/{{$profile->profile}}"
-                    class="imgCircle" data-toggle="modal" data-target="#editProfile" style="width: 40px;height:40px;border-radius:50%"   alt="">
+                    class="imgCircle"  style="width: 40px;height:40px;border-radius:50%"   alt="">
                     @else
                     <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}"
-                    class="imgCircle" data-toggle="modal" data-target="#editProfile" style="width: 40px;height:40px;border-radius:50%" >
+                    class="imgCircle"  style="width: 40px;height:40px;border-radius:50%" >
                     @endif
                             <div class="user-profile">
                                 <ul>
-                                    <li> <a href="#" data-toggle="modal" data-target="#editProfile"> Edit Profile</a></li>
+                                    <li> <a href="#" data-toggle="modal" data-target="#editProfile" id="profile"> Edit Profile</a></li>
                                     <li> <a href="{{URL::to('/logout')}}"> Log Out</a></li>
                                 </ul>
                             </div>
@@ -61,23 +71,37 @@
                 </div>
             </div>
             <div class="w-100 bg-dark3 d-flex p-2">
-                <div class="d-flex" style="align-items: center">
-                    <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" width="50" height="50"
-                         class="rounded-circle" alt="">
-
-                    <div class="text-light ml-2 pt-2">
-                        <p>Radio</p>
-                        <marquee width="80%" direction="right">
-                            This is a sample scrolling text that has scrolls texts to right.
-                        </marquee>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="d-flex" style="align-items: center">
+                            <img src="{{asset('radio')}}/{{$radio->image}}" width="50" height="50"
+                            class="rounded-circle" alt="">
+        
+                            <div class="text-light ml-2 pt-2">
+                                <p>Radio</p>
+                                <marquee width="80%" direction="right">
+                                    {{$radio->title}}
+                                </marquee>
+                            </div>
+                        </div>
                     </div>
+                    <div class="col-md-3">
+                        <div class="d-flex  justify-content-end " style="align-items: center;">
+                            <a href="#" class="text-light"><i class="fas fa-step-backward"></i></a>
+                            <a href="#" class="text-light">
+                                <i class="fas fa-play"></i>
+                                <i class="fas fa-pause"></i>
+                            </a>  
+                            <a href="#" class="text-light"><i class="fas fa-step-forward"></i></a>
+                            <audio src="{{($radio->radio)}}" audio="{{$radio->radio}}" class="audio" controls></audio>
+                        </div>
+                    </div>
+                    
                 </div>
+              
+                
 
-                <div class="d-flex  justify-content-end" style="align-items: center;">
-                    <a href="#" class="text-light"><i class="fas fa-step-backward"></i></a>
-                    <a href="#" class="ml-0 text-light"><i class="fas fa-play"></i></a>
-                    <a href="#" class="ml-0 text-light"><i class="fas fa-step-forward"></i></a>
-                </div>
+               
             </div>
 
 
@@ -181,7 +205,7 @@
                     <div class="d-flex text-light pt-4 justify-content-center bg-dark"
                          style="margin-top: -10px">
                         <div class="border_right  p-2">
-                            <b>119</b><br>
+                            <b>{{$like}}</b><br>
                             <p>Likes</p>
                         </div>
                         <div class="border_right  p-2">
@@ -189,7 +213,7 @@
                             <p>Report</p>
                         </div>
                         <div class="p-2">
-                            <b>21-FEB-22</b><br>
+                            <b>{{date('d-M-y',strtotime($profile->updated_at))}}</b><br>
                             <p>Last Login</p>
                         </div>
                     </div>
@@ -314,11 +338,11 @@
                                                     </div>
                                                     <div class="chat-avatar">
                                                         @if(isset($msg->user->profile))
-                                                        <img  src="{{asset('image/'.$msg->user->profile.'')}}"
-                                                        alt="Retail Admin">
+                                                        <img   src="{{asset('image/'.$msg->user->profile.'')}}"
+                                                        alt="Retail Admin" class="imgCircle">
                                                         @else
                                                         <img   src="{{asset('image/'.$msg->user->profile.'')}}"
-                                                        alt="Retail Admin">
+                                                        alt="Retail Admin" class="imgCircle">
                                                         @endif
                                                         <!-- <div class="chat-name">Sam</div> -->
                                                     </div>
@@ -389,14 +413,14 @@
                                         @if(isset($profile->profile))
                                         
                                         <img src="{{asset('image')}}/{{$profile->profile}}"
-                                        class="imgCircle" data-toggle="modal" data-target="#editProfile" style="width: 40px;height:40px;border-radius:50%"   alt="">
+                                        class="imgCircle"  style="width: 40px;height:40px;border-radius:50%"   alt="">
                                         @else
                                         <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}"
-                                        class="imgCircle" data-toggle="modal" data-target="#editProfile" style="width: 40px;height:40px;border-radius:50%" >
+                                        class="imgCircle" style="width: 40px;height:40px;border-radius:50%" >
                                         @endif
                                          <div class="user-profile">
                                                 <ul>
-                                                    <li> <a href="#" data-toggle="modal" data-target="#editProfile"> Edit Profile</a></li>
+                                                    <li> <a href="#"  data-toggle="modal" data-target="#editProfile" id="profile"> Edit Profile</a></li>
                                                     <li> <a href="{{URL::to('/logout')}}"> Log Out</a></li>
                                                 </ul>
                                          </div>
@@ -426,21 +450,29 @@
 
                             <div class="w-100 bg-dark3 d-flex p-2">
                                 <div class="d-flex" style="align-items: center">
-                                    <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" width="50" height="50"
+                                    <img src="{{asset('radio')}}/{{$radio->image}}" width="50" height="50"
                                          class="rounded-circle" alt="">
 
                                     <div class="text-light ml-2 pt-2">
                                         <p>Radio</p>
-                                        <marquee width="80%" direction="right">
-                                            This is a sample scrolling text that has scrolls texts to right.
+                                        <marquee width="100%" direction="right">
+                                            {{$radio->title}}
                                         </marquee>
                                     </div>
                                 </div>
 
-                                <div class="d-flex  justify-content-end" style="align-items: center;">
-                                    <a href="#" class="text-light"><i class="fas fa-step-backward"></i></a>
-                                    <a href="#" class="ml-3 text-light"><i class="fas fa-play"></i></a>
-                                    <a href="#" class="ml-3 text-light"><i class="fas fa-step-forward"></i></a>
+                                <div class="d-flex  justify-content-end ml-3" style="align-items: center;">
+                                    <a href="#" class="text-light">
+                                        <i class="fas fa-step-backward"></i>
+                                    </a>
+                                    <a href="#" class="ml-3 text-light">
+                                        <i class="fas fa-play"></i>
+                                        <i class="fas fa-pause "></i>
+                                    </a>
+                                    
+                                    <a href="#" class="ml-3 text-light">
+                                        <i class="fas fa-step-forward"></i>
+                                    </a>
                                 </div>
                             </div>
 
@@ -624,7 +656,7 @@
                                             <p>Report</p>
                                         </div>
                                         <div class="p-2">
-                                            <b>21-FEB-22</b><br>
+                                            <b>{{date('d-M-y',strtotime($profile->updated_at))}}</b><br>
                                             <p>Last Login</p>
                                         </div>
                                     </div>
@@ -725,6 +757,14 @@
 </script>
 <script>
     $(document).ready(function () {
+
+        $('.imgCircle').click(function(){
+            $(".profile_div").css('display', 'block');
+            $(".tab-pane").removeClass('active');
+            $(".tablink").removeClass('active');
+
+        });
+
         $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
         // $('#mySidenav').close();
         $('#mySidenav').css('width', '0');
@@ -844,6 +884,26 @@
             });
            // alert(vistUserProfile);
         });
+                    //audio play and pause
+                    var obj = document.createElement('audio');
+                        $('.fa-pause').hide();
+                        $('.audio').hide();
+                        $('.fa-play').click(function(){
+                            var audio=$('.audio').attr('audio');
+                            $('.fa-pause').show();
+                            
+                           $('.fa-play').hide();
+                      
+                        obj.src = audio; 
+                        obj.play(); 
+                        });
+                        $('.fa-pause').click(function(){
+                            $('.fa-pause').hide();
+                            
+                            $('.fa-play').show();
+
+                            obj.pause();
+                        });
 
     });
 </script>

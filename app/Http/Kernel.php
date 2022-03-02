@@ -51,7 +51,11 @@ class Kernel extends HttpKernel
         ],
         'user'=>[
             \App\Http\Middleware\user::class,
-        ]
+        ],
+        'checkIpAddress'=>[
+            \App\Http\Middleware\CheckIpAddress::class,
+        ],
+        
     ];
 
     /**

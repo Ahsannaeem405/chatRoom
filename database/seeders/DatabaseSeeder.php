@@ -31,7 +31,8 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('radios')->insert([
 
-            ['radio' => "https://usa10.fastcast4u.com/xzelion",'title'=>'test radio text','image'=>'radio.jpg'],
+            ['radio' => "https://usa10.fastcast4u.com/xzelion",'title'=>'test radio text','image'=>'radio.png
+            '],
 
         ]);
 

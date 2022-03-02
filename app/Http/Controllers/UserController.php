@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Events\sendMessage;
 use App\Models\likeMessage;
 use App\Models\Message;
+use App\Models\radio;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Testing\Fluent\Concerns\Has;
@@ -44,9 +45,10 @@ class UserController extends Controller
         $like=likeMessage::where('message_user_id')->count();
 
         $members = User::where('role', 'user')->get();
+        $radio = radio::first();
         $profile = \Auth::user();
         // dd( $profile->name);
-        return view('chat.index', compact('message', 'members', 'profile','like'));
+        return view('chat.index', compact('message', 'members', 'profile','like','radio'));
     }
     public function updateProfileUser(Request $request ,$id)
     {

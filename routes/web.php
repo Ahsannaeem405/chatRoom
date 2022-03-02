@@ -93,6 +93,9 @@ Route::prefix('/admin')->middleware(['auth','admin'])->group(function () {
 });
 Route::post('updateProfile/{id}',[\App\Http\Controllers\AdminController::class,'updateProfile']);
 
+Route::group(['middleware'=>'checkIpAddress'],function(){
+
+
 Route::prefix('/user')->middleware(['auth','user'])->group(function () {
     Route::get('/chat', [\App\Http\Controllers\UserController::class, 'chat']);
     Route::post('updateProfileUser/{id}', [\App\Http\Controllers\UserController::class, 'updateProfileUser']);
@@ -103,4 +106,4 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function () {
     Route::get('/deletemessage', [\App\Http\Controllers\UserController::class, 'deletemessage']);
     Route::get('/likemessage', [\App\Http\Controllers\UserController::class, 'likemessage']);
 });
-
+});
