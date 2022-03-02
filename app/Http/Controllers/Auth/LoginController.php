@@ -6,6 +6,7 @@ use App\Events\sendMessage;
 use App\Http\Controllers\Controller;
 use App\Models\Message;
 use App\Models\User;
+use App\Models\footer;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -49,7 +50,13 @@ class LoginController extends Controller
         return redirect()->back()->withError('whoops! You are not authorized to visit this link.');
 
     }
+    public function showLoginForm()
+    {
+        $header = footer::first();
+     
 
+        return view('auth.login', compact('header'));
+    }
     /**
      * Create a new controller instance.
      *
