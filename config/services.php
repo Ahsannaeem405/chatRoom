@@ -31,10 +31,8 @@ return [
     ],
 
     'google' => config()->get('services.google'),
-    'facebook' => [
-        'client_id' => '269148538571749',
-        'client_secret' => 'd349e04db705e11b0367ced9dbc7d57b',
-        'redirect' => 'https://chatbti.herokuapp.com/public/auth/facebook/callback',
-    ],
+    'facebook' => config()->get('services.facebook'),
+    'twitter' => config()->get('services.twitter'),
+
 
 ];

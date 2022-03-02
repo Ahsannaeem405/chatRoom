@@ -37,7 +37,14 @@ class DatabaseSeeder extends Seeder
 
         DB::table('social_settings')->insert([
 
-            ['googleClient' => "1",'googleSecret'=>'1','facebookClient'=>'1','facebookSecret'=>'1','twitterClient'=>'1','twitterSecret'=>'1'],
+            [
+                'googleClient' => "495871250616-rg38ul567u2r8gjofss4fjpmq1ll4uda.apps.googleusercontent.com"
+                ,'googleSecret'=>'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',
+                'facebookClient'=>'269148538571749',
+                'facebookSecret'=>'d349e04db705e11b0367ced9dbc7d57b',
+                'twitterClient'=>'1',
+                'twitterSecret'=>'1'
+            ],
 
         ]);
 
