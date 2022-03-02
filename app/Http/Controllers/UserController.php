@@ -45,9 +45,32 @@ class UserController extends Controller
 
         $members = User::where('role', 'user')->get();
         $profile = \Auth::user();
+        // dd( $profile->name);
         return view('chat.index', compact('message', 'members', 'profile','like'));
     }
+    public function updateProfileUser(Request $request ,$id)
+    {
+        $user=User::find($id);
+        $user->name=$request->name;
+        $user->username=$request->username;
+        $user->email=$request->email;
+        $user->password=\Hash::make($request->password);
+        if (isset($request->profile)) {
+            $image = $request->file('profile');
+            $imageName = $image->getClientOriginalName();
+            $user->profile=$imageName;
+            $path = $image->move(('image'), $imageName);
+        }
+        $user->save();
+        return redirect()->back()->with('success', "Your profile has been updated!");
 
+    }
+    public function vistUserProfile(Request $request)
+    {
+        $user['userProfile']=User::find($request->id);
+        $user['like']=likeMessage::where('message_user_id')->count();
+        return view('chat.vistProfileUser',$user);
+    }
     public function sendMSG(Request $request)
     {
         $message = new Message();

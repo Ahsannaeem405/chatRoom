@@ -25,11 +25,17 @@
             <div class="w-100 bg-dark d-flex justify-content-between p-3">
                 <div class="d-flex">
                 <div class="user-info">
-                        <img src="{{asset('chat/image/avatar.jpg')}}" width="40" class="rounded-circle"
-                                         alt="">
+                    @if(isset($profile->profile))
+                                        
+                    <img src="{{asset('image')}}/{{$profile->profile}}"
+                    class="imgCircle" data-toggle="modal" data-target="#editProfile" style="width: 40px;height:40px;border-radius:50%"   alt="">
+                    @else
+                    <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}"
+                    class="imgCircle" data-toggle="modal" data-target="#editProfile" style="width: 40px;height:40px;border-radius:50%" >
+                    @endif
                             <div class="user-profile">
                                 <ul>
-                                    <li> <a href="#"> Edit Profile</a></li>
+                                    <li> <a href="#" data-toggle="modal" data-target="#editProfile"> Edit Profile</a></li>
                                     <li> <a href="{{URL::to('/logout')}}"> Log Out</a></li>
                                 </ul>
                             </div>
@@ -160,12 +166,18 @@
             <div class="position-relative profile_div">
                 <div class="container-fluid bg-dark2 text-center p-2 rounded-bottom">
                     <div class="mb-3">
+                        @if(isset($profile->profile))
+                                        
+                        <img src="{{asset('image')}}/{{$profile->profile}}"
+                        class="rounded-circle img_circle" data-toggle="modal" data-target="#editProfile" width="80" height="80" alt="">
+                        @else
                         <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}"
-                             class="rounded-circle img_circle" alt="">
+                        class="rounded-circle img_circle" data-toggle="modal" data-target="#editProfile" alt=""  width="80" height="80">
+                        @endif
                     </div>
 
 
-                    <button class="btn btn-success btn_gra">Edit Profile</button>
+                    <button class="btn btn-success btn_gra" data-toggle="modal" data-target="#editProfile">Edit Profile</button>
                     <div class="d-flex text-light pt-4 justify-content-center bg-dark"
                          style="margin-top: -10px">
                         <div class="border_right  p-2">
@@ -276,8 +288,7 @@
                                             <li class="text-center text-dark w-lg-50ml-lg-auto mr-lg-auto mb-2">
                                                 <div class="bg_time p-1">
                                                     <span class="text-success font-weight-bold">{{$msg->user->username}} :</span>
-                                                    Joined
-                                                    the Group Chat ({{$msg->created_at}})
+                                                    Joined the Group Chat ({{$msg->created_at}})
                                                 </div>
 
                                             </li>
@@ -302,18 +313,27 @@
                                                             
                                                     </div>
                                                     <div class="chat-avatar">
-                                                        <img
-                                                            src="{{asset('upload/profile/'.$msg->user->profile.'')}}"
-                                                            alt="Retail Admin">
+                                                        @if(isset($msg->user->profile))
+                                                        <img  src="{{asset('image/'.$msg->user->profile.'')}}"
+                                                        alt="Retail Admin">
+                                                        @else
+                                                        <img   src="{{asset('image/'.$msg->user->profile.'')}}"
+                                                        alt="Retail Admin">
+                                                        @endif
                                                         <!-- <div class="chat-name">Sam</div> -->
                                                     </div>
                                                 </li>
                                             @else
                                                 <li class="your-chat mb-3">
                                                     <div class="chat-avatar">
-                                                        <img
-                                                            src="{{asset('upload/profile/'.$msg->user->profile.'')}}"
-                                                            alt="Retail Admin">
+                                                        @if(isset($msg->user->profile))
+                                                        <img class="vistProfile" vist="{{$msg->user->id}}"  src="{{asset('image/'.$msg->user->profile.'')}}"
+                                                        alt="Retail Admin">
+                                                        @else
+                                                        <img class="vistProfile" vist="{{$msg->user->id}}"  src="{{asset('image/'.$msg->user->profile.'')}}"
+                                                        alt="Retail Admin">
+                                                        @endif
+                                                      
                                                         <!-- <div class="chat-name">Russell</div> -->
                                                     </div>
                                                     <div class="chat-text"><span
@@ -366,11 +386,17 @@
                             <div class="w-100 bg-dark d-flex justify-content-between p-3">
                                 <div class="d-flex">
                                     <div class="user-info">
-                                        <img src="{{asset('chat/image/avatar.jpg')}}" width="40" class="rounded-circle"
-                                         alt="">
+                                        @if(isset($profile->profile))
+                                        
+                                        <img src="{{asset('image')}}/{{$profile->profile}}"
+                                        class="imgCircle" data-toggle="modal" data-target="#editProfile" style="width: 40px;height:40px;border-radius:50%"   alt="">
+                                        @else
+                                        <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}"
+                                        class="imgCircle" data-toggle="modal" data-target="#editProfile" style="width: 40px;height:40px;border-radius:50%" >
+                                        @endif
                                          <div class="user-profile">
                                                 <ul>
-                                                    <li> <a href="#"> Edit Profile</a></li>
+                                                    <li> <a href="#" data-toggle="modal" data-target="#editProfile"> Edit Profile</a></li>
                                                     <li> <a href="{{URL::to('/logout')}}"> Log Out</a></li>
                                                 </ul>
                                          </div>
@@ -508,10 +534,18 @@
                             <div class="position-relative profile_div">
 
 
-                                <div class="container-fluid bg-dark2 text-center p-2 rounded-bottom">
+                                <div class="container-fluid vistProfile bg-dark2 text-center p-2 rounded-bottom">
                                     <div class="mb-3">
+                                        @if(isset($profile->profile))
+                                        
+                                        <img src="{{asset('image')}}/{{$profile->profile}}"
+                                        class="rounded-circle img_circle" data-toggle="modal" data-target="#editProfile" width="80" height="80" alt="">
+                                        @else
                                         <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}"
-                                             class="rounded-circle img_circle" alt="">
+                                        class="rounded-circle img_circle" data-toggle="modal" data-target="#editProfile" alt=""  width="80" height="80">
+                                        @endif
+                                        
+                                      
                                              
                                     </div>
 
@@ -521,19 +555,61 @@
                                     <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog " role="document">
                                           <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                            <div class="modal-header bg-dark">
+                                              <h5 class="modal-title text-white" id="exampleModalLongTitle">Edit Profile</h5>
                                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
+                                                <span class="text-white" aria-hidden="true">×</span>
                                               </button>
                                             </div>
-                                            <div class="modal-body">
-                                              ...
+                                            <div class="modal-body bg-dark">
+                                                <div class="col-md-12">
+                                                <form method="POST"  action="{{url('user/updateProfileUser')}}/{{$profile->id}}" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <img src="{{asset('image')}}/{{$profile->profile}}" alt="" class="rounded-circle img_circle mt-2 mb-3" width="80" height="80">
+
+                                                    <div class = "form-group row">
+                                                        <label for = "inputPassword3" class = "col-sm-3 col-form-label text-white">Full Name</label>
+                                                        <div class = "col-sm-9">
+                                                            <input type="text" name="name" value="{{$profile->name}}" class="form-control" placeholder="Enter Name">
+
+                                                        </div>
+                                                     </div>
+                                                     <div class = "form-group row">
+                                                        <label for = "inputPassword3" class = "col-sm-3 col-form-label text-white">Username</label>
+                                                        <div class = "col-sm-9">
+                                                            <input type="text" name="username" value="{{$profile->username}}" class="form-control" placeholder="Enter Username">
+
+                                                        </div>
+                                                     </div>
+                                                     <div class = "form-group row">
+                                                        <label for = "inputPassword3" class = "col-sm-3 col-form-label text-white">Email</label>
+                                                        <div class = "col-sm-9">
+                                                            <input type="email" name="email" value="{{$profile->email}}" class="form-control " placeholder="Enter Email">
+
+                                                        </div>
+                                                     </div>
+                                                   
+                                                <div class = "form-group row">
+                                                   <label for = "inputPassword3" class = "col-sm-3 col-form-label text-white">Password</label>
+                                                   <div class = "col-sm-9">
+                                                       <input type="password" name="password" class="form-control" placeholder="Enter Password">
+
+                                                   </div>
+                                                </div>
+                                                <div class = "form-group row">
+                                                    <label for = "inputPassword3" class = "col-sm-3 col-form-label text-white">Profile</label>
+                                                    <div class = "col-sm-9">
+                                                        <input type="file" name="profile" class="form-control" >
+                                                    </div>
+                                                 </div>
+                                                    <button type="submit" class="btn btn-primary btn_gra text-center my-3 col-4">Update Profile</button>
+                                                </form>
                                             </div>
-                                            <div class="modal-footer">
+                                            </div>
+                                            {{-- <div class="modal-footer">
                                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                               <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
+                                            </div> --}}
                                           </div>
                                         </div>
                                       </div>
@@ -755,6 +831,19 @@
 
         });
 
+        $('.vistProfile').click(function(){
+            var vistUserProfile=$(this).attr('vist');
+            $.ajax({
+                url: '{{URL::to('user/vistUserProfile')}}',
+                type: 'GET',
+                data: {'id': vistUserProfile},
+                success: function (data) {
+                    $('.vistProfile').empty().append(data);
+
+                }
+            });
+           // alert(vistUserProfile);
+        });
 
     });
 </script>
