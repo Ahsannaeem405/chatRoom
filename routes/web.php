@@ -98,6 +98,7 @@ Route::group(['middleware'=>'checkIpAddress'],function(){
 
 Route::prefix('/user')->middleware(['auth','user'])->group(function () {
     Route::get('/chat', [\App\Http\Controllers\UserController::class, 'chat']);
+    Route::get('/report', [\App\Http\Controllers\UserController::class, 'report']);
     Route::post('updateProfileUser/{id}', [\App\Http\Controllers\UserController::class, 'updateProfileUser']);
     Route::get('vistUserProfile', [\App\Http\Controllers\UserController::class, 'vistUserProfile']);
 
