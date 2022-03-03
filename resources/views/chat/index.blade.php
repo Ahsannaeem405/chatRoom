@@ -1,6 +1,4 @@
-@php
 
-@endphp
 
 <!doctype html>
 <html lang="en">
@@ -22,10 +20,84 @@
             font-size: 20px;
 
         }
+        .emojionearea, .emojionearea.form-control {
+    display: block;
+    position: relative!important;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    font-size: 14px;
+    background-color: #24272b !important;
+    border: 1px solid #1e1e1e !important;
+    background: #191B1E;
+    border: none;
+    border-radius: 20px;
+
+}
+.emojionearea.emojionearea-inline>.emojionearea-button {
+    top: 4px;
+    background: white !important;
+}
+.emojionearea .emojionearea-button>div {
+  
+    /* color: red; */
+    /* background: white !important; */
+ 
+}
+.emojionearea, .emojionearea * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
     </style>
+
+
+<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700'>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen">
+<!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/emojione/1.5.2/assets/sprites/emojione.sprites.css" media="screen">-->
+<link rel="stylesheet" type="text/css" href="{{asset('emojy/stylesheet.css')}}" media="screen">
+<link rel="stylesheet" type="text/css" href="{{asset('emojy/dist/emojionearea.min.css')}}" media="screen">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="http://mervick.github.io/lib/google-code-prettify/skins/tomorrow.css" media="screen">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/1.5.2/lib/js/emojione.min.js"></script>-->
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emojione@3.1.2/lib/js/emojione.min.js"></script>-->
+<!--<script type="text/javascript" src="../node_modules/emojione/lib/js/emojione.js"></script>-->
+<script type="text/javascript" src="http://mervick.github.io/lib/google-code-prettify/prettify.js"></script>
+<!--<script>
+  window.emojioneVersion = "3.1";
+</script>-->
+<script type="text/javascript" src="{{asset('emojy/dist/emojionearea.js')}}"></script>
+
+
 </head>
 
+ 
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#standalone").emojioneArea({
+      standalone: true,
+      autocomplete: false
+    });
+  });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+      $("#text_msg").emojioneArea();
+    });
+  </script>
+{{-- <div id="standalone" data-emoji-placeholder=":smiley:"></div>
+
+@php
+die();
+@endphp --}}
 <body class="con-back p-0">
+
+
+    @php
+        // die();
+    @endphp
 <div class="container-fluid p-0 " style="height: 100vh">
 
     <!-- mobile side bar start -->
@@ -70,6 +142,7 @@
 
                 </div>
             </div>
+            
             <div class="w-100 bg-dark3 d-flex p-2">
                 <div class="row">
                     <div class="col-md-9">
@@ -104,7 +177,7 @@
                
             </div>
 
-
+            
             <div class="w-100">
                 <div class="row p-2">
 
@@ -187,6 +260,7 @@
                     </div>
                 </div>
             </div>
+        
             <div class="position-relative profile_div">
                 <div class="container-fluid bg-dark2 text-center p-2 rounded-bottom">
                     <div class="mb-3">
@@ -394,16 +468,19 @@
                                     <div class="row">
                                         <div class="col-12 d-flex message_icon">
 
-                                            <i class="far fa-file "></i><i class="far fa-smile ml-3"></i>
+                                            <i class="far fa-file "></i>
+                                            {{-- <i class="far fa-smile ml-3" ></i> --}}
+                                            
                                             <input type="text" placeholder="Type a Message" name="message"
-                                                   class="form-control ml-3 mr-3 message_input" id="text_msg">
-
+                                                   class="form-control ml-3 mr-3 message_input" id="text_msg" style="   ">
+                                                  
                                             <button type="button" class="ml-3 btn_send"><i
                                                     class="far fa-paper-plane"></i></button>
                                         </div>
                                     </div>
                              
                             </div>
+                           
                         </div>
                         {{--                        desktop div--}}
                         <div class="col-lg-4 col-12 bg-dark right_side">
@@ -705,13 +782,17 @@
     <!-- Content wrapper end -->
 
 </div>
+
+@php
+    // die();
+@endphp
 <input type="hidden" name="id" id="id" value="{{Auth::user()->id}}">
 <div id="test_div" style="color: white"></div>
 
 
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -792,7 +873,7 @@
 
         });
 
-        $('#text_msg').keydown(function (e){
+        $('#text_msg,.emojionearea').keydown(function (e){
         if(e.keyCode == 13){
             sendMsg();
             }
