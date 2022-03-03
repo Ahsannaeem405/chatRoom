@@ -472,7 +472,7 @@ die();
                                             {{-- <i class="far fa-smile ml-3" ></i> --}}
                                             
                                             <input type="text" placeholder="Type a Message" name="message"
-                                                   class="form-control ml-3 mr-3 message_input" id="text_msg" style="   ">
+                                                   class="form-control ml-3 mr-3 message_input" id="text_msg" >
                                                   
                                             <button type="button" class="ml-3 btn_send"><i
                                                     class="far fa-paper-plane"></i></button>
