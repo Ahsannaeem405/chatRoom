@@ -38,7 +38,7 @@
     }
 }
 #mySidenav .user-info a{
-    
+
 }
 .user-info{
     position: relative;
@@ -295,7 +295,7 @@
 }
 @media screen and (max-width:768px){
     .chat-container {
-        height: 56vh;  
+        height: 56vh;
     }
 }
 button:focus{
@@ -333,7 +333,7 @@ button:focus{
 
 }
 .chat-container{
-    padding-bottom: 60px;
+    padding-bottom: 120px;
 }
 .btn_send{
     cursor: pointer;

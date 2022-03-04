@@ -18,8 +18,6 @@ active
 
 @section('content')
 
-
-
     <main>
         <div class="content-body">
             <!-- Dashboard Ecommerce Starts -->
