@@ -23,13 +23,14 @@ class CheckIpAddress
         $ipDb=ipaddress::where('ip',$data)->first();
         // dd($ipDb->ip);
 
-
+dd($ipDb,$data);
         if ($ipDb) {
 
             // return redirect('/');
             return $next($request);
 
         } else {
+
 
             return redirect('/');
 
