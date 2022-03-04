@@ -19,8 +19,11 @@ class AdminController extends Controller
 
     public function index()
     {
-        $user = User::where('role', 'user')->count();
-        return view('dashboard.index', compact('user'));
+        $user = User::where('type_user', 'user')->count();
+        $guest = User::where('type_user', 'guest')->count();
+        $social = User::where('type_user', 'social')->count();
+        $message=Message::all()->count();
+        return view('dashboard.index', compact('user','guest','social','message'));
     }
 
     public function social()
