@@ -94,27 +94,8 @@ class AdminController extends Controller
         ]);
 
 
-        if (isset($request->c_password)) {
-            $request->validate([
-                'new_password' => 'required|min:8',
-                'confirm_password' => 'required_with:password|same:new_password|min:8'
-
-            ]);
-            if (Hash::check($request->c_password, $user->password)) {
-                $user->update([
-                    'password' => Hash::make($request->new_password),
-                ]);
-
-                return redirect()->back()->with('success', "Your profile has been updated!");
-
-
-            } else {
-                return redirect()->back()->with('error', "Your Password does't match!");
-
-            }
-        } else {
-            return redirect()->back()->with('success', 'Your profile has been updated!');
-        }
+   
+        
     }
 
     public function sticker()

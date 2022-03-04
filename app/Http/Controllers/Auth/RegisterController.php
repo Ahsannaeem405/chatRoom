@@ -42,6 +42,7 @@ class RegisterController extends Controller
             $message->type='join';
             $message->save();
             $user=User::find(\Auth::user()->id);
+         
             $event=event(new sendMessage($message,$user));
             return '/user/chat';
         }

@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
 
@@ -13,9 +15,104 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <title>Chat</title>
+    <style>
+        .fa-play,.fa-step-forward,.fa-pause,.fa-step-backward{
+            font-size: 20px;
+
+        }
+        .emojionearea, .emojionearea.form-control {
+    display: block;
+    position: relative!important;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    font-size: 14px;
+    background-color: #24272b !important;
+    border: 1px solid #1e1e1e !important;
+    background: #191B1E;
+    border: none;
+    border-radius: 20px;
+
+}
+.emojionearea.emojionearea-inline>.emojionearea-button {
+    top: 4px;
+    background: white !important;
+}
+.emojionearea .emojionearea-button>div {
+  
+    /* color: red; */
+    /* background: white !important; */
+ 
+}
+.emojionearea, .emojionearea * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+    .comment{
+        background: transparent;
+        color:white;
+    border: none;
+    border-bottom: 2px solid #b1aeae;
+    }
+
+.form-control:focus {
+    background: transparent;
+    color:white;
+    outline: none; 
+     box-shadow: none;
+}
+::placeholder{
+    color:white;
+}
+    </style>
+
+
+<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700'>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen">
+<!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/emojione/1.5.2/assets/sprites/emojione.sprites.css" media="screen">-->
+<link rel="stylesheet" type="text/css" href="{{asset('emojy/stylesheet.css')}}" media="screen">
+<link rel="stylesheet" type="text/css" href="{{asset('emojy/dist/emojionearea.min.css')}}" media="screen">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="http://mervick.github.io/lib/google-code-prettify/skins/tomorrow.css" media="screen">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/1.5.2/lib/js/emojione.min.js"></script>-->
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emojione@3.1.2/lib/js/emojione.min.js"></script>-->
+<!--<script type="text/javascript" src="../node_modules/emojione/lib/js/emojione.js"></script>-->
+<script type="text/javascript" src="http://mervick.github.io/lib/google-code-prettify/prettify.js"></script>
+<!--<script>
+  window.emojioneVersion = "3.1";
+</script>-->
+<script type="text/javascript" src="{{asset('emojy/dist/emojionearea.js')}}"></script>
+
+
 </head>
 
+ 
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#standalone").emojioneArea({
+      standalone: true,
+      autocomplete: false
+    });
+  });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+      $("#text_msg").emojioneArea();
+    });
+  </script>
+{{-- <div id="standalone" data-emoji-placeholder=":smiley:"></div>
+
+@php
+die();
+@endphp --}}
 <body class="con-back p-0">
+
+
+    @php
+        // die();
+    @endphp
 <div class="container-fluid p-0 " style="height: 100vh">
 
     <!-- mobile side bar start -->
@@ -28,14 +125,14 @@
                     @if(isset($profile->profile))
                                         
                     <img src="{{asset('image')}}/{{$profile->profile}}"
-                    class="imgCircle" data-toggle="modal" data-target="#editProfile" style="width: 40px;height:40px;border-radius:50%"   alt="">
+                    class="imgCircle"  style="width: 40px;height:40px;border-radius:50%"   alt="">
                     @else
                     <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}"
-                    class="imgCircle" data-toggle="modal" data-target="#editProfile" style="width: 40px;height:40px;border-radius:50%" >
+                    class="imgCircle"  style="width: 40px;height:40px;border-radius:50%" >
                     @endif
                             <div class="user-profile">
                                 <ul>
-                                    <li> <a href="#" data-toggle="modal" data-target="#editProfile"> Edit Profile</a></li>
+                                    <li> <a href="#" data-toggle="modal" data-target="#editProfile" id="profile"> Edit Profile</a></li>
                                     <li> <a href="{{URL::to('/logout')}}"> Log Out</a></li>
                                 </ul>
                             </div>
@@ -60,27 +157,42 @@
 
                 </div>
             </div>
+            
             <div class="w-100 bg-dark3 d-flex p-2">
-                <div class="d-flex" style="align-items: center">
-                    <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" width="50" height="50"
-                         class="rounded-circle" alt="">
-
-                    <div class="text-light ml-2 pt-2">
-                        <p>Radio</p>
-                        <marquee width="80%" direction="right">
-                            This is a sample scrolling text that has scrolls texts to right.
-                        </marquee>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="d-flex" style="align-items: center">
+                            <img src="{{asset('radio')}}/{{$radio->image}}" width="50" height="50"
+                            class="rounded-circle" alt="">
+        
+                            <div class="text-light ml-2 pt-2">
+                                <p>Radio</p>
+                                <marquee width="80%" direction="right">
+                                    {{$radio->title}}
+                                </marquee>
+                            </div>
+                        </div>
                     </div>
+                    <div class="col-md-3">
+                        <div class="d-flex  justify-content-end " style="align-items: center;">
+                            <a href="#" class="text-light"><i class="fas fa-step-backward"></i></a>
+                            <a href="#" class="text-light">
+                                <i class="fas fa-play"></i>
+                                <i class="fas fa-pause"></i>
+                            </a>  
+                            <a href="#" class="text-light"><i class="fas fa-step-forward"></i></a>
+                            <audio src="{{($radio->radio)}}" audio="{{$radio->radio}}" class="audio" controls></audio>
+                        </div>
+                    </div>
+                    
                 </div>
+              
+                
 
-                <div class="d-flex  justify-content-end" style="align-items: center;">
-                    <a href="#" class="text-light"><i class="fas fa-step-backward"></i></a>
-                    <a href="#" class="ml-0 text-light"><i class="fas fa-play"></i></a>
-                    <a href="#" class="ml-0 text-light"><i class="fas fa-step-forward"></i></a>
-                </div>
+               
             </div>
 
-
+            
             <div class="w-100">
                 <div class="row p-2">
 
@@ -163,6 +275,7 @@
                     </div>
                 </div>
             </div>
+        
             <div class="position-relative profile_div">
                 <div class="container-fluid bg-dark2 text-center p-2 rounded-bottom">
                     <div class="mb-3">
@@ -181,7 +294,7 @@
                     <div class="d-flex text-light pt-4 justify-content-center bg-dark"
                          style="margin-top: -10px">
                         <div class="border_right  p-2">
-                            <b>119</b><br>
+                            <b>{{$like}}</b><br>
                             <p>Likes</p>
                         </div>
                         <div class="border_right  p-2">
@@ -189,7 +302,7 @@
                             <p>Report</p>
                         </div>
                         <div class="p-2">
-                            <b>21-FEB-22</b><br>
+                            <b>{{date('d-M-y',strtotime($profile->updated_at))}}</b><br>
                             <p>Last Login</p>
                         </div>
                     </div>
@@ -314,11 +427,11 @@
                                                     </div>
                                                     <div class="chat-avatar">
                                                         @if(isset($msg->user->profile))
-                                                        <img  src="{{asset('image/'.$msg->user->profile.'')}}"
-                                                        alt="Retail Admin">
+                                                        <img   src="{{asset('image/'.$msg->user->profile.'')}}"
+                                                        alt="Retail Admin" class="imgCircle">
                                                         @else
                                                         <img   src="{{asset('image/'.$msg->user->profile.'')}}"
-                                                        alt="Retail Admin">
+                                                        alt="Retail Admin" class="imgCircle">
                                                         @endif
                                                         <!-- <div class="chat-name">Sam</div> -->
                                                     </div>
@@ -344,7 +457,63 @@
                                                     </div>
                                                     <div class="chat-hour">
                                                         <div class="icons ">
-                                                            <a href="#"><i class="fa fa-flag"></i></a>
+                                                            <a href="#" data-toggle="modal" data-target="#report{{$msg->id}}" ><i class="fa fa-flag" ></i></a>
+                                                            
+                                    <div class="modal fade" id="report{{$msg->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog " role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header bg-dark">
+                                              <h5 class="modal-title text-white" id="exampleModalLongTitle">Report Message</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span class="text-white" aria-hidden="true">×</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body bg-dark">
+                                                <div class="col-md-12">
+                                               
+                                                    <div class="container">
+                                                        <h3 class="text-white">Reason</h3>
+                                                        <div class="text-white">
+                                                            <div class="from group">
+                                                                <input type="radio" class="report" name="report" value="spam">
+                                                                <label>Spam</label>
+                                                            </div>
+                                                            <div class="from group">
+                                                                <input type="radio" class="report" name="report" value="abuse">
+                                                                <label>Abuse</label>
+                                                            </div>
+                                                            <div class="from group">
+                                                                <input type="radio"  class="report" name="report" value="inappropriate">
+                                                                <label>Inappropriate</label>
+                                                            </div>
+                                                            <div class="from group">
+                                                                <input type="radio"  name="report" value="other">
+                                                                <label>Other</label>
+                                                            </div>
+                                                            <div class="from group">
+                                                                <label>Comment</label>
+                                                                <textarea rows="4" cols="4" name="comment" id="comment" placeholder="Enter Comment" class="form-control comment"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                   
+                                                    <input type="hidden" id="msg_id" value="{{$msg->id}}">
+                                                    <input type="hidden" id="msg_user_id" value="{{$msg->user->id}}">
+                                                    <input type="hidden" id="user_rep_id" value="{{Auth::user()->id}}">
+                                                <center>
+                                                    <button type="button" id="report" class="btn btn-primary btn-sm col-4 mt-3 text-center">Report</button>
+
+                                                </center>
+                                               
+                                            </div>
+                                            </div>
+                                            {{-- <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                              <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div> --}}
+                                          </div>
+                                        </div>
+                                      </div>
                                                             <!-- <a href="#" class="ml-2"><i class="fas fa-reply"></i></a> -->
                                                             <a style="cursor: pointer" class="ml-2"><i
                                                                     class="far  {{count($msg->likeuser)>=1 ? 'fa-thumbs-down' : 'fa-thumbs-up'}} like"
@@ -370,16 +539,19 @@
                                     <div class="row">
                                         <div class="col-12 d-flex message_icon">
 
-                                            <i class="far fa-file "></i><i class="far fa-smile ml-3"></i>
+                                            <i class="far fa-file "></i>
+                                            {{-- <i class="far fa-smile ml-3" ></i> --}}
+                                            
                                             <input type="text" placeholder="Type a Message" name="message"
-                                                   class="form-control ml-3 mr-3 message_input" id="text_msg">
-
+                                                   class="form-control ml-3 mr-3 message_input" id="text_msg" >
+                                                  
                                             <button type="button" class="ml-3 btn_send"><i
                                                     class="far fa-paper-plane"></i></button>
                                         </div>
                                     </div>
                              
                             </div>
+                           
                         </div>
                         {{--                        desktop div--}}
                         <div class="col-lg-4 col-12 bg-dark right_side">
@@ -389,14 +561,14 @@
                                         @if(isset($profile->profile))
                                         
                                         <img src="{{asset('image')}}/{{$profile->profile}}"
-                                        class="imgCircle" data-toggle="modal" data-target="#editProfile" style="width: 40px;height:40px;border-radius:50%"   alt="">
+                                        class="imgCircle"  style="width: 40px;height:40px;border-radius:50%"   alt="">
                                         @else
                                         <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}"
-                                        class="imgCircle" data-toggle="modal" data-target="#editProfile" style="width: 40px;height:40px;border-radius:50%" >
+                                        class="imgCircle" style="width: 40px;height:40px;border-radius:50%" >
                                         @endif
                                          <div class="user-profile">
                                                 <ul>
-                                                    <li> <a href="#" data-toggle="modal" data-target="#editProfile"> Edit Profile</a></li>
+                                                    <li> <a href="#"  data-toggle="modal" data-target="#editProfile" id="profile"> Edit Profile</a></li>
                                                     <li> <a href="{{URL::to('/logout')}}"> Log Out</a></li>
                                                 </ul>
                                          </div>
@@ -426,21 +598,29 @@
 
                             <div class="w-100 bg-dark3 d-flex p-2">
                                 <div class="d-flex" style="align-items: center">
-                                    <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}" width="50" height="50"
+                                    <img src="{{asset('radio')}}/{{$radio->image}}" width="50" height="50"
                                          class="rounded-circle" alt="">
 
                                     <div class="text-light ml-2 pt-2">
                                         <p>Radio</p>
-                                        <marquee width="80%" direction="right">
-                                            This is a sample scrolling text that has scrolls texts to right.
+                                        <marquee width="100%" direction="right">
+                                            {{$radio->title}}
                                         </marquee>
                                     </div>
                                 </div>
 
-                                <div class="d-flex  justify-content-end" style="align-items: center;">
-                                    <a href="#" class="text-light"><i class="fas fa-step-backward"></i></a>
-                                    <a href="#" class="ml-3 text-light"><i class="fas fa-play"></i></a>
-                                    <a href="#" class="ml-3 text-light"><i class="fas fa-step-forward"></i></a>
+                                <div class="d-flex  justify-content-end ml-3" style="align-items: center;">
+                                    <a href="#" class="text-light">
+                                        <i class="fas fa-step-backward"></i>
+                                    </a>
+                                    <a href="#" class="ml-3 text-light">
+                                        <i class="fas fa-play"></i>
+                                        <i class="fas fa-pause "></i>
+                                    </a>
+                                    
+                                    <a href="#" class="ml-3 text-light">
+                                        <i class="fas fa-step-forward"></i>
+                                    </a>
                                 </div>
                             </div>
 
@@ -624,7 +804,7 @@
                                             <p>Report</p>
                                         </div>
                                         <div class="p-2">
-                                            <b>21-FEB-22</b><br>
+                                            <b>{{date('d-M-y',strtotime($profile->updated_at))}}</b><br>
                                             <p>Last Login</p>
                                         </div>
                                     </div>
@@ -673,13 +853,17 @@
     <!-- Content wrapper end -->
 
 </div>
+
+@php
+    // die();
+@endphp
 <input type="hidden" name="id" id="id" value="{{Auth::user()->id}}">
 <div id="test_div" style="color: white"></div>
 
 
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -725,6 +909,14 @@
 </script>
 <script>
     $(document).ready(function () {
+
+        $('.imgCircle').click(function(){
+            $(".profile_div").css('display', 'block');
+            $(".tab-pane").removeClass('active');
+            $(".tablink").removeClass('active');
+
+        });
+
         $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
         // $('#mySidenav').close();
         $('#mySidenav').css('width', '0');
@@ -752,7 +944,7 @@
 
         });
 
-        $('#text_msg').keydown(function (e){
+        $('#text_msg,.emojionearea').keydown(function (e){
         if(e.keyCode == 13){
             sendMsg();
             }
@@ -795,7 +987,32 @@
 
 
         });
+        $('#report').click(function(){
+            var report=$('input[name="report"]:checked').val();
+            var comment=$('#comment').val();
+            var msg_id=$('#msg_id').val();
+            var msg_user_id=$('#msg_user_id').val();
+            var user_rep_id=$('#user_rep_id').val();
+            $.ajax({
+                url: '{{URL::to('user/report')}}',
+                type: 'get',
+                data: {
+                    'report': report,
+                    'comment':comment,
+                    'msg_id':msg_id,
+                    'msg_user_id':msg_user_id,
+                    'user_rep_id':user_rep_id
+                    },
+               
+                success: function (response) {
+                    $('.close').clicked();
+                    alert();
+                    
 
+                }
+            });
+          
+        });
 
         $('.like').click(function () {
 
@@ -844,6 +1061,26 @@
             });
            // alert(vistUserProfile);
         });
+                    //audio play and pause
+                    var obj = document.createElement('audio');
+                        $('.fa-pause').hide();
+                        $('.audio').hide();
+                        $('.fa-play').click(function(){
+                            var audio=$('.audio').attr('audio');
+                            $('.fa-pause').show();
+                            
+                           $('.fa-play').hide();
+                      
+                        obj.src = audio; 
+                        obj.play(); 
+                        });
+                        $('.fa-pause').click(function(){
+                            $('.fa-pause').hide();
+                            
+                            $('.fa-play').show();
+
+                            obj.pause();
+                        });
 
     });
 </script>
