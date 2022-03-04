@@ -19,8 +19,8 @@ class CheckIpAddress
 
         $data2=\Http::get('https://api.ipify.org/?format=json');
         $data2=json_decode($data2->body());
-        $data = $data2->ip;
-        $ipDb=ipaddress::where('ip',$data)->first();
+        $data = utf8_decode($data2->ip);
+        $ipDb=ipaddress::where('ip',($data))->first();
         // dd($ipDb->ip);
 
 dd($ipDb,$data);
