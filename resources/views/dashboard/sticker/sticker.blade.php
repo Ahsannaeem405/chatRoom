@@ -9,11 +9,11 @@ active
 @endsection
 
 @section('heading')
-    Stickers
+    GIFS
 @endsection
 
 @section('title')
-    Stickers
+    GIFS
 @endsection
 
 @section('content')
@@ -35,7 +35,7 @@ active
 
 
                     <div class="card-header">
-                        <h4>Stickers</h4>
+                        <h4>GIFS</h4>
                     </div>
                     <div class="card-content p-3">
 
@@ -45,7 +45,7 @@ active
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>sticker</th>
+                                        <th>GIF</th>
 
 
                                         <th>Action</th>

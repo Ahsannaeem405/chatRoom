@@ -18,6 +18,16 @@
             font-size: 20px;
 
         }
+        .imgSticker{
+            border-radius: 1px !important;
+            display: block;
+            width: 100% !important;
+            height: auto!important;
+        }
+
+        .gifupload {
+            cursor: pointer;
+        }
 
         .emojionearea, .emojionearea.form-control {
             display: block;
@@ -68,6 +78,15 @@
 
         ::placeholder {
             color: white;
+        }
+        @media only screen and (max-width: 768px) {
+            .my-chat {
+                width: 90% !important;
+            }
+
+            .your-chat {
+                width: 90% !important;
+            }
         }
     </style>
 
@@ -422,7 +441,7 @@ die();
                                             </li>
 
 
-                                        @else
+                                        @elseif($msg->type=='text')
 
                                             @if($msg->user_id==Auth::user()->id)
                                                 <li class="my-chat mb-4   text-end message{{$msg->id}}">
@@ -483,6 +502,70 @@ die();
                                                 </li>
                                             @endif
 
+
+                                        @elseif($msg->type=='gif')
+
+                                            @if($msg->user_id==Auth::user()->id)
+                                                <li class="my-chat mb-4   text-end message{{$msg->id}}">
+                                                    <div class="chat-hour">
+                                                        <div class="icons">
+
+                                                            {{--                                                            <a href="#"><i class="fas fa-reply"></i></a>--}}
+                                                            <a style="cursor:pointer;" class=""><i
+                                                                    class="fa fa-trash delete"
+                                                                    message="{{$msg->id}}"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="chat-text">
+                                                        <span
+                                                            class="orange">{{$msg->user->name}} : </span>
+                                                        <img src="{{asset('sticker/'.$msg->sticker->sticker.'')}}" class="imgSticker" alt="">
+                                                        <div class="chat-details">{{$msg->created_at}}</div>
+
+                                                    </div>
+                                                    <div class="chat-avatar">
+
+                                                        <img src="{{asset('image/'.$msg->user->profile.'')}}"
+                                                             alt="Retail Admin" class="imgCircle">
+
+                                                        <!-- <div class="chat-name">Sam</div> -->
+                                                    </div>
+                                                </li>
+                                            @else
+                                                <li class="your-chat mb-3">
+                                                    <div class="chat-avatar">
+
+                                                        <img class="vistProfile" vist="{{$msg->user->id}}"
+                                                             src="{{asset('image/'.$msg->user->profile.'')}}"
+                                                             alt="Retail Admin">
+
+                                                    </div>
+                                                    <div class="chat-text"><span
+                                                            class="purple">{{$msg->user->name}} :</span>
+                                                        <img src="{{asset('sticker/'.$msg->sticker->sticker.'')}}" class="imgSticker" alt="">
+
+                                                        <div class="chat-details">
+                                                            {{$msg->created_at}}
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="chat-hour">
+                                                        <div class="icons ">
+                                                            <a><i msgid="{{$msg->id}}" msguser="{{$msg->user_id}}"
+                                                                  class="fa fa-flag reportmsg"></i></a>
+
+
+                                                            <!-- <a href="#" class="ml-2"><i class="fas fa-reply"></i></a> -->
+                                                            <a style="cursor: pointer" class="ml-2"><i
+                                                                    class="far  {{count($msg->likeuser)>=1 ? 'fa-thumbs-down' : 'fa-thumbs-up'}} like"
+                                                                    status="{{count($msg->likeuser)>=1 ? 'dislike' : 'like'}}"
+                                                                    message="{{$msg->id}}"></i></a>
+                                                        </div>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            @endif
 
 
                                         @endif
@@ -584,29 +667,20 @@ die();
                                 <div class="row">
                                     <div class="col-12 gif-tab">
                                         <span class="text-light mt-2">GIFs</span>
-                                        <input type="text" class="form-control mt-2 git-input" placeholder="Search GIFs">
-                                            
-                                                <div class="row our-gifs mt-2">
-                                                    <div class="col-3 mt-2">
-                                                        <img src="https://images.unsplash.com/photo-1518965493882-35b838ace024?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" class="img-fluid"/>
-                                                    </div>
-                                                    <div class="col-3 mt-2">
-                                                        <img src="https://images.unsplash.com/photo-1518965493882-35b838ace024?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" class="img-fluid"/>
-                                                    </div>
-                                                    <div class="col-3 mt-2">
-                                                        <img src="https://images.unsplash.com/photo-1518965493882-35b838ace024?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" class="img-fluid"/>
-                                                    </div>
-                                                    <div class="col-3 mt-2">
-                                                        <img src="https://images.unsplash.com/photo-1518965493882-35b838ace024?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" class="img-fluid"/>
-                                                    </div>
-                                                    <div class="col-3 mt-2">
-                                                        <img src="https://images.unsplash.com/photo-1518965493882-35b838ace024?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" class="img-fluid"/>
-                                                    </div>
-                                                    <div class="col-3 mt-2">
-                                                        <img src="https://images.unsplash.com/photo-1518965493882-35b838ace024?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" class="img-fluid"/>
-                                                    </div>
+                                        <input type="text" class="form-control mt-2 git-input"
+                                               placeholder="Search GIFs">
+
+                                        <div class="row our-gifs mt-2">
+                                            @foreach($gifs as $gif)
+                                                <div class="col-3 mt-2">
+                                                    <img src="{{asset('sticker/'.$gif->sticker.'')}}"
+                                                         gifid="{{$gif->id}}" class="img-fluid gifupload"/>
                                                 </div>
-                                            
+                                            @endforeach
+
+
+                                        </div>
+
                                     </div>
                                     <div class="col-12 d-flex message_icon py-3">
                                         <i class="far fa-file" id="ourgif">
@@ -1001,8 +1075,7 @@ die();
                     $('.chatContainerScroll').append(data);
                     $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
 
-                }
-                else {
+                } else {
                     $('.chatContainerScroll').append(data);
                 }
 
@@ -1018,7 +1091,7 @@ die();
         $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
 
         $('.gif-tab').hide();
-        $('#ourgif').click(function(){
+        $('#ourgif').click(function () {
             $('.gif-tab').toggle();
         });
 
@@ -1166,10 +1239,19 @@ die();
         $(document).on('click', '.reportmsg', function () {
             var msgid = $(this).attr('msgid');
             var userid = $(this).attr('msguser');
-$('#msg_id').val(msgid);
-$('#msg_user_id').val(userid);
+            $('#msg_id').val(msgid);
+            $('#msg_user_id').val(userid);
 
             $('#reportmsg').modal('show');
+
+        });
+        $(document).on('click', '.gifupload', function () {
+            var stickerID = $(this).attr('gifid');
+
+         sendGif(stickerID);
+
+
+
 
         });
 
@@ -1186,6 +1268,20 @@ $('#msg_user_id').val(userid);
             });
             // alert(vistUserProfile);
         });
+
+        function sendGif(id) {
+            $('.gif-tab').toggle();
+        var msg=id;
+            $.ajax({
+                url: '{{URL::to('user/sendGIF')}}',
+                type: 'POST',
+                data: {'message': msg},
+                success: function (data) {
+                    $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
+
+                }
+            });
+        }
         //audio play and pause
         var obj = document.createElement('audio');
         $('.fa-pause').hide();
@@ -1206,7 +1302,7 @@ $('#msg_user_id').val(userid);
 
             obj.pause();
         });
-        
+
 
     });
 
@@ -1232,7 +1328,7 @@ $('#msg_user_id').val(userid);
         $("body").removeClass("light-theme");
     }
 
-    
+
 </script>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

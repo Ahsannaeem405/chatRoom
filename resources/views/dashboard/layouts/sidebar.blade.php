@@ -24,6 +24,7 @@
 
 
 
+
             <li class=" {{ Request::is('admin/social/setting')? 'active' : '' }}"><a href="{{ url('admin/social/setting') }}"><i class="fa fa-cog"></i><span
                         class="menu-title" data-i18n="Dashboard">Social Login Setting</span></a></li>
             <li class=" {{ Request::is('admin/radio')? 'active' : '' }}"><a href="{{ url('/admin/radio') }}"><i class="fa fa-cog"></i><span
@@ -36,7 +37,7 @@
             <li class=" {{ Request::is('admin/users')? 'active' : '' }}"><a href="{{ url('/admin/users') }}"><i class=" fa fa-group"></i><span
                         class="menu-title" data-i18n="Dashboard">User Roles</span></a></li>
             <li class=" {{ Request::is('admin/sticker')? 'active' : '' }}"><a href="{{ url('admin/sticker') }}"><i class="far fa-smile"></i><span
-                        class="menu-title" data-i18n="Dashboard">Stickers</span></a></li>
+                        class="menu-title" data-i18n="Dashboard">GIFS</span></a></li>
 {{--            <li class="@yield('Social') {{ Request::is('admin/appearance')? 'active' : '' }}"><a href="{{ url('admin/appearance') }}"><i class="fa fa-presentation"></i><span--}}
 {{--                        class="menu-title" data-i18n="Dashboard">Appearance</span></a></li>--}}
             <li class=" {{ Request::is('admin/header')? 'active' : '' }}"><a href="{{ url('/admin/header') }}"><i class=" fa fa-user"></i><span

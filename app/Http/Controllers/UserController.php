@@ -7,6 +7,7 @@ use App\Models\likeMessage;
 use App\Models\Message;
 use App\Models\radio;
 use App\Models\Report;
+use App\Models\sticker;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Testing\Fluent\Concerns\Has;
@@ -42,14 +43,15 @@ class UserController extends Controller
 
     public function chat()
     {
-        $message = Message::with('user','likeuser')->get();
+        $message = Message::with('user','likeuser','sticker')->get();
         $like=likeMessage::where('message_user_id')->count();
+        $gifs=sticker::all();
 
         $members = User::where('role', 'user')->get();
         $radio = radio::first();
         $profile = \Auth::user();
         // dd( $profile->name);
-        return view('chat.index', compact('message', 'members', 'profile','like','radio'));
+        return view('chat.index', compact('message', 'members', 'profile','like','radio','gifs'));
     }
     public function report(Request $request)
     {
@@ -69,6 +71,7 @@ class UserController extends Controller
         $user->username=$request->username;
         $user->email=$request->email;
         $user->password=\Hash::make($request->password);
+
         if (isset($request->profile)) {
             $image = $request->file('profile');
             $imageName = $image->getClientOriginalName();
@@ -94,15 +97,28 @@ class UserController extends Controller
         $message->save();
         $user = User::find(\Auth::user()->id);
         $event = event(new sendMessage($message, $user));
-        
+
+        return response()->json($event);
+    }
+
+    public function sendGIF(Request $request)
+    {
+        $message = new Message();
+        $message->user_id = \Auth::user()->id;
+        $message->type = 'gif';
+        $message->message = $request->message;
+        $message->save();
+        $user = User::find(\Auth::user()->id);
+        $event = event(new sendMessage($message, $user));
+
         return response()->json($event);
     }
 
     public function getMSG(Request $request)
     {
-      
+
         $message['message'] =Message::where('id',$request->id)->get();
-    
+
         return view('chat/getMesg',$message);
     }
 

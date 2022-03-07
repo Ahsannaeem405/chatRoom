@@ -103,6 +103,7 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function () {
     Route::get('vistUserProfile', [\App\Http\Controllers\UserController::class, 'vistUserProfile']);
 
     Route::post('/sendMSG', [\App\Http\Controllers\UserController::class, 'sendMSG']);
+    Route::post('/sendGIF', [\App\Http\Controllers\UserController::class, 'sendGIF']);
     Route::get('/getMSG', [\App\Http\Controllers\UserController::class, 'getMSG']);
     Route::get('/deletemessage', [\App\Http\Controllers\UserController::class, 'deletemessage']);
     Route::get('/likemessage', [\App\Http\Controllers\UserController::class, 'likemessage']);
