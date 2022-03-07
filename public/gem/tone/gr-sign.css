@@ -533,13 +533,14 @@ a:hover {
 .sign > section > div > div form > .switch > a > span
 {
 display: block;
-background: #a3298a;
+background: linear-gradient(0deg, rgba(0,0,0,1) 20%, rgba(181,250,3,1) 100%);
 color: white;
 border-radius: 23px;
 cursor: pointer;
 padding: 11px 0px;
 margin-top: 12px;
     text-decoration: none;
+    font-size: 14px;
 }
 
 .sign > section > div > div form > .recaptcha
@@ -657,7 +658,8 @@ background-attachment: fixed;
 
 .two > section > div > div form .submit
 {
-background: linear-gradient(to right,#E91E63,#003ade);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 20%, rgba(181,250,3,1) 100%);
+    border: none;
 }
 
 .two.install > section > div > div form .submit
