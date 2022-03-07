@@ -356,17 +356,17 @@ button:focus{
     display: flex;
     justify-content: end;
     gap: 12px;
-    align-items: center;
+    /*align-items: center;*/
     margin-right: 0;
     margin-left: auto;
-    width: 90%;
+    width: 50%;
 }
 .your-chat{
     display: flex;
     justify-content: start;
     gap: 12px;
-    align-items: center;
-    width: 90%;
+    /*align-items: center;*/
+    width: 50%;
 }
 .chat-container  li.my-chat .chat-text:before {
     transform: rotateY(180deg) !important;
