@@ -667,7 +667,7 @@ die();
                             </div>
 
 
-                            <div class="w-100 bg-dark3 d-flex p-2">
+                            <div class="w-100 bg-dark3 d-flex justify-content-between p-2">
                                 <div class="d-flex" style="align-items: center">
                                     <img src="{{asset('radio')}}/{{$radio->image}}" width="50" height="50"
                                          class="rounded-circle" alt="">
