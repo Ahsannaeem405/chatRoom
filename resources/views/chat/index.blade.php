@@ -580,17 +580,40 @@ die();
                             </div>
 
 
-                            <div class="form-group mb-0 message_div p-3">
-
+                            <div class="form-group mb-0 message_div px-3">
                                 <div class="row">
-                                    <div class="col-12 d-flex message_icon">
-
-                                        <i class="far fa-file "></i>
-
-
+                                    <div class="col-12 gif-tab">
+                                        <span class="text-light mt-2">GIFs</span>
+                                        <input type="text" class="form-control mt-2 git-input" placeholder="Search GIFs">
+                                            
+                                                <div class="row our-gifs mt-2">
+                                                    <div class="col-3 mt-2">
+                                                        <img src="https://images.unsplash.com/photo-1518965493882-35b838ace024?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" class="img-fluid"/>
+                                                    </div>
+                                                    <div class="col-3 mt-2">
+                                                        <img src="https://images.unsplash.com/photo-1518965493882-35b838ace024?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" class="img-fluid"/>
+                                                    </div>
+                                                    <div class="col-3 mt-2">
+                                                        <img src="https://images.unsplash.com/photo-1518965493882-35b838ace024?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" class="img-fluid"/>
+                                                    </div>
+                                                    <div class="col-3 mt-2">
+                                                        <img src="https://images.unsplash.com/photo-1518965493882-35b838ace024?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" class="img-fluid"/>
+                                                    </div>
+                                                    <div class="col-3 mt-2">
+                                                        <img src="https://images.unsplash.com/photo-1518965493882-35b838ace024?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" class="img-fluid"/>
+                                                    </div>
+                                                    <div class="col-3 mt-2">
+                                                        <img src="https://images.unsplash.com/photo-1518965493882-35b838ace024?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" class="img-fluid"/>
+                                                    </div>
+                                                </div>
+                                            
+                                    </div>
+                                    <div class="col-12 d-flex message_icon py-3">
+                                        <i class="far fa-file" id="ourgif">
+                                            <span class="gif-icons">GIf</span>
+                                        </i>
                                         <input type="text" placeholder="Type a Message" name="message"
                                                class="form-control ml-3 mr-3 message_input" id="text_msg">
-
                                         <button type="button" class="ml-3 btn_send"><i
                                                 class="far fa-paper-plane"></i></button>
                                     </div>
@@ -644,7 +667,7 @@ die();
                             </div>
 
 
-                            <div class="w-100 bg-dark3 d-flex p-2">
+                            <div class="w-100 bg-dark3 d-flex justify-content-between p-2">
                                 <div class="d-flex" style="align-items: center">
                                     <img src="{{asset('radio')}}/{{$radio->image}}" width="50" height="50"
                                          class="rounded-circle" alt="">
@@ -991,7 +1014,15 @@ die();
 </script>
 <script>
     $(document).ready(function () {
+
         $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
+
+        $('.gif-tab').hide();
+        $('#ourgif').click(function(){
+            $('.gif-tab').toggle();
+        });
+
+
         $(document).keypress(
             function (event) {
 
@@ -1175,8 +1206,10 @@ $('#msg_user_id').val(userid);
 
             obj.pause();
         });
+        
 
     });
+
 </script>
 <script>
     function openNav() {
@@ -1198,6 +1231,8 @@ $('#msg_user_id').val(userid);
     function setdarktheme() {
         $("body").removeClass("light-theme");
     }
+
+    
 </script>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

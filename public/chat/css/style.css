@@ -937,3 +937,52 @@ ul {
     background-color: #9c9696;
     color: black;
 }
+.fa-file{
+    position: relative;
+    cursor: pointer;
+}
+
+/* gif tab */
+.gif-icons{
+    position: absolute;
+    left: -1px;
+    bottom: -1px;
+    background-color: #24272B;
+    font-size: 9px;
+    padding: 2px;
+    width: 115%;
+    border: none;
+}
+.gif-tab{
+    transition: 0.3s;
+}
+.gif-tab span{
+    background-color: #191B1E;
+    padding: 0px 5px;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #24272B;
+}
+.git-input{
+    background-color: #24272B;
+    border:1px solid #1e1e1e !important;
+    color: #495057;
+
+}
+.git-input::placeholder{
+    color: #bbbdbf;
+}
+.our-gifs{
+  height: 200px;
+  overflow-y: scroll;
+  background-color: #1C1F23;
+}
+
+@media screen and (max-width:768px){
+    .our-gifs{
+        height:75px;
+      }
+    .gif-icons{
+        font-size: 8px;
+    }
+}
