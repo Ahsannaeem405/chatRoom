@@ -164,7 +164,7 @@ die();
                             <li class="nav-item">
                                 <a class="nav-link myprofile navmbl" data-toggle="tab" href="#" role="tab">Profile</a>
                             </li>
-                            
+
 
                         </ul>
                         <!-- Tab panes -->
