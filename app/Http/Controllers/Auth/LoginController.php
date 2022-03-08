@@ -43,6 +43,7 @@ class LoginController extends Controller
             $user=User::find(\Auth::user()->id);
            // dd($user,date('y-m-d'));
              $user->updated_at=date('Y-m-d h:i:s');
+             $user->status='online';
              $user->save();
             $event = event(new sendMessage($message, $user));
             return '/user/chat';
@@ -57,10 +58,12 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         $header = footer::first();
-     
+
 
         return view('auth.login', compact('header'));
     }
+
+
     /**
      * Create a new controller instance.
      *

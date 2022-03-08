@@ -17,10 +17,14 @@ class CreateReportsTable extends Migration
             $table->id();
             $table->string('report')->nullable();
             $table->text('comment')->nullable();
-            $table->integer('msg_id')->nullable();
-            $table->integer('msg_user_id')->nullable();
-            $table->integer('user_rep_id')->nullable();
+            $table->unsignedBigInteger('msg_id')->nullable();
+            $table->unsignedBigInteger('msg_user_id')->nullable();
+            $table->unsignedBigInteger('user_rep_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('msg_user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_rep_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('msg_id')->references('id')->on('messages')->onDelete('cascade');
         });
     }
 

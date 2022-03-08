@@ -43,51 +43,61 @@ class UserController extends Controller
 
     public function chat()
     {
-        $message = Message::with('user','likeuser','sticker')->get();
-        $like=likeMessage::where('message_user_id')->count();
-        $gifs=sticker::all();
+        $message = Message::with('user', 'likeuser', 'sticker')->get();
+        $like = likeMessage::where('message_user_id', \Auth::user()->id)->count();
+        $likedata = likeMessage::where('message_user_id', \Auth::user()->id)->get();
+        $onlineusers = User::where('status', 'online')->where('role', '!=', 'admin')->get();
+        $reports = Report::where('msg_user_id', \Auth::user()->id)->count();
+        $reportdata = Report::where('msg_user_id', \Auth::user()->id)->get();
+
+        $gifs = sticker::all();
 
         $members = User::where('role', 'user')->get();
         $radio = radio::first();
         $profile = \Auth::user();
         // dd( $profile->name);
-        return view('chat.index', compact('message', 'members', 'profile','like','radio','gifs'));
+        return view('chat.index', compact('reportdata', 'onlineusers', 'likedata', 'reports', 'message', 'members', 'profile', 'like', 'radio', 'gifs'));
     }
+
     public function report(Request $request)
     {
 
-        $report=new Report();
-        $report->report=$request->report;
-        $report->comment=$request->comment;
-        $report->msg_id=$request->msg_id;
-        $report->msg_user_id=$request->msg_user_id;
-        $report->user_rep_id=$request->user_rep_id;
+        $report = new Report();
+        $report->report = $request->report;
+        $report->comment = $request->comment;
+        $report->msg_id = $request->msg_id;
+        $report->msg_user_id = $request->msg_user_id;
+        $report->user_rep_id = $request->user_rep_id;
         $report->save();
     }
-    public function updateProfileUser(Request $request ,$id)
+
+    public function updateProfileUser(Request $request, $id)
     {
-        $user=User::find($id);
-        $user->name=$request->name;
-        $user->username=$request->username;
-        $user->email=$request->email;
-        $user->password=\Hash::make($request->password);
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->password = \Hash::make($request->password);
 
         if (isset($request->profile)) {
             $image = $request->file('profile');
             $imageName = $image->getClientOriginalName();
-            $user->profile=$imageName;
+            $user->profile = $imageName;
             $path = $image->move(('image'), $imageName);
         }
         $user->save();
         return redirect()->back()->with('success', "Your profile has been updated!");
 
     }
+
     public function vistUserProfile(Request $request)
     {
-        $user['userProfile']=User::find($request->id);
-        $user['like']=likeMessage::where('message_user_id')->count();
-        return view('chat.vistProfileUser',$user);
+        $user['userProfile'] = User::find($request->id);
+        $user['like'] = likeMessage::where('message_user_id', $request->id)->count();
+        $user['reports'] = Report::where('msg_user_id', $request->id)->count();
+        return view('chat.vistProfileUser', $user);
     }
+
     public function sendMSG(Request $request)
     {
         $message = new Message();
@@ -114,12 +124,25 @@ class UserController extends Controller
         return response()->json($event);
     }
 
+    public function searchMSG(Request $request)
+    {
+
+        if ($request->text != null) {
+            $message['message'] = Message::where('message', 'like', "%$request->text%")->get();
+        } else {
+            $message['message'] = Message::all();
+        }
+
+
+        return view('chat.getMesg', $message);
+    }
+
     public function getMSG(Request $request)
     {
 
-        $message['message'] =Message::where('id',$request->id)->get();
+        $message['message'] = Message::where('id', $request->id)->get();
 
-        return view('chat/getMesg',$message);
+        return view('chat.getMesg', $message);
     }
 
     public function deletemessage(Request $request)
@@ -131,9 +154,8 @@ class UserController extends Controller
 
     public function likemessage(Request $request)
     {
-        $status=$request->status;
-        if($status=='like')
-        {
+        $status = $request->status;
+        if ($status == 'like') {
             $id = $request->id;
             $msg = Message::find($id);
             $user = \Auth::user()->id;
@@ -144,9 +166,8 @@ class UserController extends Controller
             $like->message_user_id = $messageUser;
             $like->message_id = $msg->id;
             $like->save();
-        }
-        else{
-          $find=likeMessage::where('message_id',$request->id)->where('user_id',\Auth::user()->id)->delete();
+        } else {
+            $find = likeMessage::where('message_id', $request->id)->where('user_id', \Auth::user()->id)->delete();
         }
 
     }

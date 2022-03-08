@@ -756,7 +756,7 @@ ul {
 }
 
 .drop2 {
-    margin-right: 3rem;
+    margin-right: 1rem;
 }
 
 .nav-tabs li a {
@@ -985,5 +985,95 @@ ul {
       }
     .gif-icons{
         font-size: 8px;
+    }
+}
+
+/*my css*/
+
+
+.fa-play, .fa-step-forward, .fa-pause, .fa-step-backward {
+    font-size: 20px;
+
+}
+.imgSticker{
+    border-radius: 1px !important;
+    display: block;
+    width: 100% !important;
+    height: auto!important;
+}
+.nav-tabs li a:hover{
+    border: none!important;
+}
+.vistProfile{
+    cursor: pointer;
+}
+
+.reportmsg,   .gifupload {
+    cursor: pointer;
+}
+
+.emojionearea, .emojionearea.form-control {
+    display: block;
+    position: relative !important;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    font-size: 14px;
+    background-color: #24272b !important;
+    border: 1px solid #1e1e1e !important;
+    background: #191B1E;
+    border: none;
+    border-radius: 20px;
+
+}
+
+.emojionearea.emojionearea-inline > .emojionearea-button {
+    top: 4px;
+    background: white !important;
+}
+#mySidenav{
+    width: 0;
+}
+.gif-tab{
+    display: none;
+}
+
+.emojionearea .emojionearea-button > div {
+
+    /* color: red; */
+    /* background: white !important; */
+
+}
+
+.emojionearea, .emojionearea * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.comment {
+    background: transparent;
+    color: white;
+    border: none;
+    border-bottom: 2px solid #b1aeae;
+}
+
+.form-control:focus {
+    background: transparent;
+    color: white;
+    outline: none;
+    box-shadow: none;
+}
+
+::placeholder {
+    color: white;
+}
+@media only screen and (max-width: 768px) {
+    .my-chat {
+        width: 90% !important;
+    }
+
+    .your-chat {
+        width: 90% !important;
     }
 }

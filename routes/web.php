@@ -28,6 +28,10 @@ Auth::routes();
 
 Route::post('/guestLogin', [\App\Http\Controllers\UserController::class, 'guest']);
 Route::get('/logout', function () {
+    $user=\App\Models\User::find(Auth::user()->id);
+
+    $user->status='ofline';
+    $user->update();
 Auth::logout();
 Session::flush();
 return redirect('/');
@@ -49,9 +53,9 @@ Route::prefix('/admin')->middleware(['auth','admin'])->group(function () {
     Route::get('radio', [\App\Http\Controllers\AdminController::class, 'radio']);
     Route::post('radio/update', [\App\Http\Controllers\AdminController::class, 'radioUpdate']);
 
-//clear char
+//clear chat
     Route::get('clearchat',[\App\Http\Controllers\AdminController::class,'clearchat']);
-    Route::post('delete_chat',[\App\Http\Controllers\AdminController::class,'delete_chat']);
+    Route::any('delete_chat',[\App\Http\Controllers\AdminController::class,'delete_chat']);
 
 //cleat guest
     Route::get('clearguest',[\App\Http\Controllers\AdminController::class,'clearguest']);
@@ -104,6 +108,7 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function () {
 
     Route::post('/sendMSG', [\App\Http\Controllers\UserController::class, 'sendMSG']);
     Route::post('/sendGIF', [\App\Http\Controllers\UserController::class, 'sendGIF']);
+    Route::post('/searchMSG', [\App\Http\Controllers\UserController::class, 'searchMSG']);
     Route::get('/getMSG', [\App\Http\Controllers\UserController::class, 'getMSG']);
     Route::get('/deletemessage', [\App\Http\Controllers\UserController::class, 'deletemessage']);
     Route::get('/likemessage', [\App\Http\Controllers\UserController::class, 'likemessage']);

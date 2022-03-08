@@ -1,7 +1,7 @@
 {{-- @dd($userProfile); --}}
 <div class="container-fluid bg-dark2 text-center p-2 rounded-bottom">
     <div class="mb-3">
-     
+
         <img src="{{asset('image')}}/{{$userProfile->profile}}"
         class="rounded-circle img_circle" data-toggle="modal" data-target="#editProfile" alt=""  width="80" height="80">
         <h5 class="text-white mt-1">{{$userProfile->name}}
@@ -16,8 +16,8 @@
             <p>Likes</p>
         </div>
         <div class="border_right  p-2">
-            <b>0</b><br>
-            <p>Report</p>
+            <b>{{$reports}}</b><br>
+            <p>Reports</p>
         </div>
         <div class="p-2">
             <b>{{date('d-M-y',strtotime($userProfile->updated_at))}}</b><br>

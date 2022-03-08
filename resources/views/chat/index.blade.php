@@ -14,79 +14,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <title>Chat</title>
     <style>
-        .fa-play, .fa-step-forward, .fa-pause, .fa-step-backward {
-            font-size: 20px;
-
-        }
-        .imgSticker{
-            border-radius: 1px !important;
-            display: block;
-            width: 100% !important;
-            height: auto!important;
-        }
-
-        .gifupload {
-            cursor: pointer;
-        }
-
-        .emojionearea, .emojionearea.form-control {
-            display: block;
-            position: relative !important;
-            width: 100%;
-            height: auto;
-            padding: 0;
-            font-size: 14px;
-            background-color: #24272b !important;
-            border: 1px solid #1e1e1e !important;
-            background: #191B1E;
-            border: none;
-            border-radius: 20px;
-
-        }
-
-        .emojionearea.emojionearea-inline > .emojionearea-button {
-            top: 4px;
-            background: white !important;
-        }
-
-        .emojionearea .emojionearea-button > div {
-
-            /* color: red; */
-            /* background: white !important; */
-
-        }
-
-        .emojionearea, .emojionearea * {
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-        .comment {
-            background: transparent;
-            color: white;
-            border: none;
-            border-bottom: 2px solid #b1aeae;
-        }
-
-        .form-control:focus {
-            background: transparent;
-            color: white;
-            outline: none;
-            box-shadow: none;
-        }
-
-        ::placeholder {
-            color: white;
-        }
-        @media only screen and (max-width: 768px) {
-            .my-chat {
-                width: 90% !important;
-            }
-
-            .your-chat {
-                width: 90% !important;
-            }
+        .navmbl {
+            font-size: 15px !important;
         }
     </style>
 
@@ -151,10 +80,10 @@ die();
                         @if(isset($profile->profile))
 
                             <img src="{{asset('image')}}/{{$profile->profile}}"
-                                 class="imgCircle" style="width: 40px;height:40px;border-radius:50%" alt="">
+                                 class="imgCircle myprofile" style="width: 40px;height:40px;border-radius:50%" alt="">
                         @else
                             <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}"
-                                 class="imgCircle" style="width: 40px;height:40px;border-radius:50%">
+                                 class="imgCircle myprofile" style="width: 40px;height:40px;border-radius:50%">
                         @endif
                         <div class="user-profile">
                             <ul>
@@ -219,107 +148,135 @@ die();
 
 
             <div class="w-100">
-                <div class="row p-2">
+                <div class=" p-2">
 
                     <div class="col-12">
 
 
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-1" role="tab">Alert</a>
-                            </li>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-2" role="tab">Member</a>
+                                <a class="nav-link tablink navmbl" data-toggle="tab" href="#tabs-3" role="tab">Alert</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-3" role="tab">Petitions</a>
-                            </li> -->
+                                <a class="nav-link tablink onlinetab navmbl" data-toggle="tab" href="#tabs-4"
+                                   role="tab">Online Users</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link myprofile navmbl" data-toggle="tab" href="#" role="tab">Profile</a>
+                            </li>
+
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div class="tab-pane" id="tabs-1" role="tabpanel">
-                                <div class="row">
-                                    <div class="col-12 text-center text-light alert_div pt-5 pb-5">
+                            <div class="tab-pane" id="tabs-3" role="tabpanel">
+                                <div class="row table-responsive text-center text-light" style="height: 40vh">
+                                    @if(count($likedata)==0 && count($reportdata)==0)
                                         <h3>0</h3>
                                         <h3>Alerts</h3>
-                                    </div>
+                                    @endif
+                                    @foreach($likedata as $likedatas)
+                                        <div class="col-12 text-center text-light alert_div pt-1 pb-1">
+                                            <div class="w-100 bg-dark d-flex justify-content-between p-3">
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <img src="{{asset('image/'.$likedatas->user->profile)}}"
+                                                             width="40"
+                                                             class="rounded" alt=""></div>
+
+                                                    <div style="line-height: 2px;"
+                                                         class="text-light ml-2 pt-2 text-left ">
+                                                        <p>{{$likedatas->user->name}}</p>
+                                                        <p>Liked your message</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                    @foreach($reportdata as $reportdatas)
+                                        <div class="col-12 text-center text-light alert_div pt-1 pb-1">
+                                            <div class="w-100 bg-dark d-flex justify-content-between p-3">
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <img src="{{asset('image/'.$reportdatas->user->profile)}}"
+                                                             width="40"
+                                                             class="rounded" alt=""></div>
+
+                                                    <div style="line-height: 2px;"
+                                                         class="text-light ml-2 pt-2 text-left ">
+                                                        <p>{{$reportdatas->user->name}}</p>
+                                                        <p>Reported your message</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    @endforeach
+
                                 </div>
                             </div>
-                            <div class="tab-pane" id="tabs-2" role="tabpanel">
-                                <div class="w-100 bg-dark d-flex justify-content-between p-3">
-                                    <div class="d-flex">
-                                        <img src="image/avatar.jpg" width="40" class="rounded" alt="">
 
-                                        <div style="line-height: 2px;" class="text-light ml-2 pt-2">
-                                            <p>Danny</p>
-                                            <p>Admin</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex  justify-content-end text-light member_hov">
-                                        <div class="button_div d-flex">
-                                            <button class="btn_1">View</button>
-                                            <button class="btn_2">Chat</button>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="w-100 bg-dark d-flex justify-content-between p-3">
-                                    <div class="d-flex">
-                                        <img src="{{asset('chat/image/avatar.jpg')}}" width="40"
-                                             class="rounded" alt="">
-
-                                        <div style="line-height: 2px;" class="text-light ml-2 pt-2">
-                                            <p>Danny</p>
-                                            <p>Admin</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex  justify-content-end text-light member_hov">
-                                        <div class="button_div d-flex">
-                                            <button class="btn_1">View</button>
-                                            <button class="btn_2">Chat</button>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="tab-pane" id="tabs-3" role="tabpanel">
-                                <div class="row">
-                                    <div class="col-12 text-center text-light alert_div pt-5 pb-5">
+                            <div class="tab-pane" id="tabs-4" role="tabpanel">
+                                <div class="row table-responsive text-center text-light" style="height: 40vh">
+                                    @if(count($onlineusers)==0)
                                         <h3>0</h3>
-                                        <h3>Petitions</h3>
-                                    </div>
+                                        <h3>Alerts</h3>
+                                    @endif
+                                    @foreach($onlineusers as $onlineuser)
+                                        <div class="col-12 text-center text-light alert_div pt-1 pb-1">
+                                            <div class="w-100 bg-dark d-flex justify-content-between p-3">
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <img src="{{asset('image/'.$onlineuser->profile)}}" width="40"
+                                                             class="rounded" alt=""></div>
+
+                                                    <div style="line-height: 2px;"
+                                                         class="text-light ml-2 pt-2 text-left ">
+                                                        <p>{{$onlineuser->name}}</p>
+                                                        <p style="color: green">online</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    @endforeach
+
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
+
+
             </div>
 
             <div class="position-relative profile_div">
-                <div class="container-fluid bg-dark2 text-center p-2 rounded-bottom">
+
+
+                <div class="container-fluid  bg-dark2 text-center p-2 rounded-bottom">
                     <div class="mb-3">
                         @if(isset($profile->profile))
 
                             <img src="{{asset('image')}}/{{$profile->profile}}"
-                                 class="rounded-circle img_circle" data-toggle="modal" data-target="#editProfile"
-                                 width="80" height="80" alt="">
+                                 class="rounded-circle img_circle" data-toggle="modal"
+                                 data-target="#editProfile" width="80" height="80" alt="">
                         @else
                             <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}"
-                                 class="rounded-circle img_circle" data-toggle="modal" data-target="#editProfile" alt=""
-                                 width="80" height="80">
+                                 class="rounded-circle img_circle" data-toggle="modal"
+                                 data-target="#editProfile" alt="" width="80" height="80">
                         @endif
+
+
                     </div>
 
 
-                    <button class="btn btn-success btn_gra" data-toggle="modal" data-target="#editProfile">Edit
-                        Profile
+                    <button data-toggle="modal" data-target="#editProfile"
+                            class="btn btn-success btn_gra">Edit Profile
                     </button>
+
+
                     <div class="d-flex text-light pt-4 justify-content-center bg-dark"
                          style="margin-top: -10px">
                         <div class="border_right  p-2">
@@ -327,8 +284,8 @@ die();
                             <p>Likes</p>
                         </div>
                         <div class="border_right  p-2">
-                            <b>0</b><br>
-                            <p>Report</p>
+                            <b>{{$reports}}</b><br>
+                            <p>Reports</p>
                         </div>
                         <div class="p-2">
                             <b>{{date('d-M-y',strtotime($profile->updated_at))}}</b><br>
@@ -338,20 +295,20 @@ die();
 
                 </div>
             <!-- <div class="Scroll_div">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12 mt-2 bg-dark2 p-2 text-light">
-                                <h6>Profile link:</h6>
-                                <div class="left_border p-2">
-                                    <p>https://nycrhythm.net/chat/group/782/</p>
-                                </div>
-                            </div>
-                            <div class="col-12 mt-2 bg-dark2 p-2 text-light  ">
-                                <h6>Embed Code :</h6>
-                                <p class=" left_border p-2">
-                                    {{'<iframe width="411px" height="650px" allow="camera;microphone"
-                                              src="https://nycrhythm.net/chat/rehmanjqvps/" frameborder=0
-                                              allowfullscreen></iframe>'}}
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-12 mt-2 bg-dark2 p-2 text-light">
+                                                <h6>Profile link:</h6>
+                                                <div class="left_border p-2">
+                                                    <p>https://nycrhythm.net/chat/group/782/</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mt-2 bg-dark2 p-2 text-light  ">
+                                                <h6>Embed Code :</h6>
+                                                <p class=" left_border p-2">
+                                                    {{'<iframe width="411px" height="650px" allow="camera;microphone"
+                                                              src="https://nycrhythm.net/chat/rehmanjqvps/" frameborder=0
+                                                              allowfullscreen></iframe>'}}
                 </p>
 
             </div>
@@ -361,8 +318,16 @@ die();
 </div> -->
 
             </div>
+
+            <div class="position-relative visit_div" style="display: none">
+                <div class="container-fluid vistProfile bg-dark2 text-center p-2 rounded-bottom">
+
+                </div>
+
+
+            </div>
             <div class="w-100 text-center">
-                <button class="share-btn mobile" style="margin-top:2rem">Share</button>
+                <button class="share-btn mobile" text="{{url()->current()}}">Share</button>
             </div>
         </div>
     </div>
@@ -403,23 +368,32 @@ die();
                                                         data-toggle="dropdown" aria-haspopup="true"
                                                         aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
                                                 <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item text-light" href="#">Online Users</a>
-                                                    <a class="dropdown-item text-light" href="#">Profile</a>
-                                                    <a class="dropdown-item text-light" href="#">Radio</a>
-                                                    <a class="dropdown-item text-light" href="#">Chat Options</a>
+
+                                                    <a class="dropdown-item text-light onlineuser" href="#">Online
+                                                        Users</a>
+                                                    <a class="dropdown-item text-light myprofile" href="#">Profile</a>
+                                                    <a class="dropdown-item text-light fa-play2 " href="#">Radio</a>
+                                                    {{--                                                    <a class="dropdown-item text-light" href="#">Chat Options</a>--}}
                                                     <a class="dropdown-item text-light" href="#"
                                                        onclick="setLighttheme()">Light Mode</a>
                                                     <a class="dropdown-item text-light" href="#"
                                                        onclick="setdarktheme()">Dark Mode</a>
-                                                    <!-- <a class="dropdown-item text-light" href="#">Delete Chat</a>
+                                                    @if(Auth::user()->role=='admin')
+                                                        <a class="dropdown-item text-light"
+                                                           href="{{url('admin/delete_chat')}}">Delete Chat</a>
+                                                @endif
+                                                <!-- <a class="dropdown-item text-light" href="#">Delete Chat</a>
                                                     <a class="dropdown-item text-light" href="#">Messages</a> -->
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 mt-1 search_div d-none">
-                                            <form action="#" method="post">
+                                        <div class="col-12 mt-1 search_div d-none position-absolute"
+                                             style="z-index: 1000;background-color: black">
+                                            <form action="#" class="d-flex " style="align-items: center" method="post">
                                                 <input type="text" name="search" placeholder="Search"
                                                        class="form-control input_search">
+                                                <i class="fa fa-search-minus ml-2 clear_search"
+                                                   style="font-size: 20px"></i>
                                             </form>
                                         </div>
                                     </div>
@@ -519,7 +493,8 @@ die();
                                                     <div class="chat-text">
                                                         <span
                                                             class="orange">{{$msg->user->name}} : </span>
-                                                        <img src="{{asset('sticker/'.$msg->sticker->sticker.'')}}" class="imgSticker" alt="">
+                                                        <img src="{{asset('sticker/'.$msg->sticker->sticker.'')}}"
+                                                             class="imgSticker" alt="">
                                                         <div class="chat-details">{{$msg->created_at}}</div>
 
                                                     </div>
@@ -542,7 +517,8 @@ die();
                                                     </div>
                                                     <div class="chat-text"><span
                                                             class="purple">{{$msg->user->name}} :</span>
-                                                        <img src="{{asset('sticker/'.$msg->sticker->sticker.'')}}" class="imgSticker" alt="">
+                                                        <img src="{{asset('sticker/'.$msg->sticker->sticker.'')}}"
+                                                             class="imgSticker" alt="">
 
                                                         <div class="chat-details">
                                                             {{$msg->created_at}}
@@ -666,9 +642,9 @@ die();
                             <div class="form-group mb-0 message_div px-3">
                                 <div class="row">
                                     <div class="col-12 gif-tab">
-                                        <span class="text-light mt-2">GIFs</span>
-                                        <input type="text" class="form-control mt-2 git-input"
-                                               placeholder="Search GIFs">
+                                        <span class="text-light mt-4" style="font-size: 17px">GIFs</span>
+                                        {{--                                        <input type="text" class="form-control mt-2 git-input"--}}
+                                        {{--                                               placeholder="Search GIFs">--}}
 
                                         <div class="row our-gifs mt-2">
                                             @foreach($gifs as $gif)
@@ -704,11 +680,13 @@ die();
                                         @if(isset($profile->profile))
 
                                             <img src="{{asset('image')}}/{{$profile->profile}}"
-                                                 class="imgCircle" style="width: 40px;height:40px;border-radius:50%"
+                                                 class="imgCircle myprofile"
+                                                 style="width: 40px;height:40px;border-radius:50%"
                                                  alt="">
                                         @else
                                             <img src="{{asset('chat/image/782-gr-R8Mt30L6pg.png')}}"
-                                                 class="imgCircle" style="width: 40px;height:40px;border-radius:50%">
+                                                 class="imgCircle myprofile"
+                                                 style="width: 40px;height:40px;border-radius:50%">
                                         @endif
                                         <div class="user-profile">
                                             <ul>
@@ -778,76 +756,105 @@ die();
 
                                         <ul class="nav nav-tabs" role="tablist">
                                             <li class="nav-item">
-                                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-4" role="tab">Alert</a>
-                                            </li>
-                                            <!-- <li class="nav-item">
-                                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-5" role="tab">Member</a>
+                                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-1" role="tab">Alert</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link tablink" data-toggle="tab" href="#tabs-6" role="tab">Petitions</a>
-                                            </li> -->
+                                                <a class="nav-link tablink onlinetab" data-toggle="tab" href="#tabs-2"
+                                                   role="tab">Online Users</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link myprofile" data-toggle="tab" href="#" role="tab">Profile</a>
+                                            </li>
+
                                         </ul>
                                         <!-- Tab panes -->
                                         <div class="tab-content">
-                                            <div class="tab-pane" id="tabs-4" role="tabpanel">
-                                                <div class="row">
-                                                    <div class="col-12 text-center text-light alert_div pt-5 pb-5">
+                                            <div class="tab-pane" id="tabs-1" role="tabpanel">
+                                                <div class="row table-responsive text-center text-light"
+                                                     style="height: 40vh">
+                                                    @if(count($likedata)==0 && count($reportdata)==0)
                                                         <h3>0</h3>
                                                         <h3>Alerts</h3>
-                                                    </div>
+                                                    @endif
+                                                    @foreach($likedata as $likedata)
+                                                        <div class="col-12 text-center text-light alert_div pt-1 pb-1">
+                                                            <div
+                                                                class="w-100 bg-dark d-flex justify-content-between p-3">
+                                                                <div class="d-flex">
+                                                                    <div>
+                                                                        <img
+                                                                            src="{{asset('image/'.$likedata->user->profile)}}"
+                                                                            width="40"
+                                                                            class="rounded" alt=""></div>
+
+                                                                    <div style="line-height: 2px;"
+                                                                         class="text-light ml-2 pt-2 text-left ">
+                                                                        <p>{{$likedata->user->name}}</p>
+                                                                        <p>Liked your message</p>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+
+                                                    @foreach($reportdata as $reportdata)
+                                                        <div class="col-12 text-center text-light alert_div pt-1 pb-1">
+                                                            <div
+                                                                class="w-100 bg-dark d-flex justify-content-between p-3">
+                                                                <div class="d-flex">
+                                                                    <div>
+                                                                        <img
+                                                                            src="{{asset('image/'.$reportdata->user->profile)}}"
+                                                                            width="40"
+                                                                            class="rounded" alt=""></div>
+
+                                                                    <div style="line-height: 2px;"
+                                                                         class="text-light ml-2 pt-2 text-left ">
+                                                                        <p>{{$reportdata->user->name}}</p>
+                                                                        <p>Reported your message</p>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+
                                                 </div>
                                             </div>
-                                            <div class="tab-pane" id="tabs-5" role="tabpanel">
-                                                <div class="w-100 bg-dark d-flex justify-content-between p-3">
-                                                    <div class="d-flex">
-                                                        <img src="image/avatar.jpg" width="40" class="rounded" alt="">
 
-                                                        <div style="line-height: 2px;" class="text-light ml-2 pt-2">
-                                                            <p>Danny</p>
-                                                            <p>Admin</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="d-flex  justify-content-end text-light member_hov">
-                                                        <div class="button_div d-flex">
-                                                            <button class="btn_1">View</button>
-                                                            <button class="btn_2">Chat</button>
-
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-                                                <div class="w-100 bg-dark d-flex justify-content-between p-3">
-                                                    <div class="d-flex">
-                                                        <img src="{{asset('chat/image/avatar.jpg')}}" width="40"
-                                                             class="rounded" alt="">
-
-                                                        <div style="line-height: 2px;" class="text-light ml-2 pt-2">
-                                                            <p>Danny</p>
-                                                            <p>Admin</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="d-flex  justify-content-end text-light member_hov">
-                                                        <div class="button_div d-flex">
-                                                            <button class="btn_1">View</button>
-                                                            <button class="btn_2">Chat</button>
-
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="tab-pane" id="tabs-6" role="tabpanel">
-                                                <div class="row">
-                                                    <div class="col-12 text-center text-light alert_div pt-5 pb-5">
+                                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                                <div class="row table-responsive text-center text-light"
+                                                     style="height: 40vh">
+                                                    @if(count($onlineusers)==0)
                                                         <h3>0</h3>
-                                                        <h3>Petitions</h3>
-                                                    </div>
+                                                        <h3>Alerts</h3>
+                                                    @endif
+                                                    @foreach($onlineusers as $onlineusers)
+                                                        <div class="col-12 text-center text-light alert_div pt-1 pb-1">
+                                                            <div
+                                                                class="w-100 bg-dark d-flex justify-content-between p-3">
+                                                                <div class="d-flex">
+                                                                    <div>
+                                                                        <img
+                                                                            src="{{asset('image/'.$onlineusers->profile)}}"
+                                                                            width="40"
+                                                                            class="rounded" alt=""></div>
+
+                                                                    <div style="line-height: 2px;"
+                                                                         class="text-light ml-2 pt-2 text-left ">
+                                                                        <p>{{$onlineusers->name}}</p>
+                                                                        <p style="color: green">online</p>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -859,7 +866,7 @@ die();
                             <div class="position-relative profile_div">
 
 
-                                <div class="container-fluid vistProfile bg-dark2 text-center p-2 rounded-bottom">
+                                <div class="container-fluid  bg-dark2 text-center p-2 rounded-bottom">
                                     <div class="mb-3">
                                         @if(isset($profile->profile))
 
@@ -976,8 +983,8 @@ die();
                                             <p>Likes</p>
                                         </div>
                                         <div class="border_right  p-2">
-                                            <b>0</b><br>
-                                            <p>Report</p>
+                                            <b>{{$reports}}</b><br>
+                                            <p>Reports</p>
                                         </div>
                                         <div class="p-2">
                                             <b>{{date('d-M-y',strtotime($profile->updated_at))}}</b><br>
@@ -1010,8 +1017,19 @@ die();
                 </div> -->
 
                             </div>
+
+                            <div class="position-relative visit_div" style="display: none">
+                                <div class="container-fluid vistProfile bg-dark2 text-center p-2 rounded-bottom">
+
+                                </div>
+
+
+                            </div>
+
+
                             <div class="w-100 text-center">
-                                <button class="share-btn">Share</button>
+
+                                <button class="share-btn" text="{{url()->current()}}">Share</button>
                             </div>
 
                         </div>
@@ -1047,6 +1065,7 @@ die();
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script>
 
     // Enable pusher logging - don't include this in production
@@ -1106,8 +1125,9 @@ die();
             });
 
 
-        $('.imgCircle').click(function () {
-            $(".profile_div").css('display', 'block');
+        $('.myprofile').click(function () {
+            $(".profile_div").show();
+            $(".visit_div").hide();
             $(".tab-pane").removeClass('active');
             $(".tablink").removeClass('active');
 
@@ -1115,7 +1135,6 @@ die();
 
 
         // $('#mySidenav').close();
-        $('#mySidenav').css('width', '0');
 
 
         $(".img_div").mouseover(function () {
@@ -1130,7 +1149,12 @@ die();
 
         $(".tablink").click(function () {
             $(".profile_div").css('display', 'none');
+            $(".visit_div").css('display', 'none');
 
+
+        });
+        $(".onlineuser").click(function () {
+            $(".onlinetab").click();
 
         });
         $(".search_icon").click(function () {
@@ -1143,6 +1167,34 @@ die();
 
         $('.btn_send').click(function () {
             sendMsg();
+        });
+        $('.input_search').change(function () {
+            var text = $('.input_search').val();
+            $.ajax({
+                url: '{{URL::to('user/searchMSG')}}',
+                type: 'POST',
+                data: {'text': text},
+                success: function (data) {
+                    $('.chatContainerScroll').empty().append(data);
+                    $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
+
+                }
+            });
+        });
+        $('.clear_search').click(function () {
+            $('.input_search').val('');
+            $(".search_div").toggleClass('d-none');
+            var text = '';
+            $.ajax({
+                url: '{{URL::to('user/searchMSG')}}',
+                type: 'POST',
+                data: {'text': text},
+                success: function (data) {
+                    $('.chatContainerScroll').empty().append(data);
+                    $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
+
+                }
+            });
         });
 
         function sendMsg() {
@@ -1248,9 +1300,7 @@ die();
         $(document).on('click', '.gifupload', function () {
             var stickerID = $(this).attr('gifid');
 
-         sendGif(stickerID);
-
-
+            sendGif(stickerID);
 
 
         });
@@ -1262,6 +1312,8 @@ die();
                 type: 'GET',
                 data: {'id': vistUserProfile},
                 success: function (data) {
+                    $('.profile_div').hide();
+                    $('.visit_div').show();
                     $('.vistProfile').empty().append(data);
 
                 }
@@ -1271,7 +1323,7 @@ die();
 
         function sendGif(id) {
             $('.gif-tab').toggle();
-        var msg=id;
+            var msg = id;
             $.ajax({
                 url: '{{URL::to('user/sendGIF')}}',
                 type: 'POST',
@@ -1282,11 +1334,12 @@ die();
                 }
             });
         }
+
         //audio play and pause
         var obj = document.createElement('audio');
         $('.fa-pause').hide();
         $('.audio').hide();
-        $('.fa-play').click(function () {
+        $('.fa-play , .fa-play2').click(function () {
             var audio = $('.audio').attr('audio');
             $('.fa-pause').show();
 
@@ -1301,6 +1354,17 @@ die();
             $('.fa-play').show();
 
             obj.pause();
+        });
+        $('.share-btn').click(function () {
+            var text = $(this).attr('text');
+            navigator.clipboard.writeText(text);
+
+            swal("Site Link Copied Successfully", "", "success", {
+                button: "Close",
+
+            });
+
+
         });
 
 
