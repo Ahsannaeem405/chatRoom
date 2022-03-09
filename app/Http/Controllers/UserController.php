@@ -58,8 +58,10 @@ class UserController extends Controller
 
 
 
-//        $gif=\Http::get('https://g.tenor.com/v1/search?q=excited&key=LIVDSRZULELA&limit=8');
-//        dd(json_decode($gif->body()));
+        $giftenor=\Http::get('https://g.tenor.com/v1/random?q=excited&key=LIVDSRZULELA&limit=1&media_filter=gif');
+
+        $giftenor=json_decode($giftenor->body());
+
 
         $message = Message::with('user', 'likeuser', 'sticker')->get();
         $like = likeMessage::where('message_user_id', \Auth::user()->id)->count();
@@ -74,7 +76,7 @@ class UserController extends Controller
         $radio = radio::first();
         $profile = \Auth::user();
         // dd( $profile->name);
-        return view('chat.index', compact('reportdata', 'onlineusers', 'likedata', 'reports', 'message', 'members', 'profile', 'like', 'radio', 'gifs'));
+        return view('chat.index', compact('giftenor','reportdata', 'onlineusers', 'likedata', 'reports', 'message', 'members', 'profile', 'like', 'radio', 'gifs'));
     }
 
     public function report(Request $request)

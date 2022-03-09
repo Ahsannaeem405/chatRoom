@@ -648,12 +648,23 @@ die();
                                         {{--                                               placeholder="Search GIFs">--}}
 
                                         <div class="row our-gifs mt-2">
+
+
+                                            @foreach($giftenor->results as $gift)
+
+                                                <div class="col-3 mt-2">
+                                                    <img src="{{$gift->media[0]->gif->url}}" style="width: 100%;height: 150px"
+                                                         gifid="{{$gift->id}}" class="img-fluid gifupload"/>
+                                                </div>
+                                            @endforeach
                                             @foreach($gifs as $gif)
                                                 <div class="col-3 mt-2">
                                                     <img src="{{asset('sticker/'.$gif->sticker.'')}}"
                                                          gifid="{{$gif->id}}" class="img-fluid gifupload"/>
                                                 </div>
                                             @endforeach
+
+
 
 
                                         </div>
