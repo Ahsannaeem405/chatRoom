@@ -58,7 +58,7 @@ class UserController extends Controller
 
 
 
-        $giftenor=\Http::get('https://g.tenor.com/v1/random?q=excited&key=LIVDSRZULELA&limit=1&media_filter=gif');
+        $giftenor=\Http::get('https://g.tenor.com/v1/random?q=excited&key=LIVDSRZULELA&limit=12&media_filter=gif');
 
         $giftenor=json_decode($giftenor->body());
 
