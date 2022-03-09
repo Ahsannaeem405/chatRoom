@@ -43,6 +43,24 @@ class UserController extends Controller
 
     public function chat()
     {
+
+
+//
+//        $curl = curl_init ("https://g.tenor.com/v1/search?q=excited&key=UVSFU7M2BERP&limit=8");
+//        curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+//        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+//        curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 60);
+//        curl_setopt($curl, CURLOPT_TIMEOUT, 60);
+//        $result = curl_exec($curl);
+//        curl_close($curl);
+//
+//        dd($curl) ;
+
+
+
+//        $gif=\Http::get('https://g.tenor.com/v1/search?q=excited&key=LIVDSRZULELA&limit=8');
+//        dd(json_decode($gif->body()));
+
         $message = Message::with('user', 'likeuser', 'sticker')->get();
         $like = likeMessage::where('message_user_id', \Auth::user()->id)->count();
         $likedata = likeMessage::where('message_user_id', \Auth::user()->id)->get();
