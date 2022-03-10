@@ -1242,6 +1242,7 @@ die();
         });
 
         function sendMsg() {
+            $(".emojionearea-editor").focus();
             $("#text_msg").focus();
             var msg = $('#text_msg').val();
             $('#text_msg').val('');
