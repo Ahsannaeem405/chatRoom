@@ -182,13 +182,13 @@ die();
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
-                                <div class="row table-responsive text-center text-light" style="height: 40vh">
+                                <div class="row table-responsive text-center text-light" style="height: 40vh;margin: 0">
                                     @if(count($likedata)==0 && count($reportdata)==0)
                                         <h3>0</h3>
                                         <h3>Alerts</h3>
                                     @endif
                                     @foreach($likedata as $likedatas)
-                                        <div class="col-12 text-center text-light alert_div pt-1 pb-1">
+                                        <div class="col-12 text-center text-light alert_div pt-1 pb-1 p-0">
                                             <div class="w-100 bg-dark d-flex justify-content-between p-3">
                                                 <div class="d-flex">
                                                     <div>
