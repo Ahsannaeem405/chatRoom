@@ -45,17 +45,6 @@ class UserController extends Controller
     {
 
 
-//
-//        $curl = curl_init ("https://g.tenor.com/v1/search?q=excited&key=UVSFU7M2BERP&limit=8");
-//        curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-//        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-//        curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 60);
-//        curl_setopt($curl, CURLOPT_TIMEOUT, 60);
-//        $result = curl_exec($curl);
-//        curl_close($curl);
-//
-//        dd($curl) ;
-
 
 
         $giftenor=\Http::get('https://g.tenor.com/v1/random?q=excited&key=LIVDSRZULELA&limit=12&media_filter=gif');
