@@ -986,6 +986,11 @@ ul {
     .gif-icons{
         font-size: 8px;
     }
+
+    /*.dropdown-menu{*/
+
+    /*    transform: translate3d(342px, 34px, 0px) !important;*/
+    /*}*/
 }
 
 /*my css*/

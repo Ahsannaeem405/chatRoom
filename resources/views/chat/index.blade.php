@@ -20,8 +20,11 @@
         .chat-text_gif{
             width: 60% !important;
         }
-            .dropdown-menu{
-                right: 0 !important;
+        .userdropdown{
+            left: -100px !important;
+        }
+            .search{
+                display: none;
             }
     </style>
 
@@ -374,7 +377,7 @@ die();
                                                 <button class="button_dots" id="dropdownMenuButton"
                                                         data-toggle="dropdown" aria-haspopup="true"
                                                         aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
-                                                <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+                                                <div class="dropdown-menu bg-dark userdropdown" aria-labelledby="dropdownMenuButton">
 
                                                     <a class="dropdown-item text-light onlineuser" href="#">Online
                                                         Users</a>
@@ -655,14 +658,14 @@ die();
 
                                         <div class="row our-gifs mt-2">
 
-                                            <input type="hidden" value="{{$giftenor->next}}" id="next">
+                                            <input type="hidden" value="{{isset($giftenor->next) ? $giftenor->next : null}}" id="next">
                                             @foreach($gifs as $gif)
                                                 <div class="col-3 mt-2">
                                                     <img src="{{asset('sticker/'.$gif->sticker.'')}}"
                                                          gifid="{{$gif->id}}" type="admin" class="img-fluid gifupload"/>
                                                 </div>
                                             @endforeach
-                                            @foreach($giftenor->results as $gift)
+                                            @foreach($giftenor as $gift)
 
                                                 <div class="col-3 mt-2">
                                                     <img src="{{$gift->media[0]->gif->url}}" style="width: 100%;height: 150px"
