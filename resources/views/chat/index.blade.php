@@ -82,6 +82,98 @@ die();
 @endphp
 <div class="container-fluid p-0 " style="height: 100vh">
 
+
+
+    <div class="modal fade" id="editProfile" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-dark">
+                    <h5 class="modal-title text-white" id="exampleModalLongTitle">Edit Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span class="text-white" aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body bg-dark">
+                    <div class="col-md-12">
+                        <form method="POST"
+                              action="{{url('user/updateProfileUser')}}/{{$profile->id}}"
+                              enctype="multipart/form-data">
+                            @csrf
+                            <img src="{{asset('image')}}/{{$profile->profile}}" alt=""
+                                 class="rounded-circle img_circle mt-2 mb-3" width="80"
+                                 height="80">
+
+                            <div class="form-group row">
+                                <label for="inputPassword3"
+                                       class="col-sm-3 col-form-label text-white">Profile</label>
+                                <div class="col-sm-9">
+                                    <input type="file" name="profile"
+                                           class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword3"
+                                       class="col-sm-3 col-form-label text-white">Full
+                                    Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="name"
+                                           value="{{$profile->name}}"
+                                           class="form-control"
+                                           placeholder="Enter Name">
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword3"
+                                       class="col-sm-3 col-form-label text-white">Username</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="username"
+                                           value="{{$profile->username}}"
+                                           class="form-control"
+                                           placeholder="Enter Username">
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword3"
+                                       class="col-sm-3 col-form-label text-white">Email</label>
+                                <div class="col-sm-9">
+                                    <input type="email" name="email"
+                                           value="{{$profile->email}}"
+                                           class="form-control "
+                                           placeholder="Enter Email">
+
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="inputPassword3"
+                                       class="col-sm-3 col-form-label text-white">Password</label>
+                                <div class="col-sm-9">
+                                    <input type="password" name="password"
+                                           class="form-control"
+                                           placeholder="Enter Password">
+
+                                </div>
+                            </div>
+
+                            <button type="submit"
+                                    class="btn btn-primary btn_gra text-center my-3 col-4">
+                                Update Profile
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                {{-- <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div> --}}
+            </div>
+        </div>
+    </div>
+
     <!-- mobile side bar start -->
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -913,95 +1005,7 @@ die();
                                             class="btn btn-success btn_gra">Edit Profile
                                     </button>
 
-                                    <div class="modal fade" id="editProfile" tabindex="-1" role="dialog"
-                                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog " role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header bg-dark">
-                                                    <h5 class="modal-title text-white" id="exampleModalLongTitle">Edit Profile</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                        <span class="text-white" aria-hidden="true">×</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body bg-dark">
-                                                    <div class="col-md-12">
-                                                        <form method="POST"
-                                                              action="{{url('user/updateProfileUser')}}/{{$profile->id}}"
-                                                              enctype="multipart/form-data">
-                                                            @csrf
-                                                            <img src="{{asset('image')}}/{{$profile->profile}}" alt=""
-                                                                 class="rounded-circle img_circle mt-2 mb-3" width="80"
-                                                                 height="80">
 
-                                                            <div class="form-group row">
-                                                                <label for="inputPassword3"
-                                                                       class="col-sm-3 col-form-label text-white">Profile</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="file" name="profile"
-                                                                           class="form-control">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <label for="inputPassword3"
-                                                                       class="col-sm-3 col-form-label text-white">Full
-                                                                    Name</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="text" name="name"
-                                                                           value="{{$profile->name}}"
-                                                                           class="form-control"
-                                                                           placeholder="Enter Name">
-
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <label for="inputPassword3"
-                                                                       class="col-sm-3 col-form-label text-white">Username</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="text" name="username"
-                                                                           value="{{$profile->username}}"
-                                                                           class="form-control"
-                                                                           placeholder="Enter Username">
-
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group row">
-                                                                <label for="inputPassword3"
-                                                                       class="col-sm-3 col-form-label text-white">Email</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="email" name="email"
-                                                                           value="{{$profile->email}}"
-                                                                           class="form-control "
-                                                                           placeholder="Enter Email">
-
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="form-group row">
-                                                                <label for="inputPassword3"
-                                                                       class="col-sm-3 col-form-label text-white">Password</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="password" name="password"
-                                                                           class="form-control"
-                                                                           placeholder="Enter Password">
-
-                                                                </div>
-                                                            </div>
-
-                                                            <button type="submit"
-                                                                    class="btn btn-primary btn_gra text-center my-3 col-4">
-                                                                Update Profile
-                                                            </button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                {{-- <div class="modal-footer">
-                                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                  <button type="button" class="btn btn-primary">Save changes</button>
-                                                </div> --}}
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="d-flex text-light pt-4 justify-content-center bg-dark"
                                          style="margin-top: -10px">
                                         <div class="border_right  p-2">
