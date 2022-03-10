@@ -917,8 +917,7 @@ die();
                                         <div class="modal-dialog " role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header bg-dark">
-                                                    <h5 class="modal-title text-white" id="exampleModalLongTitle">Edit
-                                                        Profile</h5>
+                                                    <h5 class="modal-title text-white" id="exampleModalLongTitle">Edit Profile</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                         <span class="text-white" aria-hidden="true">×</span>
@@ -934,6 +933,14 @@ die();
                                                                  class="rounded-circle img_circle mt-2 mb-3" width="80"
                                                                  height="80">
 
+                                                            <div class="form-group row">
+                                                                <label for="inputPassword3"
+                                                                       class="col-sm-3 col-form-label text-white">Profile</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="file" name="profile"
+                                                                           class="form-control">
+                                                                </div>
+                                                            </div>
                                                             <div class="form-group row">
                                                                 <label for="inputPassword3"
                                                                        class="col-sm-3 col-form-label text-white">Full
@@ -979,14 +986,7 @@ die();
 
                                                                 </div>
                                                             </div>
-                                                            <div class="form-group row">
-                                                                <label for="inputPassword3"
-                                                                       class="col-sm-3 col-form-label text-white">Profile</label>
-                                                                <div class="col-sm-9">
-                                                                    <input type="file" name="profile"
-                                                                           class="form-control">
-                                                                </div>
-                                                            </div>
+
                                                             <button type="submit"
                                                                     class="btn btn-primary btn_gra text-center my-3 col-4">
                                                                 Update Profile
