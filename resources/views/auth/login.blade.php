@@ -9,7 +9,7 @@
                 <div class='box ltr'>
                     <div class="logo">
                    <img src="{{asset('header')}}/{{$header->h_image}}" class="img-fluid img-responsive" style="width: 100%;height: 114px; "/>
-                       
+
                     </div>
                     <div class="errormsg">
                         <span></span>
@@ -57,7 +57,7 @@
                                 <ul>
                                     <li no="25"><a href="{{ url('auth/facebook') }}"><img src="{{asset('gem/ore/grupo/loginprovider/25-gr-CNDDatRPuz.png')}}"/></a></li>
                                     <li no="26"><a href="{{ url('auth/google') }}"><img src="{{asset('gem/ore/grupo/loginprovider/26-gr-31alUcNhOX.jpg')}}"/></a></li>
-                                    <li no="229"><img src="{{asset('gem/ore/grupo/loginprovider/229-gr-lhrP8sssty.png')}}"/></li>
+                                    <li no="229 " style="display: none"><img src="{{asset('gem/ore/grupo/loginprovider/229-gr-lhrP8sssty.png')}}"/></li>
                                 </ul>
                             </div>
                             <i>Don&#039;t have an account?</i>
@@ -86,7 +86,7 @@
 
                         <div class="submitbtns">
                             <button type="submit" class="btn btn-primary global submit w-100">Login as guest</button>
-                            
+
 
                         </div>
 
@@ -95,7 +95,7 @@
                                 <ul>
                                     <li no="25"><a href="{{ url('auth/facebook') }}"><img src="{{asset('gem/ore/grupo/loginprovider/25-gr-CNDDatRPuz.png')}}"/></a></li>
                                     <li no="26"><a href="{{ url('auth/google') }}"><img src="{{asset('gem/ore/grupo/loginprovider/26-gr-31alUcNhOX.jpg')}}"/></a></li>
-                                    <li no="229"><img src="{{asset('gem/ore/grupo/loginprovider/229-gr-lhrP8sssty.png')}}"/></li>
+                                    <li no="229" style="display: none"><img src="{{asset('gem/ore/grupo/loginprovider/229-gr-lhrP8sssty.png')}}"/></li>
                                 </ul>
                             </div>
                             <i>Don&#039;t have an account?</i>
