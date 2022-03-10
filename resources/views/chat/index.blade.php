@@ -497,15 +497,8 @@ die();
                                                     <div class="chat-text chat-text_gif">
                                                         <span
                                                             class="orange">{{$msg->user->name}} : </span>
-                                                        @if($msg->type=='gifTenor')
-                                                            <img src="{{$msg->message}}"
-                                                                 class="imgSticker" alt="">
-                                                        @else
-                                                            @dd($msg->type)
-                                                            <img src="{{asset('sticker/'.$msg->sticker->sticker.'')}}"
-                                                                 class="imgSticker" alt="">
-                                                        @endif
-
+                                                        <img src="{{ $msg->type=='gifTenor' ? $msg->message :  asset('sticker/'.$msg->sticker->sticker.'')}}"
+                                                             class="imgSticker" alt="">
                                                         <div class="chat-details">{{$msg->created_at}}</div>
 
                                                     </div>
@@ -528,7 +521,7 @@ die();
                                                     </div>
                                                     <div class="chat-text"><span
                                                             class="purple">{{$msg->user->name}} :</span>
-                                                        <img src="{{asset('sticker/'.$msg->sticker->sticker.'')}}"
+                                                        <img src="{{ $msg->type=='gifTenor' ? $msg->message :  asset('sticker/'.$msg->sticker->sticker.'')}}"
                                                              class="imgSticker" alt="">
 
                                                         <div class="chat-details">
