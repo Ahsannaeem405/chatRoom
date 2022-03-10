@@ -109,7 +109,7 @@
                          alt="Retail Admin">
 
                 </div>
-                <div class="chat-text"><span
+                <div class="chat-text chat-text_gif"><span
                         class="purple">{{$msg->user->name}} :</span>
                     <img src="{{ $msg->type=='gifTenor' ? $msg->message :  asset('sticker/'.$msg->sticker->sticker.'')}}"
                          class="imgSticker" alt="">
