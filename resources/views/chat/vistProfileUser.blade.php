@@ -7,7 +7,7 @@
         <h5 class="text-white mt-1">{{$userProfile->name}}
         <br><small><span>@</span>{{$userProfile->username}}</small></h5>
     </div>
-    <button data-toggle="modal" data-target="#editProfile" class="btn btn-success btn_gra">Message</button>
+    <button  class="btn btn-success btn_gra">Message</button>
 
     <div class="d-flex text-light pt-4 justify-content-center bg-dark"
          style="margin-top: -10px">
