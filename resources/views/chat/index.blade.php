@@ -497,8 +497,14 @@ die();
                                                     <div class="chat-text chat-text_gif">
                                                         <span
                                                             class="orange">{{$msg->user->name}} : </span>
-                                                        <img src="{{ $msg->type=='gifTenor' ? $msg->message :  asset('sticker/'.$msg->sticker->sticker.'')}}"
-                                                             class="imgSticker" alt="">
+                                                        @if($msg->type=='gifTenor')
+                                                            <img src="{{$msg->message}}"
+                                                                 class="imgSticker" alt="">
+                                                        @else
+                                                            <img src="{{asset('sticker/'.$msg->sticker->sticker.'')}}"
+                                                                 class="imgSticker" alt="">
+                                                        @endif
+
                                                         <div class="chat-details">{{$msg->created_at}}</div>
 
                                                     </div>
