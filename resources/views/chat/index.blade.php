@@ -21,7 +21,7 @@
             width: 60% !important;
         }
         .userdropdown{
-            left: -100px !important;
+            left: -10px !important;
         }
             .search{
                 display: none;
