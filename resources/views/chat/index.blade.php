@@ -20,6 +20,9 @@
         .chat-text_gif{
             width: 60% !important;
         }
+            .dropdown-menu{
+                right: 0 !important;
+            }
     </style>
 
 
