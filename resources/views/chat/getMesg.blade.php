@@ -111,7 +111,7 @@
                 </div>
                 <div class="chat-text"><span
                         class="purple">{{$msg->user->name}} :</span>
-                    <img src="{{asset('sticker/'.$msg->sticker->sticker.'')}}"
+                    <img src="{{ $msg->type=='gifTenor' ? $msg->message :  asset('sticker/'.$msg->sticker->sticker.'')}}"
                          class="imgSticker" alt="">
 
                     <div class="chat-details">
