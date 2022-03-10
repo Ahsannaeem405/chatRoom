@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
        URL::forceScheme('https');
 
+       
         $social = socialSetting::first();
         $google = [
             'client_id' => $social->googleClient,
