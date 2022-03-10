@@ -71,7 +71,7 @@
         @endif
 
 
-    @elseif($msg->type=='gif')
+    @elseif($msg->type=='gif' ||  $msg->type=='gifTenor')
 
         @if($msg->user_id==Auth::user()->id)
             <li class="my-chat mb-4   text-end message{{$msg->id}}">
@@ -87,7 +87,8 @@
                 <div class="chat-text">
                                                         <span
                                                             class="orange">{{$msg->user->name}} : </span>
-                    <img src="{{asset('sticker/'.$msg->sticker->sticker.'')}}" class="imgSticker" alt="">
+                    <img src="{{ $msg->type=='gifTenor' ? $msg->message :  asset('sticker/'.$msg->sticker->sticker.'')}}"
+                         class="imgSticker" alt="">
                     <div class="chat-details">{{$msg->created_at}}</div>
 
                 </div>
@@ -110,7 +111,8 @@
                 </div>
                 <div class="chat-text"><span
                         class="purple">{{$msg->user->name}} :</span>
-                    <img src="{{asset('sticker/'.$msg->sticker->sticker.'')}}" class="imgSticker" alt="">
+                    <img src="{{asset('sticker/'.$msg->sticker->sticker.'')}}"
+                         class="imgSticker" alt="">
 
                     <div class="chat-details">
                         {{$msg->created_at}}

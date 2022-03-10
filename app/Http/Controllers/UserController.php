@@ -62,7 +62,6 @@ class UserController extends Controller
 
         $giftenor=json_decode($giftenor->body());
 
-
         $message = Message::with('user', 'likeuser', 'sticker')->get();
         $like = likeMessage::where('message_user_id', \Auth::user()->id)->count();
         $likedata = likeMessage::where('message_user_id', \Auth::user()->id)->get();
@@ -118,6 +117,17 @@ class UserController extends Controller
         return view('chat.vistProfileUser', $user);
     }
 
+    public function nextGif(Request $request)
+    {
+        $next=$request->next;
+        $giftenor=\Http::get('https://g.tenor.com/v1/random?q=excited&key=LIVDSRZULELA&limit=12&media_filter=gif&pos='.$next.'');
+
+        $giftenor=json_decode($giftenor->body());
+
+        return view('chat.nextGif',compact('giftenor'));
+
+    }
+
     public function sendMSG(Request $request)
     {
         $message = new Message();
@@ -135,7 +145,13 @@ class UserController extends Controller
     {
         $message = new Message();
         $message->user_id = \Auth::user()->id;
-        $message->type = 'gif';
+        if ($request->type=='admin')
+        {
+            $message->type = 'gif';
+        }
+       else{
+           $message->type = 'gifTenor';
+       }
         $message->message = $request->message;
         $message->save();
         $user = User::find(\Auth::user()->id);

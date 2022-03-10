@@ -17,6 +17,9 @@
         .navmbl {
             font-size: 15px !important;
         }
+        .chat-text{
+            width: 50% !important;
+        }
     </style>
 
 
@@ -478,7 +481,7 @@ die();
                                             @endif
 
 
-                                        @elseif($msg->type=='gif')
+                                        @elseif($msg->type=='gif' ||  $msg->type=='gifTenor')
 
                                             @if($msg->user_id==Auth::user()->id)
                                                 <li class="my-chat mb-4   text-end message{{$msg->id}}">
@@ -494,7 +497,7 @@ die();
                                                     <div class="chat-text">
                                                         <span
                                                             class="orange">{{$msg->user->name}} : </span>
-                                                        <img src="{{asset('sticker/'.$msg->sticker->sticker.'')}}"
+                                                        <img src="{{ $msg->type=='gifTenor' ? $msg->message :  asset('sticker/'.$msg->sticker->sticker.'')}}"
                                                              class="imgSticker" alt="">
                                                         <div class="chat-details">{{$msg->created_at}}</div>
 
@@ -649,20 +652,21 @@ die();
 
                                         <div class="row our-gifs mt-2">
 
-
+                                            <input type="hidden" value="{{$giftenor->next}}" id="next">
+                                            @foreach($gifs as $gif)
+                                                <div class="col-3 mt-2">
+                                                    <img src="{{asset('sticker/'.$gif->sticker.'')}}"
+                                                         gifid="{{$gif->id}}" type="admin" class="img-fluid gifupload"/>
+                                                </div>
+                                            @endforeach
                                             @foreach($giftenor->results as $gift)
 
                                                 <div class="col-3 mt-2">
                                                     <img src="{{$gift->media[0]->gif->url}}" style="width: 100%;height: 150px"
-                                                         gifid="{{$gift->id}}" class="img-fluid gifupload"/>
+                                                         gifid="{{$gift->media[0]->gif->url}}" type="tenor" class="img-fluid gifupload"/>
                                                 </div>
                                             @endforeach
-                                            @foreach($gifs as $gif)
-                                                <div class="col-3 mt-2">
-                                                    <img src="{{asset('sticker/'.$gif->sticker.'')}}"
-                                                         gifid="{{$gif->id}}" class="img-fluid gifupload"/>
-                                                </div>
-                                            @endforeach
+
 
 
 
@@ -1119,6 +1123,25 @@ die();
 <script>
     $(document).ready(function () {
 
+
+        $('.our-gifs').on('scroll', function() {
+            if($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+
+
+                var next = $('#next').val();
+                           $('#next').remove();
+                $.ajax({
+                    url: '{{URL::to('user/next/gif')}}',
+                    type: 'GET',
+                    data: {'next': next},
+                    success: function (data) {
+                        $('.our-gifs').append(data);
+                    }
+                });
+               // alert('end reached');
+            }
+        })
+
         $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
 
         $('.gif-tab').hide();
@@ -1311,8 +1334,9 @@ die();
         });
         $(document).on('click', '.gifupload', function () {
             var stickerID = $(this).attr('gifid');
+            var type = $(this).attr('type');
 
-            sendGif(stickerID);
+            sendGif(stickerID,type);
 
 
         });
@@ -1333,13 +1357,14 @@ die();
             // alert(vistUserProfile);
         });
 
-        function sendGif(id) {
+        function sendGif(id,type) {
             $('.gif-tab').toggle();
             var msg = id;
+            var type = type;
             $.ajax({
                 url: '{{URL::to('user/sendGIF')}}',
                 type: 'POST',
-                data: {'message': msg},
+                data: {'message': msg,'type':type},
                 success: function (data) {
                     $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
 

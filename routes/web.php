@@ -15,6 +15,7 @@ use App\Http\Controllers\FacebookController;
 */
 
 Route::get('/', function () {
+
 return redirect('login');
 });
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
@@ -105,6 +106,7 @@ Route::prefix('/user')->middleware(['auth','user'])->group(function () {
     Route::get('/report', [\App\Http\Controllers\UserController::class, 'report']);
     Route::post('updateProfileUser/{id}', [\App\Http\Controllers\UserController::class, 'updateProfileUser']);
     Route::get('vistUserProfile', [\App\Http\Controllers\UserController::class, 'vistUserProfile']);
+    Route::get('next/gif', [\App\Http\Controllers\UserController::class, 'nextGif']);
 
     Route::post('/sendMSG', [\App\Http\Controllers\UserController::class, 'sendMSG']);
     Route::post('/sendGIF', [\App\Http\Controllers\UserController::class, 'sendGIF']);
