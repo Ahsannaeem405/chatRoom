@@ -988,7 +988,7 @@ ul {
     }
 
     .gifupload {
-        height: 75px;
+        height: 75px !important;
     }
 
     /*.dropdown-menu{*/
