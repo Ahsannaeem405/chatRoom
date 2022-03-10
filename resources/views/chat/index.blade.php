@@ -17,8 +17,8 @@
         .navmbl {
             font-size: 15px !important;
         }
-        .chat-text{
-            width: 80% !important;
+        .chat-text_gif{
+            width: 60% !important;
         }
     </style>
 
@@ -494,7 +494,7 @@ die();
                                                                     message="{{$msg->id}}"></i></a>
                                                         </div>
                                                     </div>
-                                                    <div class="chat-text">
+                                                    <div class="chat-text chat-text_gif">
                                                         <span
                                                             class="orange">{{$msg->user->name}} : </span>
                                                         <img src="{{ $msg->type=='gifTenor' ? $msg->message :  asset('sticker/'.$msg->sticker->sticker.'')}}"
