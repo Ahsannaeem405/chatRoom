@@ -18,7 +18,7 @@
             font-size: 15px !important;
         }
         .chat-text{
-            width: 50% !important;
+            width: 80% !important;
         }
     </style>
 
