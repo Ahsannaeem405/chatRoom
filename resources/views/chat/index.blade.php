@@ -501,6 +501,7 @@ die();
                                                             <img src="{{$msg->message}}"
                                                                  class="imgSticker" alt="">
                                                         @else
+                                                            @dd($msg->type)
                                                             <img src="{{asset('sticker/'.$msg->sticker->sticker.'')}}"
                                                                  class="imgSticker" alt="">
                                                         @endif
