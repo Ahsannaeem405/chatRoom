@@ -20,9 +20,9 @@
         .chat-text_gif{
             width: 60% !important;
         }
-        .userdropdown{
-            left: -10px !important;
-        }
+        /*.userdropdown{*/
+        /*    left: -100px !important;*/
+        /*}*/
             .search{
                 display: none;
             }
@@ -665,7 +665,7 @@ die();
                                                          gifid="{{$gif->id}}" type="admin" class="img-fluid gifupload"/>
                                                 </div>
                                             @endforeach
-                                            @foreach($giftenor as $gift)
+                                            @foreach($giftenor->results as $gift)
 
                                                 <div class="col-3 mt-2">
                                                     <img src="{{$gift->media[0]->gif->url}}" style="width: 100%;height: 150px"

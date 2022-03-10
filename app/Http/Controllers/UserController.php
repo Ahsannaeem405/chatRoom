@@ -58,10 +58,10 @@ class UserController extends Controller
 
 
 
-//        $giftenor=\Http::get('https://g.tenor.com/v1/random?q=excited&key=LIVDSRZULELA&limit=12&media_filter=gif');
-//
-//        $giftenor=json_decode($giftenor->body());
-       $giftenor=[];
+        $giftenor=\Http::get('https://g.tenor.com/v1/random?q=excited&key=LIVDSRZULELA&limit=12&media_filter=gif');
+
+        $giftenor=json_decode($giftenor->body());
+     //  $giftenor=[];
 
         $message = Message::with('user', 'likeuser', 'sticker')->get();
         $like = likeMessage::where('message_user_id', \Auth::user()->id)->count();
