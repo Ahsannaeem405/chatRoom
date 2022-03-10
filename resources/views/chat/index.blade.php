@@ -659,7 +659,7 @@ die();
                                         {{--                                        <input type="text" class="form-control mt-2 git-input"--}}
                                         {{--                                               placeholder="Search GIFs">--}}
 
-                                        <div class="row our-gifs mt-2">
+                                        <div class="row our-gifs mt-2 mb-2">
 
                                             <input type="hidden" value="{{isset($giftenor->next) ? $giftenor->next : null}}" id="next">
                                             @foreach($gifs as $gif)
