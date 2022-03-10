@@ -749,7 +749,7 @@ die();
                                     <img src="{{asset('radio')}}/{{$radio->image}}" width="50" height="50"
                                          class="rounded-circle" alt="">
 
-                                    <div class="text-light ml-2 pt-2">
+                                    <div class="text-light ml-2 pt-2 w-100">
                                         <p>Radio</p>
                                         <marquee width="100%" direction="right">
                                             {{$radio->title}}

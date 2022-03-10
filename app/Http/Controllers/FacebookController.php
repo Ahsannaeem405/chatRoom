@@ -41,6 +41,7 @@ class FacebookController extends Controller
                 $message->type = 'join';
                 $message->save();
 
+                $user=User::find(\Auth::user()->id);
                 $user->updated_at=date('Y-m-d h:i:s');
                 $user->status='online';
                 $user->save();
@@ -72,11 +73,13 @@ class FacebookController extends Controller
 
                 Auth::login($newUser);
 
+
                 $message = new Message();
                 $message->user_id = \Auth::user()->id;
                 $message->type = 'join';
                 $message->save();
 
+                $user=User::find(\Auth::user()->id);
                 $user->updated_at=date('Y-m-d h:i:s');
                 $user->status='online';
                 $user->save();

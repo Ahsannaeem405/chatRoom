@@ -40,7 +40,7 @@ class LoginController extends Controller
             $message->type = 'join';
             $message->save();
             $user = User::find(\Auth::user()->id);
-            $user=User::find(\Auth::user()->id);
+
            // dd($user,date('y-m-d'));
              $user->updated_at=date('Y-m-d h:i:s');
              $user->status='online';
