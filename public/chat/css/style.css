@@ -987,6 +987,10 @@ ul {
         font-size: 8px;
     }
 
+    .gifupload {
+        height: 100px;
+    }
+
     /*.dropdown-menu{*/
 
     /*    transform: translate3d(342px, 34px, 0px) !important;*/

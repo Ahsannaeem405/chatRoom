@@ -25,9 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-       URL::forceScheme('https');
+     //  URL::forceScheme('https');
 
-       
+
         $social = socialSetting::first();
         $google = [
             'client_id' => $social->googleClient,

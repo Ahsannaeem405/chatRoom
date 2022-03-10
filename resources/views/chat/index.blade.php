@@ -20,6 +20,9 @@
         .chat-text_gif{
             width: 60% !important;
         }
+        .emojionearea-editor{
+          color: white !important;
+        }
         /*.userdropdown{*/
         /*    left: -100px !important;*/
         /*}*/
@@ -1239,6 +1242,7 @@ die();
         });
 
         function sendMsg() {
+            $("#text_msg").focus();
             var msg = $('#text_msg').val();
             $('#text_msg').val('');
             $('.emojionearea-editor').empty();
