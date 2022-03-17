@@ -329,6 +329,12 @@ die();
                                         <h3>Alerts</h3>
                                     @endif
                                     @foreach($onlineusers as $onlineuser)
+                                    @php
+                                      $to_time=strtotime(date('Y-m-d h:i:s'));
+                                        $from_time=strtotime( $onlineuser->activity); 
+                                        $activityTime= round(abs($to_time - $from_time) / 60,2);
+                                    @endphp
+                                    @if(ceil($activityTime) < 5)
                                         <div class="col-12 text-center text-light alert_div pt-1 pb-1">
                                             <div class="w-100 bg-dark d-flex justify-content-between p-3">
                                                 <div class="d-flex">
@@ -345,6 +351,7 @@ die();
 
                                             </div>
                                         </div>
+                                        @endif
                                     @endforeach
 
                                 </div>
@@ -469,7 +476,7 @@ die();
                                                 Tap play</h5>
                                             <div>
                                                 <i class="fa fa-search mr-2 search_icon"></i>
-                                                <button class="button_dots" id="dropdownMenuButton"
+                                                <button  class="button_dots" id="dropdownMenuButton"
                                                         data-toggle="dropdown" aria-haspopup="true"
                                                         aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
                                                 <div class="dropdown-menu bg-dark userdropdown" aria-labelledby="dropdownMenuButton">
@@ -494,12 +501,12 @@ die();
                                         </div>
                                         <div class="col-12 mt-1 search_div d-none position-absolute"
                                              style="z-index: 1000;background-color: black">
-                                            <form action="#" class="d-flex " style="align-items: center" method="post">
+                                            <div class="d-flex " style="align-items: center" >
                                                 <input type="text" name="search" placeholder="Search"
                                                        class="form-control input_search">
                                                 <i class="fa fa-search-minus ml-2 clear_search"
                                                    style="font-size: 20px"></i>
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -761,13 +768,13 @@ die();
                                                          gifid="{{$gif->id}}" type="admin" class="img-fluid gifupload"/>
                                                 </div>
                                             @endforeach
-                                            @foreach($giftenor->results as $gift)
+                                            {{-- @foreach($giftenor->results as $gift)
 
                                                 <div class="col-3 mt-2">
                                                     <img src="{{$gift->media[0]->gif->url}}" style="width: 100%;height: 150px"
                                                          gifid="{{$gift->media[0]->gif->url}}" type="tenor" class="img-fluid gifupload"/>
                                                 </div>
-                                            @endforeach
+                                            @endforeach --}}
 
 
 
@@ -949,6 +956,13 @@ die();
                                                         <h3>Alerts</h3>
                                                     @endif
                                                     @foreach($onlineusers as $onlineusers)
+
+                                                    @php
+                                                    $to_time=strtotime(date('Y-m-d h:i:s'));
+                                                      $from_time=strtotime( $onlineusers->activity); 
+                                                      $activityTime= round(abs($to_time - $from_time) / 60,2);
+                                                  @endphp
+                                                  @if(ceil($activityTime) < 5)
                                                         <div class="col-12 text-center text-light alert_div pt-1 pb-1">
                                                             <div
                                                                 class="w-100 bg-dark d-flex justify-content-between p-3">
@@ -968,6 +982,7 @@ die();
 
                                                             </div>
                                                         </div>
+                                                        @endif
                                                     @endforeach
 
                                                 </div>
@@ -1171,6 +1186,24 @@ die();
                     sendMsg();
 
                 }
+            });
+            $('.input_search').keypress(
+            function (event) {
+
+        if (event.which == '13') {
+        
+            var text = $('.input_search').val();
+            $.ajax({
+                url: '{{URL::to('user/searchMSG')}}',
+                type: 'POST',
+                data: {'text': text},
+                success: function (data) {
+                    $('.chatContainerScroll').empty().append(data);
+                    $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
+
+                }
+            });
+        }
             });
 
 

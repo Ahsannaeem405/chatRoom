@@ -11,7 +11,7 @@ use App\Models\sticker;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Testing\Fluent\Concerns\Has;
-
+use Carbon\Carbon;
 class UserController extends Controller
 {
     public function guest(Request $request)
@@ -47,15 +47,37 @@ class UserController extends Controller
 
 
 
-        $giftenor=\Http::get('https://g.tenor.com/v1/random?q=excited&key=LIVDSRZULELA&limit=12&media_filter=gif');
+        // $giftenor=\Http::get('https://g.tenor.com/v1/random?q=excited&key=LIVDSRZULELA&limit=12&media_filter=gif');
 
-        $giftenor=json_decode($giftenor->body());
-     //  $giftenor=[];
+        // $giftenor=json_decode($giftenor->body());
+       $giftenor=[];
 
         $message = Message::with('user', 'likeuser', 'sticker')->get();
         $like = likeMessage::where('message_user_id', \Auth::user()->id)->count();
         $likedata = likeMessage::where('message_user_id', \Auth::user()->id)->get();
-        $onlineusers = User::where('status', 'online')->where('role', '!=', 'admin')->get();
+
+        $onlineusers = User::where('role', '!=', 'admin')->get();
+        // foreach($onlineusers as $onlineuser)
+        // {
+        //       $to_time=strtotime(date('Y-m-d h:i:s'));
+        // $from_time=strtotime( $onlineuser->activity); 
+        // $activityTime= round(abs($to_time - $from_time) / 60,2);
+        // if(ceil($activityTime) < 5)
+        // {
+        //     echo 'hi';
+        // }
+        // //var_dump(ceil($activityTime));
+        //  }
+        // die();
+        // $to_time=strtotime(date('Y-m-d h:i:s'));
+        // $from_time=strtotime( $onlineusers[2]->activity); 
+        // $activityTime= round(abs($to_time - $from_time) / 60,2);
+        // // dd( $onlineusers);
+        // dd( $activityTime, $onlineusers[0]->activity);
+    //    dd( $onlineusers);
+     
+        // dd(Carbon::now()->subMinutes(5)->toDateTimeString());
+
         $reports = Report::where('msg_user_id', \Auth::user()->id)->count();
         $reportdata = Report::where('msg_user_id', \Auth::user()->id)->get();
 
