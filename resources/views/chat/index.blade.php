@@ -755,8 +755,7 @@ die();
                                 <div class="row">
                                     <div class="col-12 gif-tab">
                                         <span class="text-light mt-4" style="font-size: 17px">GIFs</span>
-                                        {{--                                        <input type="text" class="form-control mt-2 git-input"--}}
-                                        {{--                                               placeholder="Search GIFs">--}}
+                                        <input type="text" class="form-control mt-2 gif-search" placeholder="Search GIFs">
 
                                         <div class="row our-gifs mt-2 mb-2">
 
@@ -1158,19 +1157,38 @@ die();
 
 
                 var next = $('#next').val();
-                           $('#next').remove();
+                var search_gif = $('.gif-search').val();
+        
+            $('#next').remove();
                 $.ajax({
                     url: '{{URL::to('user/next/gif')}}',
                     type: 'GET',
-                    data: {'next': next},
+                    data: {'next': next,'search_gif':search_gif},
                     success: function (data) {
                         $('.our-gifs').append(data);
                     }
                 });
                // alert('end reached');
             }
-        })
+        });
+        $('.gif-search').keypress(function (event) {
 
+        if (event.which == '13') {
+            var next = $('#next').val();
+                var search_gif = $('.gif-search').val();
+        
+            $('#next').remove();
+                $.ajax({
+                    url: '{{URL::to('user/next/gif')}}',
+                    type: 'GET',
+                    data: {'next': next,'search_gif':search_gif},
+                    success: function (data) {
+                        $('.our-gifs').empty().append(data);
+                    }
+                });
+        }
+        
+    });
         $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
 
         $('.gif-tab').hide();
