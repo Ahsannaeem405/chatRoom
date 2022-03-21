@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport"content="width=device-width,  initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Chat Room</title>
     <link rel="shortcut icon" type="image/png" href="{{asset('gem/ore/grupo/global/favicon.png')}}"/>
     <link rel="apple-touch-icon" href="{{asset('gem/ore/grupo/global/icon192.png')}}"/>
