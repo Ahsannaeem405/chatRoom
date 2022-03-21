@@ -355,11 +355,16 @@ button:focus{
 }
 .my-chat{
     display: -webkit-flex;
-    display: flex;
-    -webkit-gap: 12px;
-    gap: 12px;
+    -webkit-flex-wrap: wrap;
+    display: flex;   
+    flex-wrap: wrap;
+
     -webkit-justify-content: end;
     justify-content: end;
+    
+    -webkit-gap: 12px;
+    gap: 12px;
+    
     align-items: center;
     margin-right: 0;
     margin-left: auto;
