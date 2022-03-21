@@ -1092,12 +1092,12 @@ ul {
         width: 90% !important;
     }
 }
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 425px) {
     .my-chat {
-        width: 100% !important;
+        width: auto !important;
     }
 
     .your-chat {
-        width: 100% !important;
+        width: auto !important;
     }
 }
