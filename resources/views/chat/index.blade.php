@@ -493,8 +493,8 @@ die();
                                                     @if(Auth::user()->role=='admin')
                                                         <a class="dropdown-item text-light"
                                                            href="{{url('admin/delete_chat')}}">Delete Chat</a>
-                                                @endif
-                                                <!-- <a class="dropdown-item text-light" href="#">Delete Chat</a>
+                                                    @endif
+                                                    <!-- <a class="dropdown-item text-light" href="#">Delete Chat</a>
                                                     <a class="dropdown-item text-light" href="#">Messages</a> -->
                                                 </div>
                                             </div>
@@ -768,12 +768,7 @@ die();
                                                 </div>
                                             @endforeach
                                             
-                                               <!-- @foreach($giftenor->results as $gift)
-                                                    <div class="col-3 mt-2">
-                                                        <img src="{{$gift->media[0]->gif->url}}" style="width: 100%;height: 150px"
-                                                            gifid="{{$gift->media[0]->gif->url}}" type="tenor" class="img-fluid gifupload"/>
-                                                    </div>
-                                                @endforeach -->
+                                             
                                             
                                             
 
