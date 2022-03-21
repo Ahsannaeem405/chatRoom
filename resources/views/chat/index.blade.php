@@ -476,7 +476,7 @@ die();
                                                 Tap play</h5>
                                             <div>
                                                 <i class="fa fa-search mr-2 search_icon"></i>
-                                                <button  class="button_dots" id="dropdownMenuButton"
+                                                <button  class="button_dots" id="dropdownMenuButton" type="button"
                                                         data-toggle="dropdown" aria-haspopup="true"
                                                         aria-expanded="false">
                                                         <i class="fa fa-ellipsis-h"></i>
