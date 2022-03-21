@@ -546,7 +546,7 @@ die();
                                                                     message="{{$msg->id}}"></i></a>
                                                         </div>
                                                     </div>
-                                                    <div class="chat-text">
+                                                    <div class="chat-text mx-1">
                                                         <span
                                                             class="orange">{{$msg->user->name}} : </span>{{$msg->message}}
                                                         <div class="chat-details">{{$msg->created_at}}</div>
