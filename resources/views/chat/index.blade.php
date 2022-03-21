@@ -478,25 +478,29 @@ die();
                                                 <i class="fa fa-search mr-2 search_icon"></i>
                                                 <button  class="button_dots" id="dropdownMenuButton"
                                                         data-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
-                                                <div class="dropdown-menu bg-dark userdropdown" aria-labelledby="dropdownMenuButton">
+                                                        aria-expanded="false">
+                                                        <i class="fa fa-ellipsis-h"></i>
 
-                                                    <a class="dropdown-item text-light onlineuser" href="#">Online
-                                                        Users</a>
-                                                    <a class="dropdown-item text-light myprofile" href="#">Profile</a>
-                                                    <a class="dropdown-item text-light fa-play2 " href="#">Radio</a>
-                                                    {{--                                                    <a class="dropdown-item text-light" href="#">Chat Options</a>--}}
-                                                    <a class="dropdown-item text-light" href="#"
-                                                       onclick="setLighttheme()">Light Mode</a>
-                                                    <a class="dropdown-item text-light" href="#"
-                                                       onclick="setdarktheme()">Dark Mode</a>
-                                                    @if(Auth::user()->role=='admin')
-                                                        <a class="dropdown-item text-light"
-                                                           href="{{url('admin/delete_chat')}}">Delete Chat</a>
-                                                    @endif
-                                                    <!-- <a class="dropdown-item text-light" href="#">Delete Chat</a>
-                                                    <a class="dropdown-item text-light" href="#">Messages</a> -->
-                                                </div>
+                                                            <div class="dropdown-menu bg-dark userdropdown" aria-labelledby="dropdownMenuButton">
+
+                                                                <a class="dropdown-item text-light onlineuser" href="#">Online
+                                                                    Users</a>
+                                                                <a class="dropdown-item text-light myprofile" href="#">Profile</a>
+                                                                <a class="dropdown-item text-light fa-play2 " href="#">Radio</a>
+                                                                {{--                                                    <a class="dropdown-item text-light" href="#">Chat Options</a>--}}
+                                                                <a class="dropdown-item text-light" href="#"
+                                                                onclick="setLighttheme()">Light Mode</a>
+                                                                <a class="dropdown-item text-light" href="#"
+                                                                onclick="setdarktheme()">Dark Mode</a>
+                                                                @if(Auth::user()->role=='admin')
+                                                                    <a class="dropdown-item text-light"
+                                                                    href="{{url('admin/delete_chat')}}">Delete Chat</a>
+                                                                @endif
+                                                                <!-- <a class="dropdown-item text-light" href="#">Delete Chat</a>
+                                                                <a class="dropdown-item text-light" href="#">Messages</a> -->
+                                                            </div>
+                                                </button>
+                                                
                                             </div>
                                         </div>
                                         <div class="col-12 mt-1 search_div d-none position-absolute"

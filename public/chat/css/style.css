@@ -643,10 +643,16 @@ ul {
 .button_dots {
     background: transparent;
     border: none;
+    position: relative;
 }
 
 .button_dots i {
     color: white;
+}
+.button_dots .dropdown-menu{
+    top: 40px !important;
+    left: 0px !important;
+    transform: translateX(-85%) !important;
 }
 
 .search_input,
