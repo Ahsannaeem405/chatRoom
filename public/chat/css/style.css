@@ -359,8 +359,8 @@ button:focus{
     display: flex;   
     flex-wrap: wrap;
 
-    -webkit-justify-content: center;
-    justify-content: center;
+    -webkit-justify-content: flex-end;
+    justify-content: end;
 
     -webkit-gap: 12px;
     gap: 12px;
