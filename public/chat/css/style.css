@@ -360,7 +360,7 @@ button:focus{
     flex-wrap: wrap;
 
     -webkit-justify-content: flex-end;
-    justify-content: end;
+    justify-content: flex-end;
 
     -webkit-gap: 12px;
     gap: 12px;
