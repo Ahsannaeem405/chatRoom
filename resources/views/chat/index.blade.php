@@ -162,7 +162,7 @@ die();
                             </div>
 
                             <button type="submit"
-                                    class="btn btn-primary btn_gra text-center my-3 col-4">
+                                    class="btn btn-primary btn_gra text-center my-3 col-md-4 col-6">
                                 Update Profile
                             </button>
                         </form>
