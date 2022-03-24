@@ -716,13 +716,13 @@ ul {
 }
 .tab-play{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .tab-play span{
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    font-size: 35px;
-    transform: translateX(-50%);
+    font-size: 16px;
+    text-align: center;
 }
 .share-btn{
     border: none;

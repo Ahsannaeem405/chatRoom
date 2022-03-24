@@ -476,7 +476,7 @@ die();
                                                 Members</p> -->
                                             </div>
 
-                                            <h5 class="mb-0 ml-4 mt-4 tab-play"><span><i class="fa fa-caret-up"
+                                            <h5 class="mb-0 tab-play"><span><i class="fa fa-caret-up"
                                                                                          aria-hidden="true"></i></span>
                                                 Tap play</h5>
                                             <div>
