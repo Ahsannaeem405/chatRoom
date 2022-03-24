@@ -31,6 +31,9 @@
             .search{
                 display: none;
             }
+            .emojionearea .emojionearea-picker{
+                right: -80px !important;
+            }
     </style>
 
 
