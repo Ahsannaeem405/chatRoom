@@ -22,7 +22,10 @@
 }
 @media screen and (max-width:425px){
     .view-control{
-        height: 32vh;
+        position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
     }
 }
 .view-control iframe{
@@ -301,7 +304,7 @@
 }
 @media screen and (max-width:425px){
     .chat-container {
-        height: 68vh;
+        height: 95vh;
     }
 }
 button:focus{
