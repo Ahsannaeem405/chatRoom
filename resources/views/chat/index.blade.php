@@ -1327,6 +1327,19 @@ die();
                 }
             });
         }
+        $(".emojionearea").emojioneArea({
+            events: {
+                keyup: function(editor, evt) {
+                    if (evt.keyCode === scancodes.ENTER)
+                    {
+                        /* do your processing here */
+                        
+                        /* prevent event from bubbling any further */
+                        evt.stopPropagation();
+                    }
+                }
+            }
+        });
 
         $(document).on('click', '.delete', function () {
 
