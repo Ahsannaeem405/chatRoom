@@ -1326,20 +1326,33 @@ die();
                     //   $('#test_div').empty().append(data);
                 }
             });
+
+            $("#emojionearea").emojioneArea({
+    events: {
+      keyup: function(editor, event) {
+      	// catches everything but enter
+        if (event.which == 13) {
+          alert("Enter key pressed");
+          $("#form").submit();
+          // event.preventDefault();
+          // return false;
+        } else {
+        	alert("Key pressed: " + event.which);
         }
-        $(".emojionearea").emojioneArea({
-            events: {
-                keyup: function(editor, evt) {
-                    if (evt.keyCode === scancodes.ENTER)
-                    {
-                        /* do your processing here */
-                        
-                        /* prevent event from bubbling any further */
-                        evt.stopPropagation();
-                    }
-                }
-            }
-        });
+      }
+    }
+  });
+
+  $("#emojionearea").data("emojioneArea").editor.on("keyup", function() {
+  	// this also will works
+    alert("jQuery keypress event handler");
+  });
+
+  $("#form").on('submit', function() {
+    alert("Form submitted");
+  });
+        }
+        
 
         $(document).on('click', '.delete', function () {
 
