@@ -1325,9 +1325,10 @@ die();
                     //console.log(data);
                     //   $('#test_div').empty().append(data);
                 }
-            });
-
-            $("#emojionearea").emojioneArea({
+            });   
+        }
+        $(document).ready(function() {
+  $("#emojionearea").emojioneArea({
     events: {
       keyup: function(editor, event) {
       	// catches everything but enter
@@ -1351,7 +1352,8 @@ die();
   $("#form").on('submit', function() {
     alert("Form submitted");
   });
-        }
+});
+
         
 
         $(document).on('click', '.delete', function () {
