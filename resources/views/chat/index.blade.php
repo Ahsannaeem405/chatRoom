@@ -1214,7 +1214,6 @@ die();
             function (event) {
 
                 if (event.which == '13') {
-                    alert("enter")
                     sendMsg();
 
                 }
@@ -1327,6 +1326,9 @@ die();
                     //   $('#test_div').empty().append(data);
                 }
             });   
+            $(".emojionearea").emojioneArea({
+                shortcuts: false
+                });
         }
         
         
