@@ -1214,6 +1214,7 @@ die();
             function (event) {
 
                 if (event.which == '13') {
+                    alert("enter")
                     sendMsg();
 
                 }
@@ -1327,38 +1328,10 @@ die();
                 }
             });   
         }
-        $(document).ready(function() {
-  $("#emojionearea").emojioneArea({
-    events: {
-      keyup: function(editor, event) {
-      	// catches everything but enter
-        if (event.which == 13) {
-          alert("Enter key pressed");
-          $("#form").submit();
-          // event.preventDefault();
-          // return false;
-        } else {
-        	alert("Key pressed: " + event.which);
-        }
-      }
-    }
-  });
-
-  $("#emojionearea").data("emojioneArea").editor.on("keyup", function() {
-  	// this also will works
-    alert("jQuery keypress event handler");
-  });
-
-  $("#form").on('submit', function() {
-    alert("Form submitted");
-  });
-});
-
+        
         
 
         $(document).on('click', '.delete', function () {
-
-
             var msgid = $(this).attr('message');
 
             $.ajax({
@@ -1366,8 +1339,6 @@ die();
                 type: 'get',
                 data: {'id': msgid},
                 success: function (data) {
-
-
                     $('.message' + msgid).remove();
                 }
             });
@@ -1400,8 +1371,6 @@ die();
         });
 
         $(document).on('click', '.like', function () {
-
-
             var msgid = $(this).attr('message');
             var status = $(this).attr('status');
             var data = $(this);
