@@ -69,11 +69,11 @@
         });
     });
 </script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function () {
         $("#text_msg").emojioneArea();
     });
-</script>
+</script> -->
 {{-- <div id="standalone" data-emoji-placeholder=":smiley:"></div>
 
 @php
