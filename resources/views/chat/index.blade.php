@@ -69,11 +69,11 @@
         });
     });
 </script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function () {
         $("#text_msg").emojioneArea();
     });
-</script>
+</script> -->
 {{-- <div id="standalone" data-emoji-placeholder=":smiley:"></div>
 
 @php
@@ -370,8 +370,6 @@ die();
             </div>
 
             <div class="position-relative profile_div">
-
-
                 <div class="container-fluid  bg-dark2 text-center p-2 rounded-bottom">
                     <div class="mb-3">
                         @if(isset($profile->profile))
