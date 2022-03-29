@@ -36,6 +36,10 @@
             .emojionearea .emojionearea-picker{
                 right: -80px !important;
             }
+            .emoji-picker-icon{
+                right:94px;
+                top:27px;
+            }
     </style>
 
 
@@ -1311,11 +1315,12 @@ die();
         });
 
         function sendMsg() {
-            $(".emojionearea-editor").focus();
-            $("#text_msg").focus();
+            //$(".emojionearea-editor").focus();
+           // $("#text_msg").focus();
             var msg = $('#text_msg').val();
             $('#text_msg').val('');
-            $('.emojionearea-editor').empty();
+             
+            $('.emoji-wysiwyg-editor').empty();
             $.ajax({
                 url: '{{URL::to('user/sendMSG')}}',
                 type: 'POST',
