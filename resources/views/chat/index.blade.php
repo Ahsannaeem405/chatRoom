@@ -43,7 +43,7 @@
             .emoji-menu{
                 right: 0px;
                 width: 300px;
-                top: 220px;
+                top: -220px;
                 }
     </style>
 
