@@ -40,7 +40,11 @@
                 right:94px;
                 top:27px;
             }
-            
+            .emoji-menu{
+                right: 0px;
+                width: 300px;
+                top: 220px;
+                }
     </style>
 
 

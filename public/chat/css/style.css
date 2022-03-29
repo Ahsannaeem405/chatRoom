@@ -379,11 +379,7 @@ button:focus{
     margin-left: auto;
     width: 50%;
 }
-.emoji-menu{
-right: 0px;
-width: 300px;
-top: 220px;
-}
+
 .your-chat{
     display: flex;
     justify-content: start;
