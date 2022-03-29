@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{{asset('chat/css/style.css')}}">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css ">
+    <link rel="stylesheet" href="https://onesignal.github.io/emoji-picker/lib/css/emoji.css">
     <title>Chat</title>
     <style>
         .navmbl {
@@ -798,7 +800,7 @@ die();
                                             <span class="gif-icons">GIf</span>
                                         </i>
                                         <input type="text" placeholder="Type a Message" name="message"
-                                               class="form-control ml-3 mr-3 message_input" id="text_msg">
+                                               class="form-control ml-3 mr-3 message_input" id="text_msg" data-emoji-input="unicode" data-emojiable="true">
                                         <button type="button" class="ml-3 btn_send"><i
                                                 class="far fa-paper-plane"></i></button>
                                     </div>
@@ -1503,9 +1505,22 @@ die();
     function setdarktheme() {
         $("body").removeClass("light-theme");
     }
-
-
 </script>
+  <script src="https://onesignal.github.io/emoji-picker/lib/js/config.js"></script>
+  <script src="https://onesignal.github.io/emoji-picker/lib/js/util.js"></script>
+  <script src="https://onesignal.github.io/emoji-picker/lib/js/jquery.emojiarea.js"></script>
+  <script src="https://onesignal.github.io/emoji-picker/lib/js/emoji-picker.js"></script>
+  <script>
+        $(function() {
+        window.emojiPicker = new EmojiPicker({
+        emojiable_selector: '[data-emojiable=true]',
+        assetsPath: 'http://onesignal.github.io/emoji-picker/lib/img/',
+        popupButtonClasses: 'fa fa-smile-o'
+        });
+        
+        window.emojiPicker.discover();
+      });
+   </script>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 {{--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"--}}
