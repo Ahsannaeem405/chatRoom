@@ -40,6 +40,9 @@
                 right:94px;
                 top:27px;
             }
+            .emoji-picker-icon.parent-has-scroll{
+                right: 94px;
+            }
             .emoji-menu{
                 right: 0px;
                 width: 300px;
