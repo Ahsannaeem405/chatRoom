@@ -852,7 +852,7 @@ ul {
     height: 100%;
     /* width: 400px !important; */
     position: fixed;
-    z-index: 20;
+    z-index: 100;
     top: 0;
     left: 0;
     background-color: #111;
