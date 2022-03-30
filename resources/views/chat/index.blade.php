@@ -789,12 +789,12 @@ die();
                                                 </div>
                                             @endforeach
 
-                                            @foreach($giftenor->results as $gift)
-                                                    <div class="col-3 mt-2">
-                                                        <img src="{{$gift->media[0]->gif->url}}" style="width: 100%;height: 150px"
-                                                            gifid="{{$gift->media[0]->gif->url}}" type="tenor" class="img-fluid gifupload"/>
-                                                    </div>
-                                             @endforeach
+{{--                                            @foreach($giftenor->results as $gift)--}}
+{{--                                                    <div class="col-3 mt-2">--}}
+{{--                                                        <img src="{{$gift->media[0]->gif->url}}" style="width: 100%;height: 150px"--}}
+{{--                                                            gifid="{{$gift->media[0]->gif->url}}" type="tenor" class="img-fluid gifupload"/>--}}
+{{--                                                    </div>--}}
+{{--                                             @endforeach--}}
 
 
 
@@ -1320,7 +1320,7 @@ die();
         });
 
         function sendMsg() {
-           // $(".emoji-wysiwyg-editor").focus();
+            $(".emoji-wysiwyg-editor").focus();
            // $("#text_msg").focus();
             var msg = $('#text_msg').val();
             $('#text_msg').val('');
@@ -1479,6 +1479,11 @@ die();
 
             obj.pause();
         });
+
+        $(document).on('click','.emoji-items-wrap',function () {
+            $(".emoji-wysiwyg-editor").focus();
+        })
+
         $('.share-btn').click(function () {
             var text = $(this).attr('text');
             navigator.clipboard.writeText(text);
