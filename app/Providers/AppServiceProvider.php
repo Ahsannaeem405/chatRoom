@@ -34,7 +34,9 @@ class AppServiceProvider extends ServiceProvider
             'client_secret' => $social->googleSecret,
             'redirect' => 'https://chatbti.herokuapp.com/public/auth/google/callback',
         ];
+
         config()->set('services.google', $google);
+       // dd(  config()->get('services.google'));
         $facebook = [
             'client_id' => $social->facebookClient,
             'client_secret' => $social->facebookSecret,
