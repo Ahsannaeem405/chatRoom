@@ -597,8 +597,8 @@ ul {
     background-color: #24272B;
     position: absolute;
     bottom: 0;
-    position: fixed;
     width: 67%;
+    z-index: 11;
 }
 @media screen and (max-width:990px){
     .message_div {
