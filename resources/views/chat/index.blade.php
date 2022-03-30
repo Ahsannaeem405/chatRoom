@@ -1285,8 +1285,6 @@ die();
         $(".search_icon").click(function () {
             // alert("Hello");
             $(".search_div").toggleClass('d-none');
-
-
         });
 
 
@@ -1323,7 +1321,7 @@ die();
         });
 
         function sendMsg() {
-            //$(".emojionearea-editor").focus();
+            $(".emoji-wysiwyg-editor").focus();
            // $("#text_msg").focus();
             var msg = $('#text_msg').val();
             $('#text_msg').val('');
