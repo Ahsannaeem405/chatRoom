@@ -1320,7 +1320,7 @@ die();
         });
 
         function sendMsg() {
-            $(".emoji-wysiwyg-editor").focus();
+           // $(".emoji-wysiwyg-editor").focus();
            // $("#text_msg").focus();
             var msg = $('#text_msg').val();
             $('#text_msg').val('');
