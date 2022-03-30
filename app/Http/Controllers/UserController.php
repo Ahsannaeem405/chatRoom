@@ -45,12 +45,12 @@ class UserController extends Controller
     {
 
 
-
+        $giftenor=[];
 
         $giftenor=\Http::get('https://g.tenor.com/v1/random?q=excited&key=LIVDSRZULELA&limit=12&media_filter=gif');
 
         $giftenor=json_decode($giftenor->body());
-     //   $giftenor=[];
+
 
         $message = Message::with('user', 'likeuser', 'sticker')->get();
         $like = likeMessage::where('message_user_id', \Auth::user()->id)->count();
@@ -60,7 +60,7 @@ class UserController extends Controller
         // foreach($onlineusers as $onlineuser)
         // {
         //       $to_time=strtotime(date('Y-m-d h:i:s'));
-        // $from_time=strtotime( $onlineuser->activity); 
+        // $from_time=strtotime( $onlineuser->activity);
         // $activityTime= round(abs($to_time - $from_time) / 60,2);
         // if(ceil($activityTime) < 5)
         // {
@@ -70,12 +70,12 @@ class UserController extends Controller
         //  }
         // die();
         // $to_time=strtotime(date('Y-m-d h:i:s'));
-        // $from_time=strtotime( $onlineusers[2]->activity); 
+        // $from_time=strtotime( $onlineusers[2]->activity);
         // $activityTime= round(abs($to_time - $from_time) / 60,2);
         // // dd( $onlineusers);
         // dd( $activityTime, $onlineusers[0]->activity);
     //    dd( $onlineusers);
-     
+
         // dd(Carbon::now()->subMinutes(5)->toDateTimeString());
 
         $reports = Report::where('msg_user_id', \Auth::user()->id)->count();
@@ -138,7 +138,7 @@ class UserController extends Controller
         }else{
             $search_gif='excited';
         }
-  
+
 
         $giftenor=\Http::get('https://g.tenor.com/v1/random?q='.$search_gif.'&key=LIVDSRZULELA&limit=12&media_filter=gif&pos='.$next.'');
 

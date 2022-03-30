@@ -4,7 +4,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    
+
     <meta name="viewport"content="width=device-width,  initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
 
@@ -350,7 +350,7 @@ die();
                                     @foreach($onlineusers as $onlineuser)
                                     @php
                                       $to_time=strtotime(date('Y-m-d h:i:s'));
-                                        $from_time=strtotime( $onlineuser->activity); 
+                                        $from_time=strtotime( $onlineuser->activity);
                                         $activityTime= round(abs($to_time - $from_time) / 60,2);
                                     @endphp
                                     @if(ceil($activityTime) < 5)
@@ -517,7 +517,7 @@ die();
                                                                 <a class="dropdown-item text-light" href="#">Messages</a> -->
                                                             </div>
                                                 </button>
-                                                
+
                                             </div>
                                         </div>
                                         <div class="col-12 mt-1 search_div d-none position-absolute"
@@ -790,17 +790,17 @@ die();
                                                          gifid="{{$gif->id}}" type="admin" class="img-fluid gifupload"/>
                                                 </div>
                                             @endforeach
-                                            
+
                                             @foreach($giftenor->results as $gift)
                                                     <div class="col-3 mt-2">
                                                         <img src="{{$gift->media[0]->gif->url}}" style="width: 100%;height: 150px"
                                                             gifid="{{$gift->media[0]->gif->url}}" type="tenor" class="img-fluid gifupload"/>
                                                     </div>
-                                             @endforeach 
-                                            
-                                             
-                                            
-                                            
+                                             @endforeach
+
+
+
+
 
 
 
@@ -985,7 +985,7 @@ die();
 
                                                     @php
                                                     $to_time=strtotime(date('Y-m-d h:i:s'));
-                                                      $from_time=strtotime( $onlineusers->activity); 
+                                                      $from_time=strtotime( $onlineusers->activity);
                                                       $activityTime= round(abs($to_time - $from_time) / 60,2);
                                                   @endphp
                                                   @if(ceil($activityTime) < 5)
@@ -1185,7 +1185,7 @@ die();
 
                 var next = $('#next').val();
                 var search_gif = $('.gif-search').val();
-        
+
             $('#next').remove();
                 $.ajax({
                     url: '{{URL::to('user/next/gif')}}',
@@ -1203,7 +1203,7 @@ die();
         if (event.which == '13') {
             var next = $('#next').val();
                 var search_gif = $('.gif-search').val();
-        
+
             $('#next').remove();
                 $.ajax({
                     url: '{{URL::to('user/next/gif')}}',
@@ -1214,7 +1214,7 @@ die();
                     }
                 });
         }
-        
+
     });
         $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
 
@@ -1224,19 +1224,18 @@ die();
         });
 
 
-        $(document).keypress(
-            function (event) {
-
-                if (event.which == '13') {
-                    sendMsg();
-
-                }
-            });
-            $('.input_search').keypress(
-            function (event) {
+        // $(document).keypress(
+        //     function (event) {
+        //
+        //         if (event.which == '13') {
+        //             sendMsg();
+        //
+        //         }
+        //     });
+            $('.input_search').keypress(function (event) {
 
         if (event.which == '13') {
-        
+
             var text = $('.input_search').val();
             $.ajax({
                 url: '{{URL::to('user/searchMSG')}}',
@@ -1327,7 +1326,7 @@ die();
            // $("#text_msg").focus();
             var msg = $('#text_msg').val();
             $('#text_msg').val('');
-             
+
             $('.emoji-wysiwyg-editor').empty();
             $.ajax({
                 url: '{{URL::to('user/sendMSG')}}',
@@ -1338,11 +1337,11 @@ die();
                     //console.log(data);
                     //   $('#test_div').empty().append(data);
                 }
-            });   
-            
+            });
+
         }
-        
-        
+
+
 
         $(document).on('click', '.delete', function () {
             var msgid = $(this).attr('message');
@@ -1482,6 +1481,17 @@ die();
 
             obj.pause();
         });
+
+        // $(document).on('mouseenter','.emoji-items',function () {
+        //     alert(1);
+        //  //   $(".emoji-wysiwyg-editor").focus();
+        // });
+
+        // $(document).on('click','a',function () {
+        //     alert(1);
+        //     //   $(".emoji-wysiwyg-editor").focus();
+        // });
+
         $('.share-btn').click(function () {
             var text = $(this).attr('text');
             navigator.clipboard.writeText(text);
@@ -1530,7 +1540,7 @@ die();
         assetsPath: 'http://onesignal.github.io/emoji-picker/lib/img/',
         popupButtonClasses: 'fa fa-smile-o'
         });
-        
+
         window.emojiPicker.discover();
       });
    </script>
