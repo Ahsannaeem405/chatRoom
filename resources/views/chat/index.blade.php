@@ -500,9 +500,9 @@ die();
 
                                                             <div class="dropdown-menu bg-dark userdropdown" aria-labelledby="dropdownMenuButton">
 
-                                                                <a class="dropdown-item text-light onlineuser" href="#">Online
+                                                                <a class="dropdown-item text-light onlineuser" href="#" onclick="openNav()">Online
                                                                     Users</a>
-                                                                <a class="dropdown-item text-light myprofile" href="#">Profile</a>
+                                                                <a class="dropdown-item text-light myprofile" href="#" onclick="openNav()">Profile</a>
                                                                 <a class="dropdown-item text-light fa-play2 " href="#">Radio</a>
                                                                 {{--                                                    <a class="dropdown-item text-light" href="#">Chat Options</a>--}}
                                                                 <a class="dropdown-item text-light" href="#"
