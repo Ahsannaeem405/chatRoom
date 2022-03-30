@@ -305,7 +305,7 @@
 }
 @media screen and (max-width:425px){
     .chat-container {
-        height: 100vh;
+        height: 95vh;
     }
 }
 button:focus{
@@ -415,6 +415,7 @@ button:focus{
     line-height: 150%;
     position: relative;
     font-size: 13px;
+    max-width: 65%;
 }
 
 .chat-container li .chat-text:before {
