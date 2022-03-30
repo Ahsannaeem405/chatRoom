@@ -595,10 +595,10 @@ ul {
 
 .message_div {
     background-color: #24272B;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 67%;
-    z-index: 11;
+    z-index: 15;
 }
 @media screen and (max-width:990px){
     .message_div {
