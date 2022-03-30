@@ -1510,15 +1510,18 @@ die();
 </script>
 <script>
     function openNav() {
-
-        document.getElementById("mySidenav").style.width = "320px";
+        if(screen.width <= 990){
+            document.getElementById("mySidenav").style.width = "320px";
+        }
+        else{
+            console.log("width", screen.width);
+        }
+      
     }
 
     function closeNav() {
         // document.getElementById("mySidenav").style.width = "0";
         document.getElementById("mySidenav").style.width = "0";
-
-
     }
 
     function setLighttheme() {
