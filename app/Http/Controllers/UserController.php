@@ -50,7 +50,7 @@ class UserController extends Controller
         $giftenor=\Http::get('https://g.tenor.com/v1/random?q=excited&key=LIVDSRZULELA&limit=12&media_filter=gif');
 
         $giftenor=json_decode($giftenor->body());
-    //    $giftenor=[];
+     //   $giftenor=[];
 
         $message = Message::with('user', 'likeuser', 'sticker')->get();
         $like = likeMessage::where('message_user_id', \Auth::user()->id)->count();
@@ -132,7 +132,15 @@ class UserController extends Controller
     public function nextGif(Request $request)
     {
         $next=$request->next;
-        $giftenor=\Http::get('https://g.tenor.com/v1/random?q=excited&key=LIVDSRZULELA&limit=12&media_filter=gif&pos='.$next.'');
+        if($request->search_gif != '')
+        {
+            $search_gif=$request->search_gif;
+        }else{
+            $search_gif='excited';
+        }
+  
+
+        $giftenor=\Http::get('https://g.tenor.com/v1/random?q='.$search_gif.'&key=LIVDSRZULELA&limit=12&media_filter=gif&pos='.$next.'');
 
         $giftenor=json_decode($giftenor->body());
 

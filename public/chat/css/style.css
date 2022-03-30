@@ -22,7 +22,11 @@
 }
 @media screen and (max-width:425px){
     .view-control{
-        height: 44vh;
+        position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    height: 34vh;
     }
 }
 .view-control iframe{
@@ -296,7 +300,12 @@
 }
 @media screen and (max-width:768px){
     .chat-container {
-        height: 56vh;
+        height: 65vh;
+    }
+}
+@media screen and (max-width:425px){
+    .chat-container {
+        height: 95vh;
     }
 }
 button:focus{
@@ -354,14 +363,23 @@ button:focus{
     color: #8f8a8a;
 }
 .my-chat{
-    display: flex;
-    justify-content: end;
+    display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
+    display: flex;   
+    flex-wrap: wrap;
+
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+
+    -webkit-gap: 12px;
     gap: 12px;
-    /*align-items: center;*/
+    
+    align-items: center;
     margin-right: 0;
     margin-left: auto;
     width: 50%;
 }
+
 .your-chat{
     display: flex;
     justify-content: start;
@@ -397,6 +415,7 @@ button:focus{
     line-height: 150%;
     position: relative;
     font-size: 13px;
+    max-width: 65%;
 }
 
 .chat-container li .chat-text:before {
@@ -576,10 +595,10 @@ ul {
 
 .message_div {
     background-color: #24272B;
-    position: absolute;
-    bottom: 0;
     position: fixed;
+    bottom: 0;
     width: 67%;
+    z-index: 15;
 }
 @media screen and (max-width:990px){
     .message_div {
@@ -643,10 +662,16 @@ ul {
 .button_dots {
     background: transparent;
     border: none;
+    position: relative;
 }
 
 .button_dots i {
     color: white;
+}
+.button_dots .dropdown-menu{
+    top: 40px !important;
+    left: 0px !important;
+    transform: translateX(-85%) !important;
 }
 
 .search_input,
@@ -702,13 +727,19 @@ ul {
 }
 .tab-play{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 18px;
+}
+@media screen and (max-width:425px){
+    .tab-play{
+        font-size: 14px;
+    }
 }
 .tab-play span{
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    font-size: 35px;
-    transform: translateX(-50%);
+    font-size: 16px;
+    text-align: center;
 }
 .share-btn{
     border: none;
@@ -823,7 +854,7 @@ ul {
     height: 100%;
     /* width: 400px !important; */
     position: fixed;
-    z-index: 1;
+    z-index: 100 !important;
     top: 0;
     left: 0;
     background-color: #111;
@@ -1084,5 +1115,14 @@ ul {
 
     .your-chat {
         width: 90% !important;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .my-chat {
+        width: auto !important;
+    }
+
+    .your-chat {
+        width: auto !important;
     }
 }

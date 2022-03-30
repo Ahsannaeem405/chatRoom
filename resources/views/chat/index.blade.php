@@ -4,7 +4,9 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <meta name="viewport"content="width=device-width,  initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -12,6 +14,8 @@
     <link rel="stylesheet" href="{{asset('chat/css/style.css')}}">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css ">
+    <link rel="stylesheet" href="https://onesignal.github.io/emoji-picker/lib/css/emoji.css">
     <title>Chat</title>
     <style>
         .navmbl {
@@ -29,6 +33,21 @@
             .search{
                 display: none;
             }
+            .emojionearea .emojionearea-picker{
+                right: -80px !important;
+            }
+            .emoji-picker-icon{
+                right:94px;
+                top:27px;
+            }
+            .emoji-picker-icon.parent-has-scroll{
+                right: 94px;
+            }
+            .emoji-menu{
+                right: 0px;
+                width: 300px;
+                top: -220px;
+                }
     </style>
 
 
@@ -64,11 +83,11 @@
         });
     });
 </script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function () {
         $("#text_msg").emojioneArea();
     });
-</script>
+</script> -->
 {{-- <div id="standalone" data-emoji-placeholder=":smiley:"></div>
 
 @php
@@ -160,7 +179,7 @@ die();
                             </div>
 
                             <button type="submit"
-                                    class="btn btn-primary btn_gra text-center my-3 col-4">
+                                    class="btn btn-primary btn_gra text-center my-3 col-md-4 col-6">
                                 Update Profile
                             </button>
                         </form>
@@ -365,8 +384,6 @@ die();
             </div>
 
             <div class="position-relative profile_div">
-
-
                 <div class="container-fluid  bg-dark2 text-center p-2 rounded-bottom">
                     <div class="mb-3">
                         @if(isset($profile->profile))
@@ -471,32 +488,36 @@ die();
                                                 Members</p> -->
                                             </div>
 
-                                            <h5 class="mb-0 ml-4 mt-4 tab-play"><span><i class="fa fa-caret-up"
+                                            <h5 class="mb-0 tab-play ml-4"><span><i class="fa fa-caret-up"
                                                                                          aria-hidden="true"></i></span>
                                                 Tap play</h5>
                                             <div>
                                                 <i class="fa fa-search mr-2 search_icon"></i>
-                                                <button  class="button_dots" id="dropdownMenuButton"
+                                                <button  class="button_dots" id="dropdownMenuButton" type="button"
                                                         data-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false"><i class="fa fa-ellipsis-h"></i></button>
-                                                <div class="dropdown-menu bg-dark userdropdown" aria-labelledby="dropdownMenuButton">
+                                                        aria-expanded="false">
+                                                        <i class="fa fa-ellipsis-h"></i>
 
-                                                    <a class="dropdown-item text-light onlineuser" href="#">Online
-                                                        Users</a>
-                                                    <a class="dropdown-item text-light myprofile" href="#">Profile</a>
-                                                    <a class="dropdown-item text-light fa-play2 " href="#">Radio</a>
-                                                    {{--                                                    <a class="dropdown-item text-light" href="#">Chat Options</a>--}}
-                                                    <a class="dropdown-item text-light" href="#"
-                                                       onclick="setLighttheme()">Light Mode</a>
-                                                    <a class="dropdown-item text-light" href="#"
-                                                       onclick="setdarktheme()">Dark Mode</a>
-                                                    @if(Auth::user()->role=='admin')
-                                                        <a class="dropdown-item text-light"
-                                                           href="{{url('admin/delete_chat')}}">Delete Chat</a>
-                                                @endif
-                                                <!-- <a class="dropdown-item text-light" href="#">Delete Chat</a>
-                                                    <a class="dropdown-item text-light" href="#">Messages</a> -->
-                                                </div>
+                                                            <div class="dropdown-menu bg-dark userdropdown" aria-labelledby="dropdownMenuButton">
+
+                                                                <a class="dropdown-item text-light onlineuser" href="#">Online
+                                                                    Users</a>
+                                                                <a class="dropdown-item text-light myprofile" href="#">Profile</a>
+                                                                <a class="dropdown-item text-light fa-play2 " href="#">Radio</a>
+                                                                {{--                                                    <a class="dropdown-item text-light" href="#">Chat Options</a>--}}
+                                                                <a class="dropdown-item text-light" href="#"
+                                                                onclick="setLighttheme()">Light Mode</a>
+                                                                <a class="dropdown-item text-light" href="#"
+                                                                onclick="setdarktheme()">Dark Mode</a>
+                                                                @if(Auth::user()->role=='admin')
+                                                                    <a class="dropdown-item text-light"
+                                                                    href="{{url('admin/delete_chat')}}">Delete Chat</a>
+                                                                @endif
+                                                                <!-- <a class="dropdown-item text-light" href="#">Delete Chat</a>
+                                                                <a class="dropdown-item text-light" href="#">Messages</a> -->
+                                                            </div>
+                                                </button>
+                                                
                                             </div>
                                         </div>
                                         <div class="col-12 mt-1 search_div d-none position-absolute"
@@ -540,7 +561,7 @@ die();
                                                                     message="{{$msg->id}}"></i></a>
                                                         </div>
                                                     </div>
-                                                    <div class="chat-text">
+                                                    <div class="chat-text mx-1">
                                                         <span
                                                             class="orange">{{$msg->user->name}} : </span>{{$msg->message}}
                                                         <div class="chat-details">{{$msg->created_at}}</div>
@@ -755,8 +776,7 @@ die();
                                 <div class="row">
                                     <div class="col-12 gif-tab">
                                         <span class="text-light mt-4" style="font-size: 17px">GIFs</span>
-                                        {{--                                        <input type="text" class="form-control mt-2 git-input"--}}
-                                        {{--                                               placeholder="Search GIFs">--}}
+                                        <input type="text" class="form-control mt-2 gif-search" placeholder="Search GIFs">
 
                                         <div class="row our-gifs mt-2 mb-2">
 
@@ -768,13 +788,17 @@ die();
                                                          gifid="{{$gif->id}}" type="admin" class="img-fluid gifupload"/>
                                                 </div>
                                             @endforeach
+                                            
                                             @foreach($giftenor->results as $gift)
-
-                                                <div class="col-3 mt-2">
-                                                    <img src="{{$gift->media[0]->gif->url}}" style="width: 100%;height: 150px"
-                                                         gifid="{{$gift->media[0]->gif->url}}" type="tenor" class="img-fluid gifupload"/>
-                                                </div>
-                                            @endforeach
+                                                    <div class="col-3 mt-2">
+                                                        <img src="{{$gift->media[0]->gif->url}}" style="width: 100%;height: 150px"
+                                                            gifid="{{$gift->media[0]->gif->url}}" type="tenor" class="img-fluid gifupload"/>
+                                                    </div>
+                                             @endforeach 
+                                            
+                                             
+                                            
+                                            
 
 
 
@@ -788,7 +812,7 @@ die();
                                             <span class="gif-icons">GIf</span>
                                         </i>
                                         <input type="text" placeholder="Type a Message" name="message"
-                                               class="form-control ml-3 mr-3 message_input" id="text_msg">
+                                               class="form-control ml-3 mr-3 message_input" id="text_msg" data-emoji-input="unicode" data-emojiable="true">
                                         <button type="button" class="ml-3 btn_send"><i
                                                 class="far fa-paper-plane"></i></button>
                                     </div>
@@ -1158,19 +1182,38 @@ die();
 
 
                 var next = $('#next').val();
-                           $('#next').remove();
+                var search_gif = $('.gif-search').val();
+        
+            $('#next').remove();
                 $.ajax({
                     url: '{{URL::to('user/next/gif')}}',
                     type: 'GET',
-                    data: {'next': next},
+                    data: {'next': next,'search_gif':search_gif},
                     success: function (data) {
                         $('.our-gifs').append(data);
                     }
                 });
                // alert('end reached');
             }
-        })
+        });
+        $('.gif-search').keypress(function (event) {
 
+        if (event.which == '13') {
+            var next = $('#next').val();
+                var search_gif = $('.gif-search').val();
+        
+            $('#next').remove();
+                $.ajax({
+                    url: '{{URL::to('user/next/gif')}}',
+                    type: 'GET',
+                    data: {'next': next,'search_gif':search_gif},
+                    success: function (data) {
+                        $('.our-gifs').empty().append(data);
+                    }
+                });
+        }
+        
+    });
         $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
 
         $('.gif-tab').hide();
@@ -1242,8 +1285,6 @@ die();
         $(".search_icon").click(function () {
             // alert("Hello");
             $(".search_div").toggleClass('d-none');
-
-
         });
 
 
@@ -1280,11 +1321,12 @@ die();
         });
 
         function sendMsg() {
-            $(".emojionearea-editor").focus();
-            $("#text_msg").focus();
+            $(".emoji-wysiwyg-editor").focus();
+           // $("#text_msg").focus();
             var msg = $('#text_msg').val();
             $('#text_msg').val('');
-            $('.emojionearea-editor').empty();
+             
+            $('.emoji-wysiwyg-editor').empty();
             $.ajax({
                 url: '{{URL::to('user/sendMSG')}}',
                 type: 'POST',
@@ -1294,12 +1336,13 @@ die();
                     //console.log(data);
                     //   $('#test_div').empty().append(data);
                 }
-            });
+            });   
+            
         }
+        
+        
 
         $(document).on('click', '.delete', function () {
-
-
             var msgid = $(this).attr('message');
 
             $.ajax({
@@ -1307,8 +1350,6 @@ die();
                 type: 'get',
                 data: {'id': msgid},
                 success: function (data) {
-
-
                     $('.message' + msgid).remove();
                 }
             });
@@ -1341,8 +1382,6 @@ die();
         });
 
         $(document).on('click', '.like', function () {
-
-
             var msgid = $(this).attr('message');
             var status = $(this).attr('status');
             var data = $(this);
@@ -1477,9 +1516,22 @@ die();
     function setdarktheme() {
         $("body").removeClass("light-theme");
     }
-
-
 </script>
+  <script src="https://onesignal.github.io/emoji-picker/lib/js/config.js"></script>
+  <script src="https://onesignal.github.io/emoji-picker/lib/js/util.js"></script>
+  <script src="https://onesignal.github.io/emoji-picker/lib/js/jquery.emojiarea.js"></script>
+  <script src="https://onesignal.github.io/emoji-picker/lib/js/emoji-picker.js"></script>
+  <script>
+        $(function() {
+        window.emojiPicker = new EmojiPicker({
+        emojiable_selector: '[data-emojiable=true]',
+        assetsPath: 'http://onesignal.github.io/emoji-picker/lib/img/',
+        popupButtonClasses: 'fa fa-smile-o'
+        });
+        
+        window.emojiPicker.discover();
+      });
+   </script>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 {{--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"--}}
