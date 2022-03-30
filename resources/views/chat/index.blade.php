@@ -533,7 +533,9 @@ die();
                                 </div>
                             </div>
 
-
+                            <div class="chat-top-mobile">
+                                    
+                            </div>
                             <div class="chat-container">
                                 <ul class="chat-box chatContainerScroll">
 
