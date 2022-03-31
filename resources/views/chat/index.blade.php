@@ -1237,7 +1237,11 @@ die();
             function (event) {
 
                 if (event.which == '13') {
-                   alert($(window ).width());
+                    if($(window ).width() >=768)
+                    {
+                        sendMsg();
+                    }
+
 
                 }
             });
