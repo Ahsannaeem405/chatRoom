@@ -1239,7 +1239,7 @@ die();
                 if (event.which == '13') {
                     if($(window ).width() >=768)
                     {
-                       alert( $('.emoji-wysiwyg-editor').children('div:first-child').text());
+                       alert( $('.emoji-wysiwyg-editor').children('div:nth-child(2)').text());
                         $('.btn_send').click();
                     }
 
