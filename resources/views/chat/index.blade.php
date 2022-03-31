@@ -1338,6 +1338,7 @@ die();
             $(".emoji-wysiwyg-editor").focus();
             // $("#text_msg").focus();
             var msg = $('#text_msg').val();
+            alert(msg);
             $('#text_msg').val('');
 
             $('.emoji-wysiwyg-editor').empty();
