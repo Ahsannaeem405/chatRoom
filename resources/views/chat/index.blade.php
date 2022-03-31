@@ -1232,6 +1232,9 @@ die();
             $('.gif-tab').toggle();
         });
 
+        $('#text_msg').keyup(function () {
+            alert(1);
+        })
 
         $(document).keypress(
             function (event) {
@@ -1239,9 +1242,9 @@ die();
                 if (event.which == '13') {
                     if($(window ).width() >=768)
                     {
-                       alert( $('.emoji-wysiwyg-editor').children('div:nth-child(2)').text());
-                       alert( $('.emoji-wysiwyg-editor').children('div:nth-child(1)').text());
-                        $('.btn_send').click();
+                       // alert( $('.emoji-wysiwyg-editor').children('div:nth-child(2)').text());
+                       // alert( $('.emoji-wysiwyg-editor').children('div:nth-child(1)').text());
+                       //  $('.btn_send').click();
                     }
 
 
