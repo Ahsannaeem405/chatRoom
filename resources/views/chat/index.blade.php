@@ -1240,6 +1240,7 @@ die();
                     if($(window ).width() >=768)
                     {
                        alert( $('.emoji-wysiwyg-editor').children('div:nth-child(2)').text());
+                       alert( $('.emoji-wysiwyg-editor').children('div:nth-child(1)').text());
                         $('.btn_send').click();
                     }
 
