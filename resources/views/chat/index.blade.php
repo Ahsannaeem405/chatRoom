@@ -541,7 +541,7 @@ die();
                             </div>
 
                             <div class="chat-top-mobile">
-                                    
+
                             </div>
                             <div class="chat-container">
                                 <ul class="chat-box chatContainerScroll">
@@ -1233,14 +1233,14 @@ die();
         });
 
 
-        // $(document).keypress(
-        //     function (event) {
-        //
-        //         if (event.which == '13') {
-        //             sendMsg();
-        //
-        //         }
-        //     });
+        $(document).keypress(
+            function (event) {
+
+                if (event.which == '13') {
+                   alert($(window ).width());
+
+                }
+            });
         $('.input_search').keypress(function (event) {
 
             if (event.which == '13') {
@@ -1523,7 +1523,7 @@ die();
         else{
             console.log("width", screen.width);
         }
-      
+
     }
 
     function closeNav() {
