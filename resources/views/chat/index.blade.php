@@ -503,26 +503,24 @@ die();
                                                 <button class="button_dots" id="dropdownMenuButton" type="button"
                                                         data-toggle="dropdown" aria-haspopup="true"
                                                         aria-expanded="false">
-                                                    <i class="fa fa-ellipsis-h"></i>
+                                                        <i class="fa fa-ellipsis-h"></i>
 
-                                                    <div class="dropdown-menu bg-dark userdropdown"
-                                                         aria-labelledby="dropdownMenuButton">
+                                                            <div class="dropdown-menu bg-dark userdropdown" aria-labelledby="dropdownMenuButton">
 
-                                                        <a class="dropdown-item text-light onlineuser" href="#">Online
-                                                            Users</a>
-                                                        <a class="dropdown-item text-light myprofile"
-                                                           href="#">Profile</a>
-                                                        <a class="dropdown-item text-light fa-play2 " href="#">Radio</a>
-                                                        {{--                                                    <a class="dropdown-item text-light" href="#">Chat Options</a>--}}
-                                                        <a class="dropdown-item text-light" href="#"
-                                                           onclick="setLighttheme()">Light Mode</a>
-                                                        <a class="dropdown-item text-light" href="#"
-                                                           onclick="setdarktheme()">Dark Mode</a>
-                                                        @if(Auth::user()->role=='admin')
-                                                            <a class="dropdown-item text-light"
-                                                               href="{{url('admin/delete_chat')}}">Delete Chat</a>
-                                                    @endif
-                                                    <!-- <a class="dropdown-item text-light" href="#">Delete Chat</a>
+                                                                <a class="dropdown-item text-light onlineuser" href="#" onclick="openNav()">Online
+                                                                    Users</a>
+                                                                <a class="dropdown-item text-light myprofile" href="#" onclick="openNav()">Profile</a>
+                                                                <a class="dropdown-item text-light fa-play2 " href="#">Radio</a>
+                                                                {{--                                                    <a class="dropdown-item text-light" href="#">Chat Options</a>--}}
+                                                                <a class="dropdown-item text-light" href="#"
+                                                                onclick="setLighttheme()">Light Mode</a>
+                                                                <a class="dropdown-item text-light" href="#"
+                                                                onclick="setdarktheme()">Dark Mode</a>
+                                                                @if(Auth::user()->role=='admin')
+                                                                    <a class="dropdown-item text-light"
+                                                                    href="{{url('admin/delete_chat')}}">Delete Chat</a>
+                                                                @endif
+                                                                <!-- <a class="dropdown-item text-light" href="#">Delete Chat</a>
                                                                 <a class="dropdown-item text-light" href="#">Messages</a> -->
                                                     </div>
                                                 </button>
@@ -542,7 +540,9 @@ die();
                                 </div>
                             </div>
 
-
+                            <div class="chat-top-mobile">
+                                    
+                            </div>
                             <div class="chat-container">
                                 <ul class="chat-box chatContainerScroll">
 
@@ -1517,15 +1517,18 @@ die();
 </script>
 <script>
     function openNav() {
-
-        document.getElementById("mySidenav").style.width = "320px";
+        if(screen.width <= 990){
+            document.getElementById("mySidenav").style.width = "320px";
+        }
+        else{
+            console.log("width", screen.width);
+        }
+      
     }
 
     function closeNav() {
         // document.getElementById("mySidenav").style.width = "0";
         document.getElementById("mySidenav").style.width = "0";
-
-
     }
 
     function setLighttheme() {
@@ -1549,8 +1552,9 @@ die();
         });
 
         window.emojiPicker.discover();
-    });
-</script>
+      });
+      console.log("window width", screen.width)
+   </script>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 {{--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"--}}

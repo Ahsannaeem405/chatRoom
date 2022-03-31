@@ -303,10 +303,19 @@
         height: 65vh;
     }
 }
+.chat-top-mobile{
+    display: none;
+}
+
 @media screen and (max-width:425px){
     .chat-container {
-        height: 95vh;
+        height: 65vh;
     }
+    .chat-top-mobile{
+        height: 35vh;
+        display: block;
+    }
+    
 }
 button:focus{
     box-shadow: none !important;
