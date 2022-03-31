@@ -1239,7 +1239,7 @@ die();
                 if (event.which == '13') {
                     if($(window ).width() >=768)
                     {
-                        sendMsg();
+                        $('.btn_send').click();
                     }
 
 
@@ -1335,10 +1335,9 @@ die();
         });
 
         function sendMsg() {
-            $(".emoji-wysiwyg-editor").focusOut();
-            $("#text_msg").focusOut();
 
-
+            $(".emoji-wysiwyg-editor").focus();
+             $("#text_msg").focus();
             var msg = $('#text_msg').val();
             alert(msg);
             $('#text_msg').val('');
@@ -1349,8 +1348,6 @@ die();
                 type: 'POST',
                 data: {'message': msg},
                 success: function (data) {
-                    $(".emoji-wysiwyg-editor").focus();
-                    $("#text_msg").focus();
                     $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
                     //console.log(data);
                     //   $('#test_div').empty().append(data);
