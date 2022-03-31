@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
 
-    <meta name="viewport"content="width=device-width,  initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
 
     <!-- Bootstrap CSS -->
@@ -21,33 +21,40 @@
         .navmbl {
             font-size: 15px !important;
         }
-        .chat-text_gif{
+
+        .chat-text_gif {
             width: 60% !important;
         }
-        .emojionearea-editor{
-          color: white !important;
+
+        .emojionearea-editor {
+            color: white !important;
         }
+
         /*.userdropdown{*/
         /*    left: -100px !important;*/
         /*}*/
-            .search{
-                display: none;
-            }
-            .emojionearea .emojionearea-picker{
-                right: -80px !important;
-            }
-            .emoji-picker-icon{
-                right:94px;
-                top:27px;
-            }
-            .emoji-picker-icon.parent-has-scroll{
-                right: 94px;
-            }
-            .emoji-menu{
-                right: 0px;
-                width: 300px;
-                top: -220px;
-                }
+        .search {
+            display: none;
+        }
+
+        .emojionearea .emojionearea-picker {
+            right: -80px !important;
+        }
+
+        .emoji-picker-icon {
+            right: 94px;
+            top: 27px;
+        }
+
+        .emoji-picker-icon.parent-has-scroll {
+            right: 94px;
+        }
+
+        .emoji-menu {
+            right: 0px;
+            width: 300px;
+            top: -220px;
+        }
     </style>
 
 
@@ -100,7 +107,6 @@ die();
     // die();
 @endphp
 <div class="container-fluid p-0 " style="height: 100vh">
-
 
 
     <div class="modal fade" id="editProfile" tabindex="-1" role="dialog"
@@ -348,28 +354,29 @@ die();
                                         <h3>Alerts</h3>
                                     @endif
                                     @foreach($onlineusers as $onlineuser)
-                                    @php
-                                      $to_time=strtotime(date('Y-m-d h:i:s'));
-                                        $from_time=strtotime( $onlineuser->activity);
-                                        $activityTime= round(abs($to_time - $from_time) / 60,2);
-                                    @endphp
-                                    @if(ceil($activityTime) < 5)
-                                        <div class="col-12 text-center text-light alert_div pt-1 pb-1">
-                                            <div class="w-100 bg-dark d-flex justify-content-between p-3">
-                                                <div class="d-flex">
-                                                    <div>
-                                                        <img src="{{asset('image/'.$onlineuser->profile)}}" width="40"
-                                                             class="rounded" alt=""></div>
+                                        @php
+                                            $to_time=strtotime(date('Y-m-d h:i:s'));
+                                              $from_time=strtotime( $onlineuser->activity);
+                                              $activityTime= round(abs($to_time - $from_time) / 60,2);
+                                        @endphp
+                                        @if(ceil($activityTime) < 5)
+                                            <div class="col-12 text-center text-light alert_div pt-1 pb-1">
+                                                <div class="w-100 bg-dark d-flex justify-content-between p-3">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <img src="{{asset('image/'.$onlineuser->profile)}}"
+                                                                 width="40"
+                                                                 class="rounded" alt=""></div>
 
-                                                    <div style="line-height: 2px;"
-                                                         class="text-light ml-2 pt-2 text-left ">
-                                                        <p>{{$onlineuser->name}}</p>
-                                                        <p style="color: green">online</p>
+                                                        <div style="line-height: 2px;"
+                                                             class="text-light ml-2 pt-2 text-left ">
+                                                            <p>{{$onlineuser->name}}</p>
+                                                            <p style="color: green">online</p>
+                                                        </div>
                                                     </div>
-                                                </div>
 
+                                                </div>
                                             </div>
-                                        </div>
                                         @endif
                                     @endforeach
 
@@ -489,40 +496,42 @@ die();
                                             </div>
 
                                             <h5 class="mb-0 tab-play ml-4"><span><i class="fa fa-caret-up"
-                                                                                         aria-hidden="true"></i></span>
+                                                                                    aria-hidden="true"></i></span>
                                                 Tap play</h5>
                                             <div>
                                                 <i class="fa fa-search mr-2 search_icon"></i>
-                                                <button  class="button_dots" id="dropdownMenuButton" type="button"
+                                                <button class="button_dots" id="dropdownMenuButton" type="button"
                                                         data-toggle="dropdown" aria-haspopup="true"
                                                         aria-expanded="false">
-                                                        <i class="fa fa-ellipsis-h"></i>
+                                                    <i class="fa fa-ellipsis-h"></i>
 
-                                                            <div class="dropdown-menu bg-dark userdropdown" aria-labelledby="dropdownMenuButton">
+                                                    <div class="dropdown-menu bg-dark userdropdown"
+                                                         aria-labelledby="dropdownMenuButton">
 
-                                                                <a class="dropdown-item text-light onlineuser" href="#">Online
-                                                                    Users</a>
-                                                                <a class="dropdown-item text-light myprofile" href="#">Profile</a>
-                                                                <a class="dropdown-item text-light fa-play2 " href="#">Radio</a>
-                                                                {{--                                                    <a class="dropdown-item text-light" href="#">Chat Options</a>--}}
-                                                                <a class="dropdown-item text-light" href="#"
-                                                                onclick="setLighttheme()">Light Mode</a>
-                                                                <a class="dropdown-item text-light" href="#"
-                                                                onclick="setdarktheme()">Dark Mode</a>
-                                                                @if(Auth::user()->role=='admin')
-                                                                    <a class="dropdown-item text-light"
-                                                                    href="{{url('admin/delete_chat')}}">Delete Chat</a>
-                                                                @endif
-                                                                <!-- <a class="dropdown-item text-light" href="#">Delete Chat</a>
+                                                        <a class="dropdown-item text-light onlineuser" href="#">Online
+                                                            Users</a>
+                                                        <a class="dropdown-item text-light myprofile"
+                                                           href="#">Profile</a>
+                                                        <a class="dropdown-item text-light fa-play2 " href="#">Radio</a>
+                                                        {{--                                                    <a class="dropdown-item text-light" href="#">Chat Options</a>--}}
+                                                        <a class="dropdown-item text-light" href="#"
+                                                           onclick="setLighttheme()">Light Mode</a>
+                                                        <a class="dropdown-item text-light" href="#"
+                                                           onclick="setdarktheme()">Dark Mode</a>
+                                                        @if(Auth::user()->role=='admin')
+                                                            <a class="dropdown-item text-light"
+                                                               href="{{url('admin/delete_chat')}}">Delete Chat</a>
+                                                    @endif
+                                                    <!-- <a class="dropdown-item text-light" href="#">Delete Chat</a>
                                                                 <a class="dropdown-item text-light" href="#">Messages</a> -->
-                                                            </div>
+                                                    </div>
                                                 </button>
 
                                             </div>
                                         </div>
                                         <div class="col-12 mt-1 search_div d-none position-absolute"
                                              style="z-index: 1000;background-color: black">
-                                            <div class="d-flex " style="align-items: center" >
+                                            <div class="d-flex " style="align-items: center">
                                                 <input type="text" name="search" placeholder="Search"
                                                        class="form-control input_search">
                                                 <i class="fa fa-search-minus ml-2 clear_search"
@@ -626,8 +635,9 @@ die();
                                                     <div class="chat-text chat-text_gif">
                                                         <span
                                                             class="orange">{{$msg->user->name}} : </span>
-                                                        <img src="{{ $msg->type=='gifTenor' ? $msg->message :  asset('sticker/'.$msg->sticker->sticker.'')}}"
-                                                             class="imgSticker" alt="">
+                                                        <img
+                                                            src="{{ $msg->type=='gifTenor' ? $msg->message :  asset('sticker/'.$msg->sticker->sticker.'')}}"
+                                                            class="imgSticker" alt="">
                                                         <div class="chat-details">{{$msg->created_at}}</div>
 
                                                     </div>
@@ -650,8 +660,9 @@ die();
                                                     </div>
                                                     <div class="chat-text chat-text_gif"><span
                                                             class="purple">{{$msg->user->name}} :</span>
-                                                        <img src="{{ $msg->type=='gifTenor' ? $msg->message :  asset('sticker/'.$msg->sticker->sticker.'')}}"
-                                                             class="imgSticker" alt="">
+                                                        <img
+                                                            src="{{ $msg->type=='gifTenor' ? $msg->message :  asset('sticker/'.$msg->sticker->sticker.'')}}"
+                                                            class="imgSticker" alt="">
 
                                                         <div class="chat-details">
                                                             {{$msg->created_at}}
@@ -776,12 +787,15 @@ die();
                                 <div class="row">
                                     <div class="col-12 gif-tab">
                                         <span class="text-light mt-4" style="font-size: 17px">GIFs</span>
-                                        <input type="text" class="form-control mt-2 gif-search" placeholder="Search GIFs">
+                                        <input type="text" class="form-control mt-2 gif-search"
+                                               placeholder="Search GIFs">
 
                                         <div class="row our-gifs mt-2 mb-2">
 
 
-                                            <input type="hidden" value="{{isset($giftenor->next) ? $giftenor->next : null}}" id="next">
+                                            <input type="hidden"
+                                                   value="{{isset($giftenor->next) ? $giftenor->next : null}}"
+                                                   id="next">
                                             @foreach($gifs as $gif)
                                                 <div class="col-3 mt-2">
                                                     <img src="{{asset('sticker/'.$gif->sticker.'')}}"
@@ -790,18 +804,13 @@ die();
                                             @endforeach
 
                                             @foreach($giftenor->results as $gift)
-                                                    <div class="col-3 mt-2">
-                                                        <img src="{{$gift->media[0]->gif->url}}" style="width: 100%;height: 150px"
-                                                            gifid="{{$gift->media[0]->gif->url}}" type="tenor" class="img-fluid gifupload"/>
-                                                    </div>
-                                             @endforeach
-
-
-
-
-
-
-
+                                                <div class="col-3 mt-2">
+                                                    <img src="{{$gift->media[0]->gif->url}}"
+                                                         style="width: 100%;height: 150px"
+                                                         gifid="{{$gift->media[0]->gif->url}}" type="tenor"
+                                                         class="img-fluid gifupload"/>
+                                                </div>
+                                            @endforeach
 
 
                                         </div>
@@ -812,7 +821,8 @@ die();
                                             <span class="gif-icons">GIf</span>
                                         </i>
                                         <input type="text" placeholder="Type a Message" name="message"
-                                               class="form-control ml-3 mr-3 message_input" id="text_msg" data-emoji-input="unicode" data-emojiable="true">
+                                               class="form-control ml-3 mr-3 message_input" id="text_msg"
+                                               data-emoji-input="unicode" data-emojiable="true">
                                         <button type="button" class="ml-3 btn_send"><i
                                                 class="far fa-paper-plane"></i></button>
                                     </div>
@@ -887,7 +897,7 @@ die();
                                     </a>
                                     <a href="#" class="ml-3 text-light">
                                         <i class="fas fa-play"></i>
-                                        <i class="fas fa-pause "></i>
+                                        <i class="fas fa-pause"></i>
                                     </a>
 
                                     <a href="#" class="ml-3 text-light">
@@ -981,31 +991,32 @@ die();
                                                     @endif
                                                     @foreach($onlineusers as $onlineusers)
 
-                                                    @php
-                                                    $to_time=strtotime(date('Y-m-d h:i:s'));
-                                                      $from_time=strtotime( $onlineusers->activity);
-                                                      $activityTime= round(abs($to_time - $from_time) / 60,2);
-                                                  @endphp
-                                                  @if(ceil($activityTime) < 5)
-                                                        <div class="col-12 text-center text-light alert_div pt-1 pb-1">
+                                                        @php
+                                                            $to_time=strtotime(date('Y-m-d h:i:s'));
+                                                              $from_time=strtotime( $onlineusers->activity);
+                                                              $activityTime= round(abs($to_time - $from_time) / 60,2);
+                                                        @endphp
+                                                        @if(ceil($activityTime) < 5)
                                                             <div
-                                                                class="w-100 bg-dark d-flex justify-content-between p-3">
-                                                                <div class="d-flex">
-                                                                    <div>
-                                                                        <img
-                                                                            src="{{asset('image/'.$onlineusers->profile)}}"
-                                                                            width="40"
-                                                                            class="rounded" alt=""></div>
+                                                                class="col-12 text-center text-light alert_div pt-1 pb-1">
+                                                                <div
+                                                                    class="w-100 bg-dark d-flex justify-content-between p-3">
+                                                                    <div class="d-flex">
+                                                                        <div>
+                                                                            <img
+                                                                                src="{{asset('image/'.$onlineusers->profile)}}"
+                                                                                width="40"
+                                                                                class="rounded" alt=""></div>
 
-                                                                    <div style="line-height: 2px;"
-                                                                         class="text-light ml-2 pt-2 text-left ">
-                                                                        <p>{{$onlineusers->name}}</p>
-                                                                        <p style="color: green">online</p>
+                                                                        <div style="line-height: 2px;"
+                                                                             class="text-light ml-2 pt-2 text-left ">
+                                                                            <p>{{$onlineusers->name}}</p>
+                                                                            <p style="color: green">online</p>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
 
+                                                                </div>
                                                             </div>
-                                                        </div>
                                                         @endif
                                                     @endforeach
 
@@ -1177,43 +1188,43 @@ die();
     $(document).ready(function () {
 
 
-        $('.our-gifs').on('scroll', function() {
-            if($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+        $('.our-gifs').on('scroll', function () {
+            if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
 
 
                 var next = $('#next').val();
                 var search_gif = $('.gif-search').val();
 
-            $('#next').remove();
+                $('#next').remove();
                 $.ajax({
                     url: '{{URL::to('user/next/gif')}}',
                     type: 'GET',
-                    data: {'next': next,'search_gif':search_gif},
+                    data: {'next': next, 'search_gif': search_gif},
                     success: function (data) {
                         $('.our-gifs').append(data);
                     }
                 });
-               // alert('end reached');
+                // alert('end reached');
             }
         });
         $('.gif-search').keypress(function (event) {
 
-        if (event.which == '13') {
-            var next = $('#next').val();
+            if (event.which == '13') {
+                var next = $('#next').val();
                 var search_gif = $('.gif-search').val();
 
-            $('#next').remove();
+                $('#next').remove();
                 $.ajax({
                     url: '{{URL::to('user/next/gif')}}',
                     type: 'GET',
-                    data: {'next': next,'search_gif':search_gif},
+                    data: {'next': next, 'search_gif': search_gif},
                     success: function (data) {
                         $('.our-gifs').empty().append(data);
                     }
                 });
-        }
+            }
 
-    });
+        });
         $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
 
         $('.gif-tab').hide();
@@ -1230,23 +1241,23 @@ die();
         //
         //         }
         //     });
-            $('.input_search').keypress(function (event) {
+        $('.input_search').keypress(function (event) {
 
-        if (event.which == '13') {
+            if (event.which == '13') {
 
-            var text = $('.input_search').val();
-            $.ajax({
-                url: '{{URL::to('user/searchMSG')}}',
-                type: 'POST',
-                data: {'text': text},
-                success: function (data) {
-                    $('.chatContainerScroll').empty().append(data);
-                    $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
+                var text = $('.input_search').val();
+                $.ajax({
+                    url: '{{URL::to('user/searchMSG')}}',
+                    type: 'POST',
+                    data: {'text': text},
+                    success: function (data) {
+                        $('.chatContainerScroll').empty().append(data);
+                        $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
 
-                }
-            });
-        }
-            });
+                    }
+                });
+            }
+        });
 
 
         $('.myprofile').click(function () {
@@ -1321,7 +1332,7 @@ die();
 
         function sendMsg() {
             $(".emoji-wysiwyg-editor").focus();
-           // $("#text_msg").focus();
+            // $("#text_msg").focus();
             var msg = $('#text_msg').val();
             $('#text_msg').val('');
 
@@ -1338,7 +1349,6 @@ die();
             });
 
         }
-
 
 
         $(document).on('click', '.delete', function () {
@@ -1423,7 +1433,7 @@ die();
             var stickerID = $(this).attr('gifid');
             var type = $(this).attr('type');
 
-            sendGif(stickerID,type);
+            sendGif(stickerID, type);
 
 
         });
@@ -1444,14 +1454,14 @@ die();
             // alert(vistUserProfile);
         });
 
-        function sendGif(id,type) {
+        function sendGif(id, type) {
             $('.gif-tab').toggle();
             var msg = id;
             var type = type;
             $.ajax({
                 url: '{{URL::to('user/sendGIF')}}',
                 type: 'POST',
-                data: {'message': msg,'type':type},
+                data: {'message': msg, 'type': type},
                 success: function (data) {
                     $('.chat-container').scrollTop($('.chat-container')[0].scrollHeight);
 
@@ -1476,7 +1486,6 @@ die();
             $('.fa-pause').hide();
 
             $('.fa-play').show();
-
             obj.pause();
         });
 
@@ -1527,21 +1536,21 @@ die();
         $("body").removeClass("light-theme");
     }
 </script>
-  <script src="https://onesignal.github.io/emoji-picker/lib/js/config.js"></script>
-  <script src="https://onesignal.github.io/emoji-picker/lib/js/util.js"></script>
-  <script src="https://onesignal.github.io/emoji-picker/lib/js/jquery.emojiarea.js"></script>
-  <script src="https://onesignal.github.io/emoji-picker/lib/js/emoji-picker.js"></script>
-  <script>
-        $(function() {
+<script src="https://onesignal.github.io/emoji-picker/lib/js/config.js"></script>
+<script src="https://onesignal.github.io/emoji-picker/lib/js/util.js"></script>
+<script src="https://onesignal.github.io/emoji-picker/lib/js/jquery.emojiarea.js"></script>
+<script src="https://onesignal.github.io/emoji-picker/lib/js/emoji-picker.js"></script>
+<script>
+    $(function () {
         window.emojiPicker = new EmojiPicker({
-        emojiable_selector: '[data-emojiable=true]',
-        assetsPath: 'http://onesignal.github.io/emoji-picker/lib/img/',
-        popupButtonClasses: 'fa fa-smile-o'
+            emojiable_selector: '[data-emojiable=true]',
+            assetsPath: 'http://onesignal.github.io/emoji-picker/lib/img/',
+            popupButtonClasses: 'fa fa-smile-o'
         });
 
         window.emojiPicker.discover();
-      });
-   </script>
+    });
+</script>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 {{--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"--}}
