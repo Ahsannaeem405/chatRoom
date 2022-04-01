@@ -1240,9 +1240,7 @@ die();
                 if (event.which == '13') {
                     if($(window).width() >=768)
                     {
-                       // alert( $('.emoji-wysiwyg-editor').children('div:nth-child(2)').text());
-                       // alert( $('.emoji-wysiwyg-editor').children('div:nth-child(1)').text());
-                       //  $('.btn_send').click();
+                     sendMsg();
                     }
 
 
@@ -1342,6 +1340,10 @@ die();
             $(".emoji-wysiwyg-editor").focus();
              $("#text_msg").focus();
             var msg = $('#text_msg').val();
+            if(msg=='' || msg==' ')
+            {
+                var msg=$('.emoji-wysiwyg-editor').text();
+            }
 
             $('#text_msg').val('');
 
