@@ -24,6 +24,10 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 Route::get('auth/facebook', [FacebookController::class, 'redirectToFacebook']);
 Route::get('auth/facebook/callback', [FacebookController::class, 'handleFacebookCallback']);
 
+
+Route::get('auth/twitter', [\App\Http\Controllers\twitterController::class, 'redirectToTwitter']);
+Route::get('auth/twitter/callback', [\App\Http\Controllers\twitterController::class, 'handleTwitterCallback']);
+
 Auth::routes();
 
 

@@ -79,7 +79,7 @@
                                 <ul>
                                     <li no="25"><a href="{{ url('auth/facebook') }}"><img src="{{asset('gem/ore/grupo/loginprovider/25-gr-CNDDatRPuz.png')}}"/></a></li>
                                     <li no="26"><a href="{{ url('auth/google') }}"><img src="{{asset('gem/ore/grupo/loginprovider/26-gr-31alUcNhOX.jpg')}}"/></a></li>
-                                    <li no="229" style="display: none"><img src="{{asset('gem/ore/grupo/loginprovider/229-gr-lhrP8sssty.png')}}"/></li>
+                                    <li no="229" ><a href="{{ url('auth/twitter') }}"><img src="{{asset('gem/ore/grupo/loginprovider/229-gr-lhrP8sssty.png')}}"/></a></li>
                                 </ul>
                             </div>
                             <i>Already have an account?</i>

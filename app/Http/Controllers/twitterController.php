@@ -4,39 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Events\sendMessage;
 use App\Models\Message;
-use Illuminate\Http\Request;
-use Laravel\Socialite\Facades\Socialite;
-use Exception;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-class GoogleController extends Controller
+use Laravel\Socialite\Facades\Socialite;
+
+class twitterController extends Controller
 {
-     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function redirectToGoogle()
+    public function redirectToTwitter()
     {
-
-         return Socialite::driver('google')->redirect();
-
+        return Socialite::driver('twitter')->redirect();
     }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function handleGoogleCallback()
+    public function cbTwitter()
     {
-      // dd(122111);
-
         try {
 
-            $user =  Socialite::driver('google')->stateless()->user();
+            $user = Socialite::driver('twitter')->stateless()->user();
 
-            $finduser = User::where('google_id', $user->id)->orwhere('email', $user->email)->first();
+            $finduser = User::where('twitter_id', $user->id)->orwhere('email', $user->email)->first();
+
             if($finduser){
 
                 Auth::login($finduser);
@@ -59,21 +46,16 @@ class GoogleController extends Controller
                 return redirect('/user/chat');
 
             }
-
             else{
                 $newUser = User::create([
                     'name' => $user->name,
                     'username' => $user->name,
                     'email' => $user->email,
-                    'google_id'=> $user->id,
+                    'twitter_id'=> $user->id,
                     'type_user'=> 'social',
-                    'role'=> 'user',
-                    'password' => encrypt('12345678')
+                    'password' => encrypt('admin595959')
                 ]);
-
                 Auth::login($newUser);
-
-
 
                 $message = new Message();
                 $message->user_id = \Auth::user()->id;
@@ -96,4 +78,5 @@ class GoogleController extends Controller
             dd($e->getMessage());
         }
     }
+
 }

@@ -47,7 +47,7 @@ class AppServiceProvider extends ServiceProvider
         $twitter = [
             'client_id' => $social->twitterClient,
             'client_secret' => $social->twitterSecret,
-            'redirect' => 'https://chatbti.herokuapp.com/public/auth/facebook/callback',
+            'redirect' => 'https://chatbti.herokuapp.com/public/auth/twitter/callback',
         ];
         config()->set('services.twitter', $twitter);
 
