@@ -488,7 +488,7 @@ die();
                                         allowfullscreen></iframe> --}}
                                         <div id="twitch-embed">
                                         </div>
-{{--                                <iframe src="https://player.twitch.tv/?channel=nycrhythm&parent=www.herokuapp.com" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>--}}
+                                <iframe src="https://player.twitch.tv/?channel=nycrhythm&parent=chatbti.herokuapp.com" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
 
                                 <div class="w-100 bg-dark div1">
 
