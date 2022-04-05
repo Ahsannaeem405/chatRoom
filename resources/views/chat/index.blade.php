@@ -21,6 +21,10 @@
         .navmbl {
             font-size: 15px !important;
         }
+        iframe{
+            width: 100% !important;
+        }
+
 
         .chat-text_gif {
             width: 60% !important;
@@ -482,9 +486,9 @@ die();
                                         title="YouTube video player" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowfullscreen></iframe> --}}
-{{--                                        <div id="twitch-embed">--}}
-{{--                                        </div>--}}
-                                <iframe src="https://player.twitch.tv/?channel=nycrhythm&parent=www.herokuapp.com" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620" style="width: 100%"></iframe>
+                                        <div id="twitch-embed">
+                                        </div>
+{{--                                <iframe src="https://player.twitch.tv/?channel=nycrhythm&parent=www.herokuapp.com" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>--}}
 
                                 <div class="w-100 bg-dark div1">
 
