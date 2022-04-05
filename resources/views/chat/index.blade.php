@@ -483,8 +483,10 @@ die();
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowfullscreen></iframe> --}}
                                         <div id="twitch-embed">
-                                            <iframe src="https://player.twitch.tv/?channel=nycrhythm&parent=www.example.com" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
-                                        </div> <div class="w-100 bg-dark div1">
+                                        </div>
+                                <iframe src="https://player.twitch.tv/?channel=nycrhythm&parent=www.herokuapp.com" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+
+                                <div class="w-100 bg-dark div1">
 
                                     <div class="w-100">
                                         <div class="col-12 d-flex pl-3 member_div justify-content-between">
@@ -1578,14 +1580,14 @@ die();
     <script>
         // Selecting the iframe element
         var iframe = document.getElementById("myIframe");
-        
+
         // Adjusting the iframe height onload event
         iframe.onload = function(){
             iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
         }
         </script>
-   
-   
+
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 {{--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"--}}
