@@ -486,8 +486,8 @@ die();
                                         title="YouTube video player" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowfullscreen></iframe> --}}
-                                        <div id="twitch-embed">
-                                        </div>
+{{--                                        <div id="twitch-embed">--}}
+{{--                                        </div>--}}
                                 <iframe src="https://player.twitch.tv/?channel=nycrhythm&parent=chatbti.herokuapp.com" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
 
                                 <div class="w-100 bg-dark div1">
