@@ -1536,12 +1536,12 @@ die();
 </script>
 <script>
     function openNav() {
-        if(screen.width <= 990){
+        // if(screen.width <= 990){
             document.getElementById("mySidenav").style.width = "320px";
-        }
-        else{
-            console.log("width", screen.width);
-        }
+        // }
+        // else{
+        //     console.log("width", screen.width);
+        // }
 
     }
 
