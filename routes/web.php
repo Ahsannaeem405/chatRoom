@@ -17,8 +17,6 @@ use App\Http\Controllers\FacebookController;
 Route::get('/', function () {
 
 
-
-
 return redirect('login');
 });
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
