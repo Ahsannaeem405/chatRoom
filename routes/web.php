@@ -14,11 +14,11 @@ use App\Http\Controllers\FacebookController;
 |
 */
 
-Route::get('/', function () {
-
-
-return redirect('login');
-});
+//Route::get('/', function () {
+//
+//
+//return redirect('login');
+//});
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
